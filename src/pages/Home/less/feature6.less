@@ -1,0 +1,163 @@
+@feature6: feature6;
+
+.@{feature6} {
+  &-wrapper {
+    background: #242424;
+    // min-height: 720px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    &.home-page-wrapper {
+      .home-page {
+        // padding-top: 40px;
+      }
+    }
+  }
+
+  .title-h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 42px;
+  }
+  
+  &-item {
+    margin-top: 36px;
+  }
+
+  &-t1 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 50px;
+  }
+
+  &-t2 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 36px;
+  }
+
+  &-title {
+    display: inline-block;
+
+    &-wrapper {
+      text-align: center;
+    }
+
+    &-text {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 48px;
+      background: #FFFFFF;
+      border-left: 1px solid #EBEBEB;
+      margin-top: 5px;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      font-size: 18px;
+      color: #000000;
+      text-align: center;
+      cursor: pointer;
+
+      &.active {
+        background: #5A00FF;
+        color: #fff;
+      }
+    }
+
+    // &-bar {
+    //   height: 6px;
+    //   background: @primary-color;
+    //   width: 20%;
+    //   margin: auto;
+    //   display: block;
+    //   display: none;
+    //   &-wrapper {
+    //     position: relative;
+    //     margin-top: 8px;
+    //     transition: left .45s @ease-in-out;
+    //   }
+    // }
+  }
+
+  &-text {
+    text-align: right;
+  }
+  
+  // .ant-carousel {
+  //   .slick-dots-bottom {
+  //     bottom: -24px;
+  //   }
+
+  //   .slick-dots li {
+  //     button {
+  //       background: fade(@primary-color, 30);
+  //     }
+
+  //     &.slick-active button {
+  //       background: @primary-color;
+  //     }
+  //   }
+  // }
+
+  button {
+    width: 240px;
+    height: 60px;
+    background: #5A00FF;
+    border: none;
+    font-size: 18px;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 500;
+    color: #fff;
+
+    &:hover {
+      border: none;
+      background: #5A00FF;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .@{feature6}-wrapper {
+    padding-bottom: 0;
+    min-height: 580px;
+
+    &.home-page-wrapper {
+      .home-page {
+        padding: 56px 24px 64px;
+      }
+    }
+  }
+
+  .@{feature6}-title {
+    &-text {
+      width: 110px;
+    }
+
+    &-bar {
+      width: 40%;
+    }
+
+    &-wrapper {
+      margin-bottom: 30px;
+    }
+  }
+
+  .@{feature6}-t1 {
+    font-size: 30px;
+  }
+
+  .@{feature6} button {
+    display: none;
+  }
+
+  .@{feature6}-number-wrapper {
+    margin-bottom: 16px;
+  }
+}

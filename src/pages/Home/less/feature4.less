@@ -1,0 +1,135 @@
+@feature4: feature4;
+
+.@{feature4} {
+
+  .ant-tabs-left>.ant-tabs-content-holder {
+    border-left: none;
+  }
+
+  .ant-tabs-card>.ant-tabs-nav .ant-tabs-tab, .ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab {
+    border: none;
+    background: none;
+  }
+
+  &-wrapper {
+    margin: 0 auto;
+    overflow: hidden;
+
+    &.home-page-wrapper {
+      .home-page {
+        padding-top: 40px;
+      }
+    }
+  }
+
+  .title-h1 {
+    color: #000;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 42px;
+  }
+
+
+  &-title {
+    display: inline-block;
+
+    &-wrapper {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+  }
+
+  &-text {
+    padding-left: 100px !important;
+    &-list {
+      width: 100%;
+      background: #F9F9FA;
+
+    }
+  }
+
+  .home-page {
+    padding-bottom: 56px;
+  }
+
+  // .ant-carousel {
+  //   .slick-dots-bottom {
+  //     bottom: -24px;
+  //   }
+
+  //   .slick-dots li {
+  //     button {
+  //       background: fade(@primary-color, 30);
+  //     }
+
+  //     &.slick-active button {
+  //       background: @primary-color;
+  //     }
+  //   }
+  // }
+
+  // button {
+  //   width: 240px;
+  //   height: 60px;
+  //   background: #5A00FF;
+  //   border: none;
+  //   font-size: 18px;
+  //   font-family: PingFangSC, PingFang SC;
+  //   font-weight: 500;
+  //   color: #fff;
+
+  //   &:hover {
+  //     border: none;
+  //     background: #5A00FF;
+  //   }
+  // }
+}
+
+@media screen and (max-width: 767px) {
+  .@{feature4}-wrapper {
+    padding-bottom: 0;
+    min-height: 580px;
+
+    &.home-page-wrapper {
+      .home-page {
+        padding: 56px 24px 64px;
+      }
+    }
+  }
+
+  .@{feature4}-title {
+    &-text {
+      width: 110px;
+    }
+
+    &-bar {
+      width: 40%;
+    }
+    &-wrapper {
+      margin-bottom: 30px;
+    }
+  }
+
+  .@{feature4}-t1 {
+    font-size:  30px;
+  }
+
+  .@{feature4}-text {
+    padding-left: 0 !important;
+  }
+
+  .@{feature4}-text-list {
+    padding-left: 0 !important;
+    img {
+      padding-right: 60px;
+    }
+  }
+
+  .@{feature4} button {
+    display: none;
+  }
+
+  .@{feature4}-number-wrapper {
+    margin-bottom: 16px;
+  }
+}

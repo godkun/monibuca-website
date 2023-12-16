@@ -1,0 +1,33 @@
+@content4: content4;
+.@{content4}-wrapper {
+  background: white !important;
+  margin-top: 92px;
+  margin-bottom: 75px;
+}
+
+.@{content4} {
+  .title-h1 {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 42px;
+    margin-bottom: 46px;
+  }
+  .content4-video {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .@{content4}-wrapper {
+    min-height: 350px;
+    .@{content4} {
+      overflow: hidden;
+      width: 90%;
+      margin: auto;
+    }
+  }
+}
