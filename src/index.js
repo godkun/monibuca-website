@@ -14,4 +14,4 @@ ConfigProvider.config({
 });
 
 ReactDOM.render(<RouterProvider router={routerConfig}></RouterProvider>, document.getElementById('root'));
-serviceWorker.unregister();
+// serviceWorker.unregister();
