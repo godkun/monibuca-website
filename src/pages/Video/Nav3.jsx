@@ -80,7 +80,7 @@ class Header3 extends React.Component {
     return (
       <TweenOne
         component="header"
-        animation={{ opacity: 0, type: 'from' }}
+        // animation={{ opacity: 0, type: 'from' }}
         {...dataSource.wrapper}
         {...props}
       >
@@ -89,7 +89,7 @@ class Header3 extends React.Component {
           className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}
         >
           <TweenOne
-            animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
+            // animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
             {...dataSource.logo}
           >
             <img width="100%" src={dataSource.logo.children} alt="img" />
