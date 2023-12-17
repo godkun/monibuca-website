@@ -1,0 +1,60 @@
+@banner10: banner10;
+
+.@{banner10} {
+  width: 100%;
+  position: relative;
+  background: #000;
+  height: 480px;
+
+  .content {
+    padding-top: 200px;
+
+    .title {
+      height: 50px;
+      font-size: 36px;
+      font-weight: 500;
+      color: #FFFFFF;
+      line-height: 50px;
+    }
+
+    .desc {
+      height: 36px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #5A636D;
+      line-height: 36px;
+
+      .version {
+        margin-left: 15px;
+        height: 25px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #0079FF;
+        line-height: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .@{banner10} {
+    &-text-wrapper {
+      width: 90%;
+      left: 0;
+      margin: auto;
+      padding: 0;
+      text-align: center;
+      display: block;
+      margin-top: 20px;
+
+      .logo {
+        width: 90%;
+        left: 0;
+      }
+
+      button {
+        width: 150px;
+      }
+    }
+  }
+}

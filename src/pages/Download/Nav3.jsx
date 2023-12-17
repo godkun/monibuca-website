@@ -30,7 +30,7 @@ class Header3 extends React.Component {
     const { dataSource, isMobile, ...props } = this.props;
     const { phoneOpen } = this.state;
     const navData = dataSource.Menu.children;
-
+    // const nav = useNavigate()
     const navChildren = navData.map((item) => {
       const { children: a, subItem, ...itemProps } = item;
       // if (subItem) {
@@ -128,7 +128,7 @@ class Header3 extends React.Component {
           >
             <Menu
               mode={isMobile ? 'inline' : 'horizontal'}
-              defaultSelectedKeys={['item0']}
+              defaultSelectedKeys={['item3']}
               theme="light"
             >
               {navChildren}

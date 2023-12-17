@@ -1,0 +1,30 @@
+@banner1: banner1;
+
+.@{banner1} {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(90deg, #01061C 0%, rgba(90,0,255,0) 49%, #01061C 100%);
+  height: 480px;
+}
+
+@media screen and (max-width: 414px) {
+  .@{banner1} {
+    &-text-wrapper {
+      width: 90%;
+      left: 0;
+      margin: auto;
+      padding: 0;
+      text-align: center;
+      display: block;
+      margin-top: 20px;
+
+      .logo {
+        width: 90%;
+        left: 0;
+      }
+      button {
+        width: 150px;
+      }
+    }
+  }
+}

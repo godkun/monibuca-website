@@ -25,7 +25,7 @@ export const Nav30DataSource = {
         name: 'item0',
         className: 'header3-item',
         children: {
-          href: '#',
+          href: '/',
           children: [{ children: '产品文档', name: 'text' }],
         },
       },
@@ -33,264 +33,31 @@ export const Nav30DataSource = {
         name: 'item1',
         className: 'header3-item',
         children: {
-          href: '#',
+          href: '/video',
           children: [{ children: '视频教程', name: 'text' }],
         },
-        subItem: [
-          {
-            name: 'sub0',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                {
-                  name: 'title',
-                  className: 'item-title',
-                  children: 'B站视频',
-                },
-              ],
-            },
-          },
-          {
-            name: 'sub1',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                {
-                  name: 'title',
-                  className: 'item-title',
-                  children: 'RTS 分享',
-                },
-              ],
-            },
-          },
-        ],
       },
       {
         name: 'item2',
         className: 'header3-item',
         children: {
-          href: '#',
+          href: '/product',
           children: [{ children: '不卡系列', name: 'text' }],
         },
-        subItem: [
-          {
-            name: 'item2-sub1',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children: <ShareAltOutlined />,
-                // },
-                {
-                  name: 'Monibuca',
-                  className: 'item-title',
-                  children: 'Monibuca',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: 'monibuca使用视频',
-                // },
-              ],
-            },
-          },
-          {
-            name: 'item2-sub2',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children:
-                // 		'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                // },
-                {
-                  name: 'Jessibuca',
-                  className: 'item-title',
-                  children: 'Jessibuca',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: '企业级 UI 设计体系',
-                // },
-              ],
-            },
-          },
-          {
-            name: 'item2-sub3',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children:
-                // 		'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                // },
-                {
-                  name: 'Rebebuca',
-                  className: 'item-title',
-                  children: 'Rebebuca',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: '企业级 UI 设计体系',
-                // },
-              ],
-            },
-          },
-        ],
       },
       {
         name: 'item3',
         className: 'header3-item',
         children: {
-          href: '#',
+          href: '/download',
           children: [{ children: '产品下载', name: 'text' }],
-        },
-        subItem: [
-          {
-            name: 'item3-sub1',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children: <ShareAltOutlined />,
-                // },
-                {
-                  name: 'title',
-                  className: 'item-title',
-                  children: 'Windows',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: 'monibuca使用视频',
-                // },
-              ],
-            },
-          },
-          {
-            name: 'item3-sub2',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children:
-                // 		'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                // },
-                {
-                  name: 'title',
-                  className: 'item-title',
-                  children: 'Mac',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: '企业级 UI 设计体系',
-                // },
-              ],
-            },
-          },
-          {
-            name: 'item3-sub3',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children:
-                // 		'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                // },
-                {
-                  name: 'title',
-                  className: 'item-title',
-                  children: 'Mac(arm64)',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: '企业级 UI 设计体系',
-                // },
-              ],
-            },
-          },
-          {
-            name: 'item3-sub4',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children:
-                // 		'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                // },
-                {
-                  name: 'title',
-                  className: 'item-title',
-                  children: 'Linux',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: '企业级 UI 设计体系',
-                // },
-              ],
-            },
-          },
-
-          {
-            name: 'item3-sub5',
-            className: 'item-sub',
-            children: {
-              className: 'item-sub-item',
-              children: [
-                // {
-                // 	name: 'image0',
-                // 	className: 'item-image',
-                // 	children:
-                // 		'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                // },
-                {
-                  name: 'title',
-                  className: 'item-title',
-                  children: 'Linux(arm64)',
-                },
-                // {
-                // 	name: 'content',
-                // 	className: 'item-content',
-                // 	children: '企业级 UI 设计体系',
-                // },
-              ],
-            },
-          },
-        ],
+        }
       },
       {
         name: 'item4',
         className: 'header3-item',
         children: {
-          href: '#',
+          href: '/plugin',
           children: [{ children: '插件生态', name: 'text' }],
         },
       },
@@ -298,7 +65,7 @@ export const Nav30DataSource = {
         name: 'item5',
         className: 'header3-item',
         children: {
-          href: '#',
+          href: '/about',
           children: [{ children: '关于我们', name: 'text' }],
         },
       },

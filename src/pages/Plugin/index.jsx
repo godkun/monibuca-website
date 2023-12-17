@@ -4,24 +4,13 @@ import React from 'react'
 import { enquireScreen } from 'enquire-js'
 
 import Nav3 from './Nav3'
-import Banner2 from './Banner2'
-import Content4 from './Content4'
-import Content5 from './Content5'
-import Feature6 from './Feature6'
-import Feature7 from './Feature7'
-import Feature4 from './Feature4'
-import Feature8 from './Feature8'
+import Banner10 from './Banner10'
+import Feature13 from './Feature13'
 import Footer1 from './Footer1'
 
 import {
   Nav30DataSource,
-  Banner20DataSource,
-  Content40DataSource,
-  Content50DataSource,
-  Feature60DataSource,
-  Feature70DataSource,
-  Feature40DataSource,
-  Feature80DataSource,
+  Feature130DataSource,
   Footer10DataSource
 } from './data.source'
 import './less/antMotionStyle.less'
@@ -33,11 +22,12 @@ enquireScreen((b) => {
 
 const { location = {} } = typeof window !== 'undefined' ? window : {}
 
-export default class Home extends React.Component {
+export default class Download extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isMobile
+      isMobile,
+      show: !location.port, // 如果不是 dva 2.0 请删除
     }
   }
 
@@ -68,56 +58,56 @@ export default class Home extends React.Component {
         isMobile={this.state.isMobile}
       />,
 
-      <Banner2
-        id="Banner2_0"
-        key="Banner2_0"
-        dataSource={Banner20DataSource}
-        isMobile={this.state.isMobile}
-      />,
-
-      <Feature6
-        id="Feature6_0"
-        key="Feature6_0"
-        dataSource={Feature60DataSource}
+      <Banner10
+        id="Banner10_0"
+        key="Banner10_0"
         isMobile={this.state.isMobile}
       />,
 
 
-      <Feature4
-        id="Feature4_0"
-        key="Feature4_0"
-        dataSource={Feature40DataSource}
+      // <Feature6
+      //   id="Feature6_0"
+      //   key="Feature6_0"
+      //   dataSource={Feature60DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
+
+
+      // <Feature4
+      //   id="Feature4_0"
+      //   key="Feature4_0"
+      //   dataSource={Feature40DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
+
+      <Feature13
+        id="Feature13_0"
+        key="Feature13_0"
+        dataSource={Feature130DataSource}
         isMobile={this.state.isMobile}
       />,
 
-      <Feature7
-        id="Feature7_0"
-        key="Feature7_0"
-        dataSource={Feature70DataSource}
-        isMobile={this.state.isMobile}
-      />,
-
-      <Feature8
-        id="Feature8_0"
-        key="Feature8_0"
-        dataSource={Feature80DataSource}
-        isMobile={this.state.isMobile}
-      />,
+      // <Feature8
+      //   id="Feature8_0"
+      //   key="Feature8_0"
+      //   dataSource={Feature80DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
 
 
-      <Content5
-        id="Content5_0"
-        key="Content5_0"
-        dataSource={Content50DataSource}
-        isMobile={this.state.isMobile}
-      />,
+      // <Content5
+      //   id="Content5_0"
+      //   key="Content5_0"
+      //   dataSource={Content50DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
 
-      <Content4
-        id="Content4_0"
-        key="Content4_0"
-        dataSource={Content40DataSource}
-        isMobile={this.state.isMobile}
-      />,
+      // <Content4
+      //   id="Content4_0"
+      //   key="Content4_0"
+      //   dataSource={Content40DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
 
       <Footer1
         id="Footer1_0"

@@ -1,0 +1,134 @@
+@feature8: feature8;
+
+.@{feature8} {
+  padding-bottom: 130px !important;
+  position: relative;
+  overflow: hidden;
+
+  &-zhan {
+    height: 720px;
+    background-color: #191A25 !important;
+  }
+  .kun {
+    margin-top: -720px;
+  }
+
+  .title-h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 42px;
+  }
+
+  &-title {
+    display: inline-block;
+    &-wrapper {
+      text-align: center;
+      margin-top: -720px;
+      .title-h1 {
+        color: #fff;
+        padding-top: 35px;
+      }
+    }
+    
+    &-text {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 48px;
+      background: #FFFFFF;
+      border-left: 1px solid #EBEBEB;
+      margin-top: 5px;
+      margin-bottom: 60px;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      font-size: 18px;
+      color: #000000;
+      text-align: center;
+      cursor: pointer;
+
+      &.active {
+        background: #5A00FF;
+        color: #fff;
+      }
+    }
+  }
+
+  &-text {
+    text-align: center;
+
+    .desc {
+      margin: 0 auto;
+      width: 620px;
+      height: 108px;
+      font-size: 18px;
+      color: #000000;
+      line-height: 36px;
+      text-align: center;
+      margin-top: 55px;
+    }
+
+    button {
+      width: 240px;
+      height: 60px;
+      background: #5A00FF;
+      border: none;
+      font-size: 18px;
+      font-family: PingFangSC, PingFang SC;
+      font-weight: 500;
+      color: #fff;
+      margin-top: 36px;
+      margin-bottom: 130px;
+
+    }
+    .btn1:hover {
+      border: none;
+      color: #fff;
+      background: #263036;
+    }
+    .btn1 {
+      background: #263036;
+    }
+
+    .btn2:hover {
+      border: none;
+      color: #fff;
+      background: #5A00FF;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .@{feature8}-title {
+    &-text {
+      width: 110px;
+    }
+  }
+
+  .@{feature8}-item {
+    background: #191A25;
+    padding-bottom: 50px;
+  }
+
+
+  .@{feature8}-text {
+    button {
+      width: 150px;
+      margin-top: 120px;
+      margin-bottom: 0px;
+    }
+    .desc {
+      margin: 0 auto;
+      width: 70vw;
+      font-size: 18px;
+      color: #fff;
+      line-height: 36px;
+      text-align: center;
+    }
+  }
+}
