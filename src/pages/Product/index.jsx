@@ -51,12 +51,12 @@ export default class Home extends React.Component {
 
   render() {
     const children = [
-      <Nav3
-        id="Nav3_0"
-        key="Nav3_0"
-        dataSource={Nav30DataSource}
-        isMobile={this.state.isMobile}
-      />,
+      // <Nav3
+      //   id="Nav3_0"
+      //   key="Nav3_0"
+      //   dataSource={Nav30DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
 
       <Banner1
         id="Banner1_0"
@@ -109,12 +109,12 @@ export default class Home extends React.Component {
       //   isMobile={this.state.isMobile}
       // />,
 
-      <Footer1
-        id="Footer1_0"
-        key="Footer1_0"
-        dataSource={Footer10DataSource}
-        isMobile={this.state.isMobile}
-      />
+      // <Footer1
+      //   id="Footer1_0"
+      //   key="Footer1_0"
+      //   dataSource={Footer10DataSource}
+      //   isMobile={this.state.isMobile}
+      // />
     ]
     return (
       <div
