@@ -5,7 +5,7 @@ export const Nav30DataSource = {
 	page: { className: "home-page" },
 	logo: {
 		className: "header3-logo",
-		children: "/svg/LOGO.svg",
+		children: "/svg/logo.svg",
 	},
 	Menu: {
 		className: "header3-menu",
