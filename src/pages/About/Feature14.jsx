@@ -1,7 +1,6 @@
 import React from 'react';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import QueueAnim from 'rc-queue-anim';
-import { Carousel as AntCarousel, Row, Col, Space, Tabs } from 'antd';
+import { Row, Col, Tabs } from 'antd';
 import TweenOne from 'rc-tween-one';
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin';
 import { getChildrenToRender as kunRender } from './utils';
@@ -101,9 +100,6 @@ class Feature14 extends React.PureComponent {
     return (
       <div {...props} {...dataSource.wrapper}>
         <div  {...dataSource.page}>
-          {/* <OverPack {...dataSource.OverPack}>
-            {this.getChildrenToRender(dataSource)}
-          </OverPack> */}
           {this.getChildrenToRender(dataSource, isMobile)}
         </div>
       </div>

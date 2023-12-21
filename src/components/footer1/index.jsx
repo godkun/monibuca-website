@@ -3,6 +3,8 @@ import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import { Row, Col } from 'antd';
 import { getChildrenToRender, isImg } from '../../utils';
+import "./less/antMotionStyle.less"
+
 
 class Footer extends React.Component {
   static defaultProps = {
@@ -37,28 +39,6 @@ class Footer extends React.Component {
     const childrenToRender = this.getLiChildren(dataSource.block.children);
     return (
       <div {...props} {...dataSource.wrapper}>
-        {/* <OverPack {...dataSource.OverPack}>
-          <QueueAnim
-            type="bottom"
-            key="ul"
-            leaveReverse
-            component={Row}
-            {...dataSource.block}
-          >
-            {childrenToRender}
-          </QueueAnim>
-          <TweenOne
-            animation={{ y: '+=30', opacity: 0, type: 'from' }}
-            key="copyright"
-            {...dataSource.copyrightWrapper}
-          >
-            <div {...dataSource.copyrightPage}>
-              <div {...dataSource.copyright}>
-                {dataSource.copyright.children}
-              </div>
-            </div>
-          </TweenOne>
-        </OverPack> */}
         <div {...dataSource.page}>
           <QueueAnim
             type="bottom"
