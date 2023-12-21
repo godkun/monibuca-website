@@ -1,7 +1,6 @@
 import React from "react";
 
-import { GithubOutlined } from "@ant-design/icons";
-import { Button, Space, Image } from "antd";
+import { Space, Image } from "antd";
 import { enquireScreen } from "enquire-js";
 
 import { Nav30DataSource } from "../../data/index"

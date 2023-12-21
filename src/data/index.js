@@ -1,4 +1,9 @@
 import React from "react";
+import { enquireScreen } from "enquire-js";
+let isMobile;
+enquireScreen((b) => {
+	isMobile = b;
+});
 
 export const Nav30DataSource = {
 	wrapper: { className: "header3" },
@@ -63,22 +68,24 @@ export const Nav30DataSource = {
 				className: "header3-button",
 				children: {
 					href: "https://console.monibuca.com",
-					children: [
-						{
-							children: (
-								<div className="nav-button" key="button-console">
-									<img
-										src="/svg/console.svg"
-										alt=""
-										width={24}
-										style={{ marginRight: "9px" }}
-									/>
-									控制台
-								</div>
-							),
-							name: "text",
-						},
-					],
+					children: isMobile
+						? [{ children: "控制台", name: "text" }]
+						: [
+								{
+									children: (
+										<div className="nav-button" key="button-console">
+											<img
+												src="/svg/console.svg"
+												alt=""
+												width={24}
+												style={{ marginRight: "9px" }}
+											/>
+											控制台
+										</div>
+									),
+									name: "text",
+								},
+						  ],
 				},
 			},
 			{
@@ -86,22 +93,24 @@ export const Nav30DataSource = {
 				className: "header3-button",
 				children: {
 					href: "https://github.com/langhuihui/monibuca",
-					children: [
-						{
-							children: (
-								<div className="nav-button" key="button-github">
-									<img
-										src="/svg/github.svg"
-										alt=""
-										width={24}
-										style={{ marginRight: "9px" }}
-									/>
-									Monibuca 开源
-								</div>
-							),
-							name: "text",
-						},
-					],
+					children: isMobile
+						? [{ children: "Monibuca 开源", name: "text" }]
+						: [
+								{
+									children: (
+										<div className="nav-button" key="button-github">
+											<img
+												src="/svg/github.svg"
+												alt=""
+												width={24}
+												style={{ marginRight: "9px" }}
+											/>
+											Monibuca 开源
+										</div>
+									),
+									name: "text",
+								},
+						  ],
 				},
 			},
 		],
