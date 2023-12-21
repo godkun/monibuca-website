@@ -5,7 +5,11 @@ import { Button, Space, Image, List } from 'antd'
 
 import { enquireScreen } from 'enquire-js'
 
+import { Nav30DataSource } from "../../data/index"
 
+export {
+	Nav30DataSource
+}
 
 let isMobile
 enquireScreen((b) => {
@@ -84,70 +88,6 @@ const teamData = [
     description: '赞助者由对Monibuca提供资金、项目支持的个人或组织组成，核心团队会给赞助者体提供技术支持以及项目开发等服务。'
   }
 ];
-
-
-export const Nav30DataSource = {
-  wrapper: { className: 'header3' },
-  page: { className: 'home-page' },
-  logo: {
-    className: 'header3-logo',
-    children: '/logo.png',
-  },
-  Menu: {
-    className: 'header3-menu',
-    children: [
-      {
-        name: 'item0',
-        className: 'header3-item',
-        children: {
-          href: '/',
-          children: [{ children: '产品文档', name: 'text' }],
-        },
-      },
-      {
-        name: 'item1',
-        className: 'header3-item',
-        children: {
-          href: '/video',
-          children: [{ children: '视频教程', name: 'text' }],
-        },
-      },
-      {
-        name: 'item2',
-        className: 'header3-item',
-        children: {
-          href: '/product',
-          children: [{ children: '不卡系列', name: 'text' }],
-        },
-      },
-      {
-        name: 'item3',
-        className: 'header3-item',
-        children: {
-          href: '/download',
-          children: [{ children: '产品下载', name: 'text' }],
-        },
-      },
-      {
-        name: 'item4',
-        className: 'header3-item',
-        children: {
-          href: '/plugin',
-          children: [{ children: '插件生态', name: 'text' }],
-        },
-      },
-      {
-        name: 'item5',
-        className: 'header3-item',
-        children: {
-          href: '/about',
-          children: [{ children: '关于我们', name: 'text' }],
-        },
-      },
-    ],
-  },
-  mobileMenu: { className: 'header3-mobile-menu' },
-}
 
 
 export const Feature140DataSource = {

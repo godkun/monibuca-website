@@ -23,7 +23,9 @@ class Header3 extends React.Component {
   };
 
   jump = (path) => {
-    router.navigate(path)
+    if (path.includes('http')) {
+      window.open(path);
+    } else router.navigate(path)
   }
 
   render() {

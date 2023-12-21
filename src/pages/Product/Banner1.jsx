@@ -7,11 +7,8 @@ class Banner extends React.PureComponent {
   render() {
 
     return (
-      <div className='banner1'>
-        {/* <div className='content'>
-          <div className='title'></div>
-          <div className='desc'></div>
-        </div> */}
+      <div className='banner1-wrap'>
+        <div className='banner1'></div>
       </div>
     );
   }

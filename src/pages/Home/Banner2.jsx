@@ -75,12 +75,14 @@ class Banner extends React.PureComponent {
                 {kun.children}
               </div>
               <Space size={isMobile ? 'large' : ''} direction={isMobile ? 'horizontal' : 'horizontal'}>
-                <Button style={{ background: '#263036' }} type="primary" icon={<GithubOutlined />} key="button" {...button}>
+                <div style={{ background: '#263036' }} key="button" {...button}>
+                  <img src="/svg/github.svg" alt="" width={36} style={{marginRight: '9px'}} />
                   {button.children}
-                </Button>
-                <Button style={{ background: '#5A00FF' }} type="primary" icon={<GithubOutlined />} key="button2" {...button2}>
+                </div>
+                <div style={{ background: '#5A00FF' }} key="button2" {...button2}>
+                  <img src="/svg/company.svg" alt="" width={36} style={{marginRight: '9px'}} />
                   {button2.children}
-                </Button>
+                </div>
               </Space>
             </QueueAnim>
           </div>

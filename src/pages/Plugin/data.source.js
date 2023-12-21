@@ -3,69 +3,11 @@ import React from 'react'
 import { GithubOutlined } from '@ant-design/icons'
 import { Button, Space, Image } from 'antd'
 
-export const Nav30DataSource = {
-  wrapper: { className: 'header3' },
-  page: { className: 'home-page' },
-  logo: {
-    className: 'header3-logo',
-    children: '/logo.png',
-  },
-  Menu: {
-    className: 'header3-menu',
-    children: [
-      {
-        name: 'item0',
-        className: 'header3-item',
-        children: {
-          href: '/',
-          children: [{ children: '产品文档', name: 'text' }],
-        },
-      },
-      {
-        name: 'item1',
-        className: 'header3-item',
-        children: {
-          href: '/video',
-          children: [{ children: '视频教程', name: 'text' }],
-        },
-      },
-      {
-        name: 'item2',
-        className: 'header3-item',
-        children: {
-          href: '/product',
-          children: [{ children: '不卡系列', name: 'text' }],
-        },
-      },
-      {
-        name: 'item3',
-        className: 'header3-item',
-        children: {
-          href: '/download',
-          children: [{ children: '产品下载', name: 'text' }],
-        },
-      },
-      {
-        name: 'item4',
-        className: 'header3-item',
-        children: {
-          href: '/plugin',
-          children: [{ children: '插件生态', name: 'text' }],
-        },
-      },
-      {
-        name: 'item5',
-        className: 'header3-item',
-        children: {
-          href: '/about',
-          children: [{ children: '关于我们', name: 'text' }],
-        },
-      },
-    ],
-  },
-  mobileMenu: { className: 'header3-mobile-menu' },
-}
+import { Nav30DataSource } from "../../data/index"
 
+export {
+	Nav30DataSource
+}
 
 export const Feature130DataSource = {
   wrapper: { className: 'home-page-wrapper feature13-wrapper' },

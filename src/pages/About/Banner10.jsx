@@ -7,6 +7,7 @@ class Banner extends React.PureComponent {
   render() {
 
     return (
+      <div className="banner10-wrap">
       <div className='banner10 home-page-wrapper'>
         <div className='content home-page'>
           <div className='title'>产品下载</div>
@@ -15,6 +16,7 @@ class Banner extends React.PureComponent {
             <span className='version'>最新版:v4.5.8</span>
           </div>
         </div>
+      </div>
       </div>
     );
   }
