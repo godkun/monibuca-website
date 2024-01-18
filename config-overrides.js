@@ -6,7 +6,6 @@ module.exports = override(
     libraryDirectory: 'es',
     style: true,
   }),
-  addBabelPlugin("@babel/plugin-proposal-optional-chaining"),
   addLessLoader({
     javascriptEnabled: true,
   }),

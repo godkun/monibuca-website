@@ -1,0 +1,1 @@
+export { default as acceptPush } from './AcceptPush';

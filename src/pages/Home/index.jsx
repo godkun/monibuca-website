@@ -12,6 +12,7 @@ import Feature4 from "./Feature4";
 import Feature8 from "./Feature8";
 
 import {
+  Banner10DataSource,
 	Banner20DataSource,
 	Content40DataSource,
 	Content50DataSource,
