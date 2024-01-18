@@ -2,7 +2,7 @@
 /* eslint arrow-parens: 0 */
 import React from "react";
 import { enquireScreen } from "enquire-js";
-
+import Banner1 from "./Banner1";
 import Banner2 from "./Banner2";
 import Content4 from "./Content4";
 import Content5 from "./Content5";
@@ -44,6 +44,11 @@ export default class Home extends React.Component {
 
 	render() {
 		const children = [
+      <Banner1 
+        id="Banner1_0"
+       key="Banner1_0"
+       dataSource={Banner10DataSource}
+       isMobile={this.state.isMobile}/>,
 			<Banner2
 				id="Banner2_0"
 				key="Banner2_0"

@@ -11,7 +11,9 @@ enquireScreen((b) => {
 });
 
 export { Nav30DataSource };
-
+export const Banner10DataSource = {
+  wrapper: { className: "banner1" },
+}
 export const Banner20DataSource = {
 	wrapper: { className: "banner2" },
 	BannerAnim: {
