@@ -170,8 +170,7 @@ export const Content50DataSource = {
 						children: (
 							<div className="box">
 								<div className="title">Monibuca 客户案例—电力服务</div>
-								<div className="desc">解决电气数字化为目的，构建 IOT 平台</div>
-								{/* <Button type="link">解决电气数字化为目的，构建 IOT 平台</Button> */}
+								<div className="desc">电气数字化，构建 IOT 平台，依托于 M7S 优秀的架构设计，和快速的社区解答效率，并且支持所有主流协议</div>
 							</div>
 						),
 					},
@@ -221,7 +220,7 @@ export const Content50DataSource = {
 						children: (
 							<div className="box">
 								<div className="title">Monibuca 客户案例—坦坦科技</div>
-								<div className="desc">一个专注于做视频 AI 算法项目的团队</div>
+								<div className="desc">一个专注于做视频 AI 算法项目的团队，从视频汇聚接入、到视频 AIOT 平台开发等业务领域都有涉及</div>
 							</div>
 						),
 					},
