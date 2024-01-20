@@ -1112,7 +1112,14 @@ export const Feature80DataSource = {
 											/>
 											赞赏 99 元
 										</div>
-										<div className="btn2">立即体验</div>
+										<div
+											className="btn2"
+											onClick={() => {
+												window.open("https://console.monibuca.com");
+											}}
+										>
+											立即体验
+										</div>
 									</Space>
 								</Space>
 							),
@@ -1154,7 +1161,11 @@ export const Feature80DataSource = {
 											/>
 											赞赏 99 元
 										</div>
-										<div className="btn2">立即体验</div>
+										<div className="btn2"
+										onClick={() => {
+											window.open("https://test.monibuca.com:8081/ui/#/instance")
+										}}
+										>立即体验</div>
 									</Space>
 								</Space>
 							),
