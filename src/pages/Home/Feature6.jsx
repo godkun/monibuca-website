@@ -1,5 +1,4 @@
 import React from 'react';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import QueueAnim from 'rc-queue-anim';
 import { Carousel as AntCarousel, Row, Col } from 'antd';
 import TweenOne from 'rc-tween-one';
@@ -64,11 +63,8 @@ class Feature6 extends React.PureComponent {
       );
       const childrenItem = children.map(($item, i) => {
         const { number, children: child, ...childProps } = $item;
-        // const numberChild = number.children.replace(/[^0-9.-]/g, '');
-        // const { unit, toText, ...numberProps } = number;
         return (
           <Col {...childProps} key={i.toString()}>
-            {/* {unit && <span {...unit}>{unit.children}</span>} */}
             <p {...child}>{child.children}</p>
           </Col>
         );

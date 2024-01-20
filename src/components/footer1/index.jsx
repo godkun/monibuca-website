@@ -32,50 +32,55 @@ class Footer extends React.Component {
 
 	render() {
 		const { ...props } = this.props;
-		const { dataSource } = props;
+		const { dataSource, isMobile } = props;
 		delete props.dataSource;
 		delete props.isMobile;
 		const childrenToRender = this.getLiChildren(dataSource.block.children);
 		return (
 			<div {...props} {...dataSource.wrapper}>
 				<div {...dataSource.page}>
-					<div className="footer1-top">
-						<div className="footer1-top-left">
-							<img src="/img/footer-logo.png" height={39} alt="" />
+					{!isMobile && (
+						<div className="footer1-top">
+							<div className="footer1-top-left">
+								<img src="/img/footer-logo.png" height={39} alt="" />
+							</div>
+							<div className="footer1-top-right">
+								<div className="footer1-top-right-item">
+									<a
+										href="https://github.com/langhuihui/monibuca"
+										target="blank"
+									>
+										<img src="/svg/github.svg" alt="" width={30} />
+									</a>
+								</div>
+								<div className="footer1-top-right-item">Monibuca 开源社区</div>
+								<div className="footer1-top-right-item">|</div>
+								<div className="footer1-top-right-item">支持我们</div>
+								<div className="footer1-top-right-item">
+									<Popover
+										content={
+											<div>
+												<img src="/img/wx-pay.jpg" alt="" height={250} />
+											</div>
+										}
+									>
+										<img src="/img/weixin.png" alt="" width={30} />
+									</Popover>
+								</div>
+								<div className="footer1-top-right-item">
+									<Popover
+										content={
+											<div>
+												<img src="/img/zf-pay.jpg" alt="" height={250} />
+											</div>
+										}
+									>
+										<img src="/img/zhifubao.png" alt="" width={30} />
+									</Popover>
+								</div>
+							</div>
 						</div>
-						<div className="footer1-top-right">
-							<div className="footer1-top-right-item">
-                <a href="https://github.com/langhuihui/monibuca" target="blank">
-  								<img src="/svg/github.svg" alt="" width={30} />
-                </a>
-							</div>
-							<div className="footer1-top-right-item">Monibuca 开源社区</div>
-							<div className="footer1-top-right-item">|</div>
-							<div className="footer1-top-right-item">支持我们</div>
-							<div className="footer1-top-right-item">
-								<Popover
-									content={
-										<div>
-											<img src="/img/wx-pay.jpg" alt="" height={250} />
-										</div>
-									}
-								>
-									<img src="/img/weixin.png" alt="" width={30} />
-								</Popover>
-							</div>
-							<div className="footer1-top-right-item">
-								<Popover
-									content={
-										<div>
-											<img src="/img/zf-pay.jpg" alt="" height={250} />
-										</div>
-									}
-								>
-									<img src="/img/zhifubao.png" alt="" width={30} />
-								</Popover>
-							</div>
-						</div>
-					</div>
+					)}
 					<QueueAnim
 						type="bottom"
 						key="ul"

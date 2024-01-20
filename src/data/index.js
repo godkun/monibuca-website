@@ -1,5 +1,6 @@
 import React from "react";
 import { enquireScreen } from "enquire-js";
+
 let isMobile;
 enquireScreen((b) => {
 	isMobile = b;
@@ -92,20 +93,20 @@ export const Nav30DataSource = {
 				name: "item7",
 				className: "header3-button",
 				children: {
-					href: "https://github.com/langhuihui/monibuca",
+					href: "https://test.monibuca.com:8081/ui/#/instance",
 					children: isMobile
 						? [{ children: "Monibuca 开源", name: "text" }]
 						: [
 								{
 									children: (
-										<div className="nav-button" key="button-github">
+										<div className="nav-button-2" key="button-github">
 											<img
-												src="/svg/github.svg"
+												src="/svg/console.svg"
 												alt=""
 												width={24}
 												style={{ marginRight: "9px" }}
 											/>
-											Monibuca 开源
+											Pro Demo
 										</div>
 									),
 									name: "text",
@@ -117,7 +118,6 @@ export const Nav30DataSource = {
 	},
 	mobileMenu: { className: "header3-mobile-menu" },
 };
-
 
 export const Footer10DataSource = {
 	wrapper: { className: "home-page-wrapper footer1-wrapper" },
@@ -135,8 +135,18 @@ export const Footer10DataSource = {
 				title: { children: "视频教程" },
 				childWrapper: {
 					children: [
-						{ name: "link0", href: "#", children: "B 站分享" },
-						{ name: "link1", href: "#", children: "RTS 分享" },
+						{
+							name: "link0",
+							target: "_blank",
+							href: "https://space.bilibili.com/328443019/channel/collectiondetail?sid=514619",
+							children: "B 站分享",
+						},
+						{
+							name: "link1",
+							target: "_blank",
+							href: "https://www.bilibili.com/video/BV1jg411H7qE/",
+							children: "RTS 分享",
+						},
 					],
 				},
 			},
@@ -148,10 +158,20 @@ export const Footer10DataSource = {
 				title: { children: "产品文档" },
 				childWrapper: {
 					children: [
-						{ name: "link0", href: "#", children: "快速上手" },
-						{ name: "link1", href: "#", children: "使用手册" },
-						{ name: "link2", href: "#", children: "常见问题" },
-						{ name: "link3", href: "#", children: "二次开发" },
+						{
+							name: "link0",
+							target: "_blank",
+							href: "https://monibuca.com/guide/introduction.html",
+							children: "快速上手",
+						},
+						// { name: "link1", href: "#", children: "使用手册" },
+						{
+							name: "link2",
+							target: "_blank",
+							href: "https://monibuca.com/guide/qa/error.html",
+							children: "常见问题",
+						},
+						// { name: "link3", href: "#", children: "二次开发" },
 					],
 				},
 			},
@@ -163,11 +183,31 @@ export const Footer10DataSource = {
 				title: { children: "下载链接" },
 				childWrapper: {
 					children: [
-						{ href: "#", name: "link0", children: "Windows" },
-						{ href: "#", name: "link1", children: "Mac" },
-						{ href: "#", name: "link2", children: "Mac(arm64)" },
-						{ href: "#", name: "link3", children: "Linux" },
-						{ href: "#", name: "link4", children: "Linux(arm64)" },
+						{
+							href: "https://download.m7s.live/bin/m7s_windows_amd64.tar.gz",
+							name: "link0",
+							children: "Windows",
+						},
+						{
+							href: "https://download.m7s.live/bin/m7s_darwin_amd64.tar.gz",
+							name: "link1",
+							children: "Mac",
+						},
+						{
+							href: "https://download.m7s.live/bin/m7s_darwin_arm64.tar.gz",
+							name: "link2",
+							children: "Mac(arm64)",
+						},
+						{
+							href: "https://download.m7s.live/bin/m7s_linux_amd64.tar.gz",
+							name: "link3",
+							children: "Linux",
+						},
+						{
+							href: "https://download.m7s.live/bin/m7s_linux_arm64.tar.gz",
+							name: "link4",
+							children: "Linux(arm64)",
+						},
 					],
 				},
 			},
@@ -179,9 +219,24 @@ export const Footer10DataSource = {
 				title: { children: "不卡系列" },
 				childWrapper: {
 					children: [
-						{ href: "#", name: "link0", children: "Monibuca" },
-						{ href: "#", name: "link1", children: "Jessibuca" },
-						{ href: "#", name: "link2", children: "Rebebuca" },
+						{
+							href: "https://monibuca.com",
+							name: "link0",
+							target: "_blank",
+							children: "Monibuca",
+						},
+						{
+							href: "https://jessibuca.com",
+							name: "link1",
+							target: "_blank",
+							children: "Jessibuca",
+						},
+						{
+							href: "https://rebebuca.com",
+							name: "link2",
+							target: "_blank",
+							children: "Rebebuca",
+						},
 					],
 				},
 			},
@@ -193,9 +248,24 @@ export const Footer10DataSource = {
 				title: { children: "关于我们" },
 				childWrapper: {
 					children: [
-						{ href: "#", name: "link0", children: "FAQ" },
-						{ href: "#", name: "link1", children: "开发团队" },
-						{ href: "#", name: "link2", children: "诞生故事" },
+						{
+							href: "https://monibuca.com/about/faq.html",
+							name: "link0",
+							target: "_blank",
+							children: "FAQ",
+						},
+						{
+							href: "https://monibuca.com/about/team.html",
+							name: "link1",
+							target: "_blank",
+							children: "开发团队",
+						},
+						{
+							href: "https://monibuca.com/about/born.html",
+							name: "link2",
+							target: "_blank",
+							children: "诞生故事",
+						},
 					],
 				},
 			},
@@ -218,6 +288,22 @@ export const Footer10DataSource = {
 	copyrightPage: { className: "home-page" },
 	copyright: {
 		className: "copyright",
-		children: <span>Copyright © Monibuca 开发团队</span>,
+		children: (
+			<div>
+				<div>@2024 Monibuca All Rights Reserved 南京莫妮不卡科技有限公司</div>
+				<div className="bei-an">
+					<a href="https://beian.miit.gov.cn/" target="_blank">
+						苏ICP备2023025807号-1
+					</a>
+					<img src="https://monibuca.com/images/beian.png"></img>
+					<a
+						href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011302321580"
+						target="_blank"
+					>
+						苏公网安备 32011302321580号
+					</a>
+				</div>
+			</div>
+		),
 	},
 };

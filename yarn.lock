@@ -8293,6 +8293,11 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
+nuka-carousel@^5.3.0:
+  version "5.6.0"
+  resolved "https://registry.npmmirror.com/nuka-carousel/-/nuka-carousel-5.6.0.tgz#dec49c87d36a007056a5394b58f7ae99482e486e"
+  integrity sha512-pELQHcOTJ5yJvs7wtXD5J5pqBMHDfdI667V9jaEhJVr9VQKMwq87xXv5P1cXiNamJuT3g2zw30ic6Y4eII4ofA==
+
 num2fraction@^1.2.2:
   version "1.2.2"
   resolved "https://registry.npmmirror.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"

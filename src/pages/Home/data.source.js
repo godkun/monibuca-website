@@ -1,9 +1,17 @@
 import React from "react";
 
-import { Space, Image, Button } from "antd";
+import { Space, Image, Typography } from "antd";
 import { enquireScreen } from "enquire-js";
 
 import { Nav30DataSource } from "../../data/index";
+
+const { Text } = Typography;
+
+const downloadUrl = {
+	M7S_WIN: "https://download.m7s.live/bin/m7s_windows_amd64.tar.gz",
+	M7S_IOS: "https://download.m7s.live/bin/m7s_darwin_amd64.tar.gz",
+	M7S_LINUX: "https://download.m7s.live/bin/m7s_linux_amd64.tar.gz",
+};
 
 let isMobile;
 enquireScreen((b) => {
@@ -12,8 +20,8 @@ enquireScreen((b) => {
 
 export { Nav30DataSource };
 export const Banner10DataSource = {
-  wrapper: { className: "banner1" },
-}
+	wrapper: { className: "banner1" },
+};
 export const Banner20DataSource = {
 	wrapper: { className: "banner2" },
 	BannerAnim: {
@@ -30,7 +38,10 @@ export const Banner20DataSource = {
 				},
 				content: {
 					className: "banner2-version",
-					children: "最新版:v4.5.8",
+					children: "最新版:v4.7.2",
+					onClick: () => {
+						window.open("https://mp.weixin.qq.com/s/wXNSoMl6H6Wp9Sz2xzaxuw");
+					},
 				},
 				kun: {
 					className: "banner2-content",
@@ -40,10 +51,16 @@ export const Banner20DataSource = {
 				button: {
 					className: "banner2-button",
 					children: "开源版本",
+					onClick: () => {
+						window.open("https://github.com/langhuihui/monibuca");
+					},
 				},
 				button2: {
 					className: "banner2-button",
 					children: "企业版",
+					onClick: () => {
+						window.open("https://github.com/Monibuca/pro");
+					},
 				},
 			},
 		],
@@ -170,7 +187,10 @@ export const Content50DataSource = {
 						children: (
 							<div className="box">
 								<div className="title">Monibuca 客户案例—电力服务</div>
-								<div className="desc">电气数字化，构建 IOT 平台，依托于 M7S 优秀的架构设计，和快速的社区解答效率，并且支持所有主流协议</div>
+								<div className="desc">
+									电气数字化，构建 IOT 平台，依托于 M7S
+									优秀的架构设计，和快速的社区解答效率，并且支持所有主流协议
+								</div>
 							</div>
 						),
 					},
@@ -220,7 +240,10 @@ export const Content50DataSource = {
 						children: (
 							<div className="box">
 								<div className="title">Monibuca 客户案例—坦坦科技</div>
-								<div className="desc">一个专注于做视频 AI 算法项目的团队，从视频汇聚接入、到视频 AIOT 平台开发等业务领域都有涉及</div>
+								<div className="desc">
+									一个专注于做视频 AI 算法项目的团队，从视频汇聚接入、到视频
+									AIOT 平台开发等业务领域都有涉及
+								</div>
 							</div>
 						),
 					},
@@ -241,7 +264,7 @@ export const Feature40DataSource = {
 		titleWrapper: {
 			className: "feature4-title-wrapper",
 			children: [
-				{ name: "title", children: "插件生态", className: "title-h1" },
+				{ name: "title", children: "业务优势", className: "title-h1" },
 			],
 			barWrapper: {
 				className: "feature4-title-bar-wrapper",
@@ -438,10 +461,13 @@ export const Feature60DataSource = {
 								<Space direction="vertical" align="start">
 									<div className="feature6-t1">GO语言+简洁的代码逻辑</div>
 									<div className="feature6-t2">
-										Go语言本身的简洁+代码设计追求极致精简、优雅，阅读源码变成一件愉快的事{" "}
+										Go语言本身的简洁+代码设计追求极致精简、优雅。使阅读源码变成一件愉快的事
 										<br /> 启动工程提供了标准化的接入示例，插件引入十分简单
 									</div>
 									<div
+										onClick={() => {
+											window.open("https://github.com/langhuihui/monibuca");
+										}}
 										className="feature6-button"
 										type="primary"
 										style={{ marginTop: "40px" }}
@@ -452,7 +478,7 @@ export const Feature60DataSource = {
 											width={30}
 											style={{ marginRight: "9px" }}
 										/>
-										Github
+										查看示例
 									</div>
 								</Space>
 							),
@@ -466,9 +492,9 @@ export const Feature60DataSource = {
 							children: (
 								<Space align="end">
 									<Image
-										preview={false}
+										preview={true}
 										width={400}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+										src="/img/plugin-go-code.png"
 									/>
 								</Space>
 							),
@@ -487,15 +513,19 @@ export const Feature60DataSource = {
 						children: {
 							children: (
 								<Space direction="vertical" align="start">
-									<div className="feature6-t1">GO语言+简洁的代码逻辑</div>
+									<div className="feature6-t1">精致</div>
 									<div className="feature6-t2">
-										Go语言本身的简洁+代码设计追求极致精简、优雅，阅读源码变成一件愉快的事{" "}
-										<br /> 启动工程提供了标准化的接入示例，插件引入十分简单
+										设计精巧的插件机制，实现高内聚低耦合，具有高超的扩展能力
+										<br />
+										无锁化设计以及手术刀般精确的内存复用，充分利用多核计算，性能强悍
 									</div>
 									<div
 										className="feature6-button"
 										type="primary"
 										style={{ marginTop: "40px" }}
+										onClick={() => {
+											window.open("https://github.com/Monibuca");
+										}}
 									>
 										<img
 											src="/svg/github.svg"
@@ -516,11 +546,181 @@ export const Feature60DataSource = {
 							className: "feature6-text",
 							children: (
 								<Space align="end">
-									<Image
-										preview={false}
-										width={400}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-									/>
+									<svg
+										style={{ height: "400px", width: "100%" }}
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 -5 205 150"
+									>
+										<defs />
+										<g id="p-e">
+											<line class="cls-6" x1="104" y1="28" x2="104" y2="59">
+												<animate
+													attributeName="stroke-dashoffset"
+													values="50;0"
+													dur="2s"
+													repeatCount="indefinite"
+												/>
+											</line>
+										</g>
+										<g id="e-s">
+											<line class="cls-8" x1="104" y1="82" x2="104" y2="106">
+												<animate
+													attributeName="stroke-dashoffset"
+													values="50;0"
+													dur="2s"
+													repeatCount="indefinite"
+												/>
+											</line>
+										</g>
+										<g id="c-p">
+											<line class="cls-6" x1="27" y1="25" x2="69" y2="25">
+												<animate
+													attributeName="stroke-dashoffset"
+													values="50;0"
+													dur="2s"
+													repeatCount="indefinite"
+												/>
+											</line>
+										</g>
+										<g id="r-p">
+											<line class="cls-8" x1="132" y1="25" x2="177" y2="25">
+												<animate
+													attributeName="stroke-dashoffset"
+													values="0;50"
+													dur="2s"
+													repeatCount="indefinite"
+												/>
+											</line>
+										</g>
+										<g id="s-r">
+											<line class="cls-6" x1="180" y1="112" x2="137" y2="112">
+												<animate
+													attributeName="stroke-dashoffset"
+													values="0;50"
+													dur="2s"
+													repeatCount="indefinite"
+												/>
+											</line>
+										</g>
+										<g id="s-c">
+											<line class="cls-8" x1="71" y1="112" x2="28" y2="112">
+												<animate
+													attributeName="stroke-dashoffset"
+													values="50;0"
+													dur="2s"
+													repeatCount="indefinite"
+												/>
+											</line>
+										</g>
+										<rect
+											class="cls-1"
+											x="60"
+											y="50"
+											width="86"
+											height="38.13"
+											rx="8"
+										/>
+										<text class="cls-2" transform="translate(85 74)">
+											Stream
+										</text>
+										<rect
+											class="cls-4"
+											x="60"
+											y="9"
+											width="86"
+											height="32.07"
+										/>
+										<rect
+											class="cls-5"
+											x="60"
+											y="96"
+											width="86"
+											height="32.07"
+										/>
+
+										<text class="cls-2" transform="translate(79 30)">
+											Publisher
+										</text>
+										<text class="cls-2" transform="translate(78 116)">
+											Subsciber
+										</text>
+										<rect
+											class="cls-3"
+											x="50"
+											y="1"
+											width="106"
+											height="135"
+										></rect>
+										<rect
+											class="cls-16"
+											x="172"
+											y="9"
+											width="32"
+											height="47.18"
+										/>
+										<rect
+											class="cls-16"
+											x="172"
+											y="80"
+											width="32"
+											height="47.18"
+										/>
+										<text
+											class="cls-17"
+											transform="matrix(0.47, 0.88, -0.88, 0.47, 174.38, 12.72)"
+										>
+											remote server
+										</text>
+										<text
+											class="cls-17"
+											transform="matrix(0.47, 0.88, -0.88, 0.47, 174.38, 84.94)"
+										>
+											remote server
+										</text>
+										<rect
+											class="cls-22"
+											x="1"
+											y="9"
+											width="32"
+											height="47.18"
+										/>
+										<rect
+											class="cls-22"
+											x="1"
+											y="81"
+											width="32"
+											height="47.18"
+										/>
+										<text
+											class="cls-17"
+											transform="matrix(0.47, 0.88, -0.88, 0.47, 9.68, 24.12)"
+										>
+											client
+										</text>
+										<text
+											class="cls-17"
+											transform="matrix(0.47, 0.88, -0.88, 0.47, 9.68, 95.91)"
+										>
+											client
+										</text>
+
+										<circle id="ring2" cx="83" cy="69" r="12">
+											<animate
+												attributeName="stroke-dashoffset"
+												values="40;0"
+												dur="2s"
+												repeatCount="indefinite"
+											/>
+										</circle>
+										<circle id="ring1" cx="125" cy="69" r="12">
+											<animate
+												attributeName="stroke-dashoffset"
+												values="0;40"
+												dur="2s"
+												repeatCount="indefinite"
+											/>
+										</circle>
+									</svg>
 								</Space>
 							),
 						},
@@ -538,15 +738,23 @@ export const Feature60DataSource = {
 						children: {
 							children: (
 								<Space direction="vertical" align="start">
-									<div className="feature6-t1">GO语言+简洁的代码逻辑</div>
+									<div className="feature6-t1">易用</div>
 									<div className="feature6-t2">
-										Go语言本身的简洁+代码设计追求极致精简、优雅，阅读源码变成一件愉快的事{" "}
-										<br /> 启动工程提供了标准化的接入示例，插件引入十分简单
+										无需配置环境，无需安装运行时，直接下载可执行文件
+										<br />
+										为arm架构提供贴心的编译版本，可以直接下载运行
+										<br />
+										也可以用 docker 启动
 									</div>
 									<div
 										className="feature6-button"
 										type="primary"
 										style={{ marginTop: "40px" }}
+										onClick={() => {
+											window.open(
+												"https://github.com/langhuihui/monibuca/releases"
+											);
+										}}
 									>
 										<img
 											src="/svg/github.svg"
@@ -554,7 +762,7 @@ export const Feature60DataSource = {
 											width={30}
 											style={{ marginRight: "9px" }}
 										/>
-										Github
+										所有版本
 									</div>
 								</Space>
 							),
@@ -566,13 +774,37 @@ export const Feature60DataSource = {
 						children: {
 							className: "feature6-text",
 							children: (
-								<Space align="end">
-									<Image
-										preview={false}
-										width={400}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-									/>
-								</Space>
+								<div>
+									<Space align="end">
+										<div className="download">
+											<div className="download-item windows">
+												<a
+													className="iconfont icon-windows"
+													href={downloadUrl.M7S_WIN}
+												></a>
+											</div>
+											<div className="download-item apple">
+												<a
+													className="iconfont icon-apple"
+													href={downloadUrl.M7S_IOS}
+												></a>
+											</div>
+											<div className="download-item linux">
+												<a
+													className="iconfont icon-linux"
+													href={downloadUrl.M7S_LINUX}
+												></a>
+											</div>
+										</div>
+									</Space>
+									<div class="docker">
+										<Text copyable style={{ color: "#fff" }}>
+											docker run -id -p 1935:1935 -p 8080:8080 -p 8443:8443 -p
+											554:554 -p 58200:58200 -p 5060:5060/udp -p 8000:8000/udp
+											-p 9000:9000 langhuihui/monibuca:latest
+										</Text>
+									</div>
+								</div>
 							),
 						},
 					},
@@ -581,6 +813,88 @@ export const Feature60DataSource = {
 		],
 	},
 };
+
+const plugins = {
+	rtmp: "rtmp协议接受推拉、对外推拉",
+	rtsp: "rtsp协议接受推拉、对外推拉",
+	hls: "1、提供HLS协议拉流播放。2、远程拉取HLS到m7s",
+	gb28181: "GB28181协议拉流播放、查看录像",
+	ps: "接收Mpeg2-PS格式的流",
+	onvif: "ONVIF协议拉流播放",
+	webrtc: "WebRTC协议的推流和拉流",
+	webtransport: "通过WebTransport进行推拉流",
+	record: "hls、flv、mp4、裸流格式录制功能以及回放",
+	hdl: "1、HTTP-FLV格式拉流播放。2、远程拉取HTTP-FLV到m7s",
+	jessica: "1、提供WS-FLV协议拉流播放。2、提供WS-RAW协议拉流播放。",
+	fmp4: "提供FMP4格式拉流播放",
+	preview: "借助Jessibuca提供视频实时预览能力",
+	snap: "提供对I帧的实时截图能力",
+	room: "提供房间功能，可以向房间内用户广播信息",
+	hook: "提供API钩子回调能力，通知远程服务器",
+	exporter: "提供监控数据导出能力，支持Prometheus、InfluxDB、ElasticSearch",
+	logrotate: "提供日志轮转能力",
+	edge: "可以m7s实例作为边缘节点",
+	debug: "提供调试能力",
+	monitor: "提供监控数据存储和访问",
+};
+
+const plugins2 = [
+	{
+		name: "mpegts",
+		desc: "提供MPEG-TS格式拉流播放",
+		url: "https://github.com/kingecg/mpegts",
+	},
+	{
+		name: "plugin-snapplug",
+		desc: "录制开始或结束就 自动生成 视频封面图",
+		url: "https://github.com/3201301734/plugin-snapplug",
+	},
+	{
+		name: "m7s-reportor",
+		desc: "将m7s的流信息和设备信息上报到redis",
+		url: "https://github.com/bigbeer1/m7s-reportor",
+	},
+	{
+		name: "虚位以待",
+		desc: "可联系我们添加到此列表",
+		url: "",
+	},
+];
+
+const plugins3 = [
+	{
+		name: "cascade",
+		desc: "级联插件，提供 m7s 无限级联能力",
+	},
+	{
+		name: "transcode",
+		desc: "提供转码能力，可以将流转码为其他格式",
+	},
+	{
+		name: "snappro",
+		desc: "极速截图，比 snap 插件截图速度高 10 倍以上",
+	},
+	{
+		name: "cryptor",
+		desc: "提供对流的加密能力",
+	},
+	{
+		name: "gb28181pro",
+		desc: "提供GB28181协议的级联等功能",
+	},
+	{
+		name: "recordpro",
+		desc: "高级录制插件，增加定时任务等额外的功能",
+	},
+	{
+		name: "plugin-cdn",
+		desc: "可以将流推送到CDN,适配多种云厂商",
+	},
+	{
+		name: "虚位以待",
+		desc: "可联系我们添加到此列表",
+	},
+];
 
 export const Feature70DataSource = {
 	wrapper: { className: "home-page-wrapper feature7-wrapper" },
@@ -608,182 +922,72 @@ export const Feature70DataSource = {
 				title: { className: "feature7-title-text", children: "官方插件" },
 				className: "feature7-item",
 				name: "block0",
-				children: [
-					{
+				children: Object.keys(plugins).map((item) => {
+					return {
 						md: 8,
 						xs: 24,
 						children: {
 							className: "feature7-text",
 							children: (
-								<Space className="item">
+								<Space
+									className="item"
+									onClick={() => {
+										window.open(`https://github.com/Monibuca/plugin-${item}`);
+									}}
+								>
 									<Image
 										className="img"
 										preview={false}
 										src="/img/plugin.png"
 									/>
 									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
+										<div className="title">Plugin-{item}</div>
+										<div className="desc">{plugins[item]}</div>
 									</Space>
 								</Space>
 							),
 						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-				],
+					};
+				}),
 			},
 			{
 				title: { className: "feature7-title-text", children: "第三方开源" },
 				className: "feature7-item",
 				name: "block1",
-				children: [
-					{
+				children: plugins2.map((item) => {
+					return {
 						md: 8,
 						xs: 24,
 						children: {
 							className: "feature7-text",
 							children: (
-								<Space className="item">
+								<Space
+									className="item"
+									onClick={() => {
+										window.open(item.url);
+									}}
+								>
 									<Image
 										className="img"
 										preview={false}
 										src="/img/plugin.png"
 									/>
 									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
+										<div className="title">{item.name}</div>
+										<div className="desc">{item.desc}</div>
 									</Space>
 								</Space>
 							),
 						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-				],
+					};
+				}),
 			},
 			{
 				title: { className: "feature7-title-text", children: "付费插件" },
 				className: "feature7-item",
-				name: "block1",
-				children: [
-					{
+				name: "block2",
+				children: plugins3.map((item) => {
+					return {
 						md: 8,
 						xs: 24,
 						children: {
@@ -796,74 +1000,14 @@ export const Feature70DataSource = {
 										src="/img/plugin.png"
 									/>
 									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
+										<div className="title">{item.name}</div>
+										<div className="desc">{item.desc}</div>
 									</Space>
 								</Space>
 							),
 						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-					{
-						md: 8,
-						xs: 24,
-						children: {
-							className: "feature7-text",
-							children: (
-								<Space className="item">
-									<Image
-										className="img"
-										preview={false}
-										src="/img/plugin.png"
-									/>
-									<Space direction="vertical" align="start">
-										<div className="title">Plugin-rtmp</div>
-										<div className="desc">rtmp协议接受推拉、对外推拉</div>
-									</Space>
-								</Space>
-							),
-						},
-					},
-				],
+					};
+				}),
 			},
 		],
 	},

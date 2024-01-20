@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './styles/iconfont/iconfont.css'
 import { RouterProvider } from 'react-router-dom'
 import routerConfig from './router'
 import 'antd/dist/antd.variable.min.css';
