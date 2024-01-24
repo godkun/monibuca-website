@@ -51,12 +51,12 @@ function Content4(props) {
           {isMobile ? (
             <Image
               preview={false}
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              src="/img/company.png"
             />
           ) : (
             <Image
               preview={false}
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              src="/img/company.png"
             />
           )}
         </TweenOne>

@@ -99,8 +99,8 @@ export const Content40DataSource = {
   video: {
     className: "content4-video",
     children: {
-      video: "https://os.alipayobjects.com/rmsportal/EejaUGsyExkXyXr.mp4",
-      image: "https://zos.alipayobjects.com/rmsportal/HZgzhugQZkqUwBVeNyfz.jpg",
+      // video: "https://os.alipayobjects.com/rmsportal/EejaUGsyExkXyXr.mp4",
+      // image: "https://zos.alipayobjects.com/rmsportal/HZgzhugQZkqUwBVeNyfz.jpg",
     },
   },
 };

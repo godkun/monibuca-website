@@ -15,7 +15,7 @@ export const Feature100DataSource = {
 		titleWrapper: {
 			className: "feature10-title-wrapper",
 			children: [
-				{ name: "title", children: "插件生态", className: "title-h1" },
+				{ name: "title", children: "合集·m7s v4 视频教程", className: "title-h1" },
 			],
 			barWrapper: {
 				className: "feature10-title-bar-wrapper",
@@ -59,7 +59,7 @@ export const Feature100DataSource = {
 										className="img"
 										preview={false}
 										// width={384}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+										src="/img/video-bg.png"
 									/>
 									<Space direction="vertical" align="start">
 										<div className="title">从零启动 m7s V4</div>
@@ -85,7 +85,7 @@ export const Feature100DataSource = {
 										className="img"
 										preview={false}
 										// width={384}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+										src="/img/video-bg.png"
 									/>
 									<Space direction="vertical" align="start">
 										<div className="title">从零启动 m7s V4</div>
@@ -111,7 +111,7 @@ export const Feature100DataSource = {
 										className="img"
 										preview={false}
 										// width={384}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+										src="/img/video-bg.png"
 									/>
 									<Space direction="vertical" align="start">
 										<div className="title">从零启动 m7s V4</div>
@@ -137,7 +137,7 @@ export const Feature100DataSource = {
 										className="img"
 										preview={false}
 										// width={384}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+										src="/img/video-bg.png"
 									/>
 									<Space direction="vertical" align="start">
 										<div className="title">从零启动 m7s V4</div>
@@ -163,7 +163,7 @@ export const Feature100DataSource = {
 										className="img"
 										preview={false}
 										// width={384}
-										src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+										src="/img/video-bg.png"
 									/>
 									<Space direction="vertical" align="start">
 										<div className="title">从零启动 m7s V4</div>
