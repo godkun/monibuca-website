@@ -15,6 +15,7 @@
     "rc-tween-one": "^2.3.4",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-highlight": "^0.15.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^3.3.0",
     "react-sublime-video": "^0.2.5",

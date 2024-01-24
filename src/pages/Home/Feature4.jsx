@@ -32,49 +32,8 @@ class Feature4 extends React.PureComponent {
       ...titleWrapperProps
     } = titleWrapper;
 
-    const titleToRender = [];
-
-    const childrenToRender = childWrapper.map((item, ii) => {
-      const { title, children, ...itemProps } = item;
-      titleToRender.push(
-        <div
-          {...title}
-          key={ii.toString()}
-          onClick={(e) => {
-            this.onTitleClick(e, ii);
-          }}
-          className={
-            ii === current ? `${title.className || ''} active` : title.className
-          }
-        >
-          {title.children}
-        </div>
-      );
-      const childrenItem = children.map(($item, i) => {
-        const { number, children: child, ...childProps } = $item;
-        return (
-          <Col {...childProps} key={i.toString()}>
-            <p {...child}>{child.children}</p>
-          </Col>
-        );
-      });
-      return (
-        <div key={ii.toString()}>
-          <QueueAnim type="bottom" component={Row} {...itemProps}>
-            {childrenItem}
-          </QueueAnim>
-        </div>
-      );
-    });
-
     return (
-      <QueueAnim
-        key="queue"
-        leaveReverse
-        type="bottom"
-        delay={[0, 100]}
-        {...wrapper}
-      >
+      < >
         <div {...titleWrapperProps} key="title">
           <div key="title" {...titleWrapper}>
             {titleWrapper.children.map(kunRender)}
@@ -82,17 +41,17 @@ class Feature4 extends React.PureComponent {
         </div>
         <Tabs
           tabPosition={isMobile ? 'top' : 'left'}
-          type={isMobile ? 'line' : 'card' }
+          type={isMobile ? 'line' : 'card'}
           tabBarGutter={9}
           items={childWrapper.map((item, i) => {
             return {
-              label: item.title.children,
+              label: item.title,
               key: i,
-              children: childrenToRender[i],
+              children: <item.children isMobile={isMobile}/>
             };
           })}
         />
-      </QueueAnim>
+      </>
     );
   };
 

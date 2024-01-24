@@ -45,11 +45,11 @@ export default class Home extends React.Component {
 
 	render() {
 		const children = [
-      <Banner1 
-        id="Banner1_0"
-       key="Banner1_0"
-       dataSource={Banner10DataSource}
-       isMobile={this.state.isMobile}/>,
+      // <Banner1 
+      //   id="Banner1_0"
+      //  key="Banner1_0"
+      //  dataSource={Banner10DataSource}
+      //  isMobile={this.state.isMobile}/>,
 			<Banner2
 				id="Banner2_0"
 				key="Banner2_0"
@@ -57,12 +57,12 @@ export default class Home extends React.Component {
 				isMobile={this.state.isMobile}
 			/>,
 
-			<Feature6
-				id="Feature6_0"
-				key="Feature6_0"
-				dataSource={Feature60DataSource}
-				isMobile={this.state.isMobile}
-			/>,
+			// <Feature6
+			// 	id="Feature6_0"
+			// 	key="Feature6_0"
+			// 	dataSource={Feature60DataSource}
+			// 	isMobile={this.state.isMobile}
+			// />,
 
 			<Feature4
 				id="Feature4_0"
@@ -71,12 +71,12 @@ export default class Home extends React.Component {
 				isMobile={this.state.isMobile}
 			/>,
 
-			<Feature7
-				id="Feature7_0"
-				key="Feature7_0"
-				dataSource={Feature70DataSource}
-				isMobile={this.state.isMobile}
-			/>,
+			// <Feature7
+			// 	id="Feature7_0"
+			// 	key="Feature7_0"
+			// 	dataSource={Feature70DataSource}
+			// 	isMobile={this.state.isMobile}
+			// />,
 
 			<Feature8
 				id="Feature8_0"
