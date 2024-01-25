@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import Base from './Base';
-
+import { edgeProps } from './data';
 export default memo(function (props) {
   function protocol2url(protocol, type = "push") {
     switch (protocol) {
@@ -19,7 +19,7 @@ export default memo(function (props) {
       case "webtransport":
         return `https://local.monibuca.com:8081/webtransport/${type}/${stream}`;
       case "rtmp":
-        return type === "push" ? `rtmp://localhost/${stream}` : "rtmp://cdn.***.com/path";
+        return type === "push" ? `rtmp://localhost/${stream}` : "rtmp://test.monibuca.com/path";
       case "rtsp":
         return `rtsp://localhost/${stream}`;
       case "hls":
@@ -28,6 +28,7 @@ export default memo(function (props) {
       case "fmp4":
         return `http://localhost:8080/fmp4/${stream}.mp4`;
       default:
+        return 'rtmp://aliyunlive.droolx.cn/path';
     }
   }
   const [config, setConfig] = React.useState(`rtmp:
@@ -52,7 +53,7 @@ export default memo(function (props) {
   let plugin2 = 'rtmp';
   const pusherNode = {
     id: 'pusher', type: 'pusher', position: { x: 150, y: 0 }, data: {
-      onChangeProtocol(protocol, old) {
+      onChangeProtocol(protocol) {
         plugin1 = protocol;
         _setPlugins();
         setNodes(initialNodes = initialNodes.map(node => {
@@ -72,7 +73,7 @@ export default memo(function (props) {
   };
   const playerNode = {
     id: 'remote', type: 'remote', position: { x: 150, y: 280 }, data: {
-      onChangeProtocol(protocol, old) {
+      onChangeProtocol(protocol) {
         const name = protocol === "m7s" ? "rtmp" : "cdn";
         plugin2 = name;
         _setPlugins();
@@ -112,13 +113,12 @@ export default memo(function (props) {
     pusherNode, playerNode
   ];
   let initialEdges = [
-    { id: '1', source: 'pusher', label: protocol2url('rtmp'), labelBgStyle: { fill: 'black', opacity: 0.3 }, labelStyle: { fill: 'white' }, animated: true, target: 'plugin1', style: { stroke: 'cyan', strokeWidth: 3 } },
-    { id: '2', source: 'plugin1', labelBgStyle: { fill: 'black', opacity: 0.5 }, labelStyle: { fill: 'white' }, animated: true, target: 'stream1', style: { stroke: 'cyan', strokeWidth: 3 } },
-    { id: '3', source: 'stream1', labelBgStyle: { fill: 'black', opacity: 0.5 }, labelStyle: { fill: 'white' }, animated: true, target: 'plugin2', style: { stroke: 'cyan', strokeWidth: 3 } },
-    { id: '4', source: 'plugin2', label: protocol2url('rtmp', 'play'), labelBgStyle: { fill: 'black', opacity: 0.3 }, labelStyle: { fill: 'white' }, animated: true, target: 'remote', style: { stroke: 'cyan', strokeWidth: 3 } },
+    { id: '1', source: 'pusher', label: protocol2url('rtmp'), target: 'plugin1', ...edgeProps },
+    { id: '2', source: 'plugin1', target: 'stream1', ...edgeProps },
+    { id: '3', source: 'stream1', target: 'plugin2', ...edgeProps },
+    { id: '4', source: 'plugin2', label: protocol2url('rtmp', 'play'), target: 'remote', ...edgeProps },
   ];
   const [nodes, setNodes] = React.useState(initialNodes);
   const [edges, setEdges] = React.useState(initialEdges);
-  const isMobile = props.isMobile;
-  return <Base nodes={nodes} edges={edges} plugins={plugins} isMobile={isMobile} config={config} />;
+  return <Base nodes={nodes} edges={edges} plugins={plugins} isMobile={props.isMobile} config={config} />;
 });

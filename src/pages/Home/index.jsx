@@ -2,7 +2,6 @@
 /* eslint arrow-parens: 0 */
 import React from "react";
 import { enquireScreen } from "enquire-js";
-import Banner1 from "./Banner1";
 import Banner2 from "./Banner2";
 import Content4 from "./Content4";
 import Content5 from "./Content5";
