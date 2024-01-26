@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
-import ReactFlow from 'reactflow';
+import ReactFlow, { Background } from 'reactflow';
 import 'rc-banner-anim/assets/index.css';
 import 'reactflow/dist/style.css';
-import pusher from './Pusher';
-import plugin from './Plugin';
 import stream from './Stream';
+import plugin from './Plugin';
 import player from './Player';
 import source from './Source';
 import remote from './Remote';
@@ -27,9 +26,9 @@ export default function Base(props) {
       hideAttribution: true,
     }}
     nodeTypes={{
-      pusher, plugin, stream, player, source, remote
+       plugin, stream, player, source, remote
     }}
-    edges={props.edges} /></div>);
+    edges={props.edges} ><Background color="#ccc" variant="dots" /></ReactFlow></div>);
   const main = <Highlight language='go'>
     {`import (
   "context"

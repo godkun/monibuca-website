@@ -40,6 +40,7 @@ class Feature4 extends React.PureComponent {
           </div>
         </div>
         <Tabs
+          size='small'
           tabPosition={isMobile ? 'top' : 'left'}
           type={isMobile ? 'line' : 'card'}
           tabBarGutter={9}
@@ -47,7 +48,7 @@ class Feature4 extends React.PureComponent {
             return {
               label: item.title,
               key: i,
-              children: <item.children isMobile={isMobile}/>
+              children: <item.children isMobile={isMobile} />
             };
           })}
         />

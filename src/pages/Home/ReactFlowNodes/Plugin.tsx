@@ -5,7 +5,7 @@ import {
   ApiOutlined
 } from '@ant-design/icons';
 
-export default memo(({ data }) => {
+const Plugin = memo(({ data }) => {
   return (
     <a href={`https://github.com/Monibuca/plugin-${data.name}`} target='_blank'>
       <Tag icon={<ApiOutlined />} color='cyan'>{data.name}插件</Tag>
@@ -14,3 +14,4 @@ export default memo(({ data }) => {
     </a>
   );
 });
+export default Plugin;

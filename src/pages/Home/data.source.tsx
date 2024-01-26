@@ -6,7 +6,6 @@ import { enquireScreen } from "enquire-js";
 import { Nav30DataSource } from "../../data/index";
 import Live from './ReactFlowNodes/Live';
 import Relay from './ReactFlowNodes/Relay';
-import GB28181 from "./ReactFlowNodes/GB28181";
 import CDN from "./ReactFlowNodes/CDN";
 const { Text } = Typography;
 
@@ -299,20 +298,8 @@ export const Feature40DataSource = {
         children: Relay,
       },
       {
-        title: "监控",
-        children: GB28181,
-      },
-      {
         title: "转推",
         children: CDN,
-      },
-      {
-        title: "录制",
-        children: Live,
-      },
-      {
-        title: "回放",
-        children: Live,
       },
       {
         title: "加密",
@@ -320,6 +307,14 @@ export const Feature40DataSource = {
       },
       {
         title: "转码",
+        children: Live,
+      },
+      {
+        title: "时移",
+        children: Live,
+      },
+      {
+        title: "级联",
         children: Live,
       },
       {
