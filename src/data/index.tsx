@@ -21,15 +21,7 @@ export const Nav30DataSource = {
 				className: "header3-item",
 				children: {
 					href: "/",
-					children: [{ children: "产品文档", name: "text" }],
-				},
-			},
-			{
-				name: "item1",
-				className: "header3-item",
-				children: {
-					href: "/video",
-					children: [{ children: "视频教程", name: "text" }],
+					children: [{ children: "首页", name: "text" }],
 				},
 			},
 			{
@@ -54,6 +46,14 @@ export const Nav30DataSource = {
 				children: {
 					href: "/plugin",
 					children: [{ children: "插件生态", name: "text" }],
+				},
+			},
+			{
+				name: "item1",
+				className: "header3-item",
+				children: {
+					href: "/video",
+					children: [{ children: "视频教程", name: "text" }],
 				},
 			},
 			{
