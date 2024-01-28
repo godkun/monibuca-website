@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Space, Image, Typography, Popover } from 'antd'
+import { Space, Image, Typography, Popover, Button } from 'antd'
 // @ts-ignore
 import { enquireScreen } from 'enquire-js'
 
@@ -850,7 +850,7 @@ export const Feature80DataSource = {
                     <Popover
                       content={
                         <Space>
-                          <div style={{marginRight: '20px'}}>
+                          <div style={{ marginRight: '20px' }}>
                             <img src="/img/wx-pay.jpg" alt="" height={250} />
                           </div>
                           <div>
@@ -896,28 +896,45 @@ export const Feature80DataSource = {
                     src="/img/console.png"
                   />
                   <div className="desc">
-                    说明：体验版包括 global 下的所有接口，但不包括插件接口，
-                    获取完整版步骤：扫描本页面最下面左侧支持我们， 赞助 99 元，将 【 截图 】
-                    发送到【 公众号私信】，我们将发送完整版给您。
+                    说明：Console功能性描述xxxxxxxxxx 请查看在线版本和 Dock 部署,我们还提供了 widows
+                    版本下载 和 Mac (arm64) 下载
                   </div>
                   <Space size="large">
-                    <div className="btn1">
-                      <img
-                        src="/svg/ic_QR code.svg"
-                        alt=""
-                        width={24}
-                        style={{ marginRight: '9px' }}
-                      />
-                      赞赏 99 元
-                    </div>
+                    <div className="btn1">使用在线版本</div>
                     <div
                       className="btn2"
                       onClick={() => {
                         window.open('https://console.monibuca.com')
                       }}
                     >
-                      立即体验
+                      Docker部署
                     </div>
+                  </Space>
+                  <Space>
+                    <Space direction="vertical" className="item">
+                      <Space className="item-wrap">
+                        <Space direction="vertical">
+                          <div className="title">Mac(arm64) 系统下载</div>
+                          <div className="sub-title">系统版本: 请查看安装教程</div>
+                        </Space>
+                        <div className="img iconfont icon-apple"></div>
+                      </Space>
+                      <Space direction="vertical" align="start">
+                        <Button type="primary">立即下载</Button>
+                      </Space>
+                    </Space>
+                    <Space direction="vertical" className="item">
+                      <Space className="item-wrap">
+                        <Space direction="vertical">
+                          <div className="title">Windows版下载</div>
+                          <div className="sub-title">Windows 10 及以上系统可用</div>
+                        </Space>
+                        <div className="img iconfont icon-windows"></div>
+                      </Space>
+                      <Space direction="vertical" align="start">
+                        <Button type="primary">立即下载</Button>
+                      </Space>
+                    </Space>
                   </Space>
                 </Space>
               )
@@ -944,27 +961,17 @@ export const Feature80DataSource = {
                     src="/img/admin.png"
                   />
                   <div className="desc">
-                    说明：体验版包括 global 下的所有接口，但不包括插件接口，
-                    获取完整版步骤：扫描本页面最下面左侧支持我们， 赞助 99 元，将 【 截图 】
-                    发送到【 公众号私信】，我们将发送完整版给您。
+                    说明：Admin功能简介 XXXXXX, 提供了那些便捷的服务 XXXXXXX， 为大家带了XXXXX的便捷
+                    发送到【 公众号私信】，完成开发我们将第一时间为您提供版本体验
                   </div>
                   <Space size="large">
-                    <div className="btn1">
-                      <img
-                        src="/svg/ic_QR code.svg"
-                        alt=""
-                        width={24}
-                        style={{ marginRight: '9px' }}
-                      />
-                      赞赏 99 元
-                    </div>
                     <div
                       className="btn2"
                       onClick={() => {
                         window.open('https://test.monibuca.com:8081/ui/#/instance')
                       }}
                     >
-                      立即体验
+                      在线体验
                     </div>
                   </Space>
                 </Space>

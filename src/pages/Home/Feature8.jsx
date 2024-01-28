@@ -4,6 +4,7 @@ import QueueAnim from 'rc-queue-anim'
 import { Carousel as AntCarousel, Row, Col } from 'antd'
 import TweenOne from 'rc-tween-one'
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin'
+import CarouselKun from 'nuka-carousel'
 
 import { getChildrenToRender as kunRender } from './utils'
 
@@ -19,8 +20,21 @@ class Feature6 extends React.PureComponent {
   }
 
   onTitleClick = (_, i) => {
-    const carouselRef = this.carouselRef.current.childRefs.carousel
-    carouselRef.goTo(i)
+    this.setState({
+      current: i
+    })
+  }
+
+  // onTitleClick = (_, i) => {
+  //   const carouselRef = this.carouselRef.current.childRefs.carousel
+  //   carouselRef.goTo(i)
+  // }
+
+  handleBeforeSlide = (currentSlide, nextSlide) => {
+    // 在轮播之前执行的逻辑
+    this.setState({
+      current: nextSlide
+    })
   }
 
   onBeforeChange = (_, newIndex) => {
@@ -70,14 +84,7 @@ class Feature6 extends React.PureComponent {
 
     const width = 100 / childrenToRender.length
     return (
-      <QueueAnim
-        key="queue"
-        leaveReverse
-        type="bottom"
-        delay={[0, 100]}
-        {...wrapper}
-        ref={this.carouselRef}
-      >
+      <div>
         <div className="feature8-zhan"></div>
         <div {...titleWrapperProps} key="title">
           <div key="title" {...titleWrapper}>
@@ -96,16 +103,19 @@ class Feature6 extends React.PureComponent {
             </div>
           </div>
         </div>
-        <AntCarousel
-          {...carouselProps}
-          key="carousel"
-          infinite={false}
-          beforeChange={this.onBeforeChange}
+
+        <CarouselKun
+          renderCenterLeftControls={false} // 隐藏左侧箭头
+          renderCenterRightControls={false} // 自定义右侧按钮
+          renderBottomCenterControls={false}
+          beforeSlide={this.handleBeforeSlide}
+          adaptiveHeight={true}
+          slideIndex={current}
+          innerRef={this.carouselRef}
         >
           {childrenToRender}
-        </AntCarousel>
-        {/* </div> */}
-      </QueueAnim>
+        </CarouselKun>
+      </div>
     )
   }
 

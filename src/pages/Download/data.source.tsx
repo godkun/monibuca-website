@@ -109,7 +109,6 @@ export const Feature120DataSource = {
               children: (
                 <Space direction="vertical" className="item">
                   <Space className="item-wrap">
-                    {/* <div className='desc'> <span style={{ color: '#000', fontWeight: 500 }}>Monibuca</span>旨在提供一个对开发者极度友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。</div> */}
                     <Space direction="vertical">
                       <div className="title">Mac(arm64) 系统下载</div>
                       <div className="sub-title">系统版本: 请查看安装教程</div>
