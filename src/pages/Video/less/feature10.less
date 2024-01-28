@@ -1,9 +1,8 @@
 @feature10: feature10;
 
-
 .@{feature10} {
   &-wrapper {
-    background: #F9F9FA;
+    background: #f9f9fa;
     min-height: 360px;
     margin: 0 auto;
     overflow: hidden;
@@ -26,13 +25,13 @@
     color: #fff;
 
     .left {
-      padding: 26px 20px 20px 20px;
+      padding: 20px 20px 20px 20px;
     }
 
     .left-title {
       font-size: 30px;
       font-weight: 500;
-      color: #FFFFFF;
+      color: #ffffff;
       line-height: 42px;
     }
 
@@ -40,7 +39,7 @@
       width: 80px;
       font-size: 20px;
       font-weight: 500;
-      color: #FFFFFF;
+      color: #ffffff;
       line-height: 28px;
     }
 
@@ -49,17 +48,16 @@
     }
 
     .dg {
-      margin-top: 36px;
+      margin-top: 28px;
     }
 
     .left-desc {
       font-size: 14px;
       font-weight: 400;
-      color: #FFFFFF;
+      color: #ffffff;
       line-height: 24px;
     }
   }
-
 
   .title-h1 {
     margin-top: 80px;
@@ -69,7 +67,6 @@
     color: #000000;
     line-height: 50px;
     text-align: center;
-
   }
 
   &-title {
@@ -83,11 +80,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      // width: 200px;
       height: 48px;
-      // background: #FFFFFF;
-      // border-left: 1px solid #EBEBEB;
-      // margin-top: 5px;
       margin-bottom: 36px;
 
       &:first-child {
@@ -107,7 +100,6 @@
         // width: 200px;
       }
     }
-
   }
 
   &-text {
@@ -118,11 +110,18 @@
       margin-right: 24px;
       // margin-top: 12px;
 
-      // .img {
-      //   width: 72px;
-      //   height: 72px;
-      //   margin-right: 12px;
-      // }
+      .img {
+        position: relative;
+      }
+      .banner-title {
+        position: absolute;
+        top: 64px;
+        left: 24px;
+        height: 30px;
+        font-size: 30px;
+        color: #ffffff;
+        line-height: 45px;
+      }
 
       .title {
         font-size: 20px;
@@ -138,6 +137,11 @@
         font-weight: 400;
         color: #737373;
         line-height: 24px;
+        display: flex;
+        align-items: center;
+        span {
+          margin-top: -2px;
+        }
       }
     }
   }
@@ -157,7 +161,6 @@
 
   .@{feature10}-title {
     &-text {
-      // width: 110px;
     }
 
     &-bar {

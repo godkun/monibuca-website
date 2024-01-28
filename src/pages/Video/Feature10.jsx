@@ -1,12 +1,11 @@
-import React from 'react';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import QueueAnim from 'rc-queue-anim';
-import { Carousel as AntCarousel, Row, Col, Space, Image } from 'antd';
-import TweenOne from 'rc-tween-one';
-import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin';
+import React from "react";
+import OverPack from "rc-scroll-anim/lib/ScrollOverPack";
+import QueueAnim from "rc-queue-anim";
+import { Carousel as AntCarousel, Row, Col, Space, Image } from "antd";
+import TweenOne from "rc-tween-one";
+import Children from "rc-tween-one/lib/plugin/ChildrenPlugin";
 
-import { getChildrenToRender as kunRender } from './utils';
-
+import { getChildrenToRender as kunRender } from "./utils";
 
 TweenOne.plugins.push(Children);
 
@@ -57,7 +56,7 @@ class Feature10 extends React.PureComponent {
             this.onTitleClick(e, ii);
           }}
           className={
-            ii === current ? `${title.className || ''} active` : title.className
+            ii === current ? `${title.className || ""} active` : title.className
           }
         >
           {title.children}
@@ -124,47 +123,85 @@ class Feature10 extends React.PureComponent {
     return (
       <div {...props} {...dataSource.wrapper}>
         <div {...dataSource.page}>
-          <div className='feature10-video-title'>
-            {!isMobile && <Row>
-              <Col span={8} className='left'>
-                <Space direction='vertical'>
-                  <div className='left-title'>Monibuca的架构演进</div>
-                  <div className='left-title-sub bj'>背景描述</div>
-                  <div className='left-desc'>Monibuca为了在扩展性上面做足功夫，在较短时间内进行了多次大版本迭代，每一次都重构了核心，很多用户还不能理解这中间发生了哪些变化，以及是否应该升级到最新版本。</div>
-                  <div className='left-title-sub dg'>内容大纲</div>
-                  <div className='left-desc'>1、简单介绍Monibuca的特点以及如何解决行业痛点。</div>
-                  <div className='left-desc'>2、重点揭示了Monibuca从1.0到4.0中间经过怎样的架构的演变，使得Monibuca的老用户理解升级到4.0的必要性。</div>
-                  <div className='left-desc'>3、聊一下关于升级开源项目架构遇到的挑战</div>
-                </Space>
-              </Col>
-              <Col span={16}>
-                <Image
-                preview={false}
-                src="/video-1.png"
-                >
-                </Image>
-              </Col>
-            </Row>}
-            {isMobile && <Row>
-              <Col span={24} className='left'>
-                <Space direction='vertical'>
-                  <div className='left-title'>Monibuca的架构演进</div>
-                  <div className='left-title-sub bj'>背景描述</div>
-                  <div className='left-desc'>Monibuca为了在扩展性上面做足功夫，在较短时间内进行了多次大版本迭代，每一次都重构了核心，很多用户还不能理解这中间发生了哪些变化，以及是否应该升级到最新版本。</div>
-                  <div className='left-title-sub dg'>内容大纲</div>
-                  <div className='left-desc'>1、简单介绍Monibuca的特点以及如何解决行业痛点。</div>
-                  <div className='left-desc'>2、重点揭示了Monibuca从1.0到4.0中间经过怎样的架构的演变，使得Monibuca的老用户理解升级到4.0的必要性。</div>
-                  <div className='left-desc'>3、聊一下关于升级开源项目架构遇到的挑战</div>
-                </Space>
-              </Col>
-              <Col span={24}>
-                <Image
-                preview={false}
-                src="/video-1.png"
-                >
-                </Image>
-              </Col>
-            </Row>}
+          <div className="feature10-video-title">
+            {!isMobile && (
+              <Row>
+                <Col span={8} className="left">
+                  <Space direction="vertical">
+                    <div className="left-title">Monibuca的架构演进</div>
+                    <div className="left-title-sub bj">背景描述</div>
+                    <div className="left-desc">
+                      Monibuca为了在扩展性上面做足功夫，在较短时间内进行了多次大版本迭代，每一次都重构了核心，很多用户还不能理解这中间发生了哪些变化，以及是否应该升级到最新版本。
+                    </div>
+                    <div className="left-title-sub dg">内容大纲</div>
+                    <div className="left-desc">
+                      1、简单介绍Monibuca的特点以及如何解决行业痛点。
+                    </div>
+                    <div className="left-desc">
+                      2、重点揭示了Monibuca从1.0到4.0中间经过怎样的架构的演变，使得Monibuca的老用户理解升级到4.0的必要性。
+                    </div>
+                    <div className="left-desc">
+                      3、聊一下关于升级开源项目架构遇到的挑战
+                    </div>
+                  </Space>
+                </Col>
+                <Col span={16}>
+                  {/* <iframe
+                    src="//player.bilibili.com/player.html?aid=518354873&bvid=BV1jg411H7qE&cid=910583689&p=1"
+                    scrolling="no"
+                    border="0"
+                    frameborder="no"
+                    framespacing="0"
+                    allowfullscreen="true"
+                    height={"100%"}
+                    width={"100%"}
+                  >
+                    {" "}
+                  </iframe> */}
+                  <Image
+                    style={{ cursor: 'pointer'}}
+                    preview={false}
+                    src="/img/video-title.png"
+                    onClick={() => {
+                      window.open("https://www.bilibili.com/video/BV1jg411H7qE/?vd_source=3385e5c4706f720a2a249f63b97a1849");
+                    }}
+                  ></Image>
+                </Col>
+              </Row>
+            )}
+            {isMobile && (
+              <Row>
+                <Col span={24}>
+                  <Image
+                    style={{ cursor: 'pointer'}}
+                    preview={false}
+                    src="/img/video-title.png"
+                    onClick={() => {
+                      window.open("https://www.bilibili.com/video/BV1jg411H7qE/?vd_source=3385e5c4706f720a2a249f63b97a1849");
+                    }}
+                  ></Image>
+                </Col>
+                <Col span={24} className="left">
+                  <Space direction="vertical">
+                    <div className="left-title">Monibuca的架构演进</div>
+                    <div className="left-title-sub bj">背景描述</div>
+                    <div className="left-desc">
+                      Monibuca为了在扩展性上面做足功夫，在较短时间内进行了多次大版本迭代，每一次都重构了核心，很多用户还不能理解这中间发生了哪些变化，以及是否应该升级到最新版本。
+                    </div>
+                    <div className="left-title-sub dg">内容大纲</div>
+                    <div className="left-desc">
+                      1、简单介绍Monibuca的特点以及如何解决行业痛点。
+                    </div>
+                    <div className="left-desc">
+                      2、重点揭示了Monibuca从1.0到4.0中间经过怎样的架构的演变，使得Monibuca的老用户理解升级到4.0的必要性。
+                    </div>
+                    <div className="left-desc">
+                      3、聊一下关于升级开源项目架构遇到的挑战
+                    </div>
+                  </Space>
+                </Col>
+              </Row>
+            )}
           </div>
           {/* <OverPack {...dataSource.OverPack}>
             {this.getChildrenToRender(dataSource)}
