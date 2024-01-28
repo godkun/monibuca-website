@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "format": "prettier --write src/**/*",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -18,6 +19,7 @@
     "reactflow": "^11.10.2"
   },
   "devDependencies": {
+    "@types/node": "^20.11.0",
     "@ant-design/compatible": "^1.0.2",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
@@ -26,7 +28,6 @@
     "@vitejs/plugin-react": "^4.2.1",
     "antd": "4.24.5",
     "enquire-js": "^0.2.1",
-    "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "less": "^4.2.0",
@@ -37,6 +38,11 @@
     "rc-texty": "^0.2.0",
     "rc-tween-one": "^2.3.4",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.0.3"
   }
 }

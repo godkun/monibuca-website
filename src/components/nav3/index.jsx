@@ -1,47 +1,47 @@
-import React from "react";
-import TweenOne from "rc-tween-one";
-import { Menu } from "antd";
-import { getChildrenToRender } from "../../utils";
-import "./less/antMotionStyle.less";
+import React from 'react'
+import TweenOne from 'rc-tween-one'
+import { Menu } from 'antd'
+import { getChildrenToRender } from '../../utils'
+import './less/antMotionStyle.less'
 
-import router from "../../router";
+import router from '../../router'
 
-const { Item } = Menu;
+const { Item } = Menu
 
 class Header3 extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      phoneOpen: undefined,
-    };
+      phoneOpen: undefined
+    }
   }
 
   phoneClick = () => {
-    const phoneOpen = !this.state.phoneOpen;
+    const phoneOpen = !this.state.phoneOpen
     this.setState({
-      phoneOpen,
-    });
-  };
+      phoneOpen
+    })
+  }
 
-  jump = (path) => {
-    if (path.includes("http")) {
-      window.open(path);
-    } else router.navigate(path);
-  };
+  jump = path => {
+    if (path.includes('http')) {
+      window.open(path)
+    } else router.navigate(path)
+  }
 
   getDefaultNav = () => {
-    const path = window.location.pathname;
-    return [path];
-  };
+    const path = window.location.pathname
+    return [path]
+  }
 
   render() {
-    const { dataSource, isMobile, ...props } = this.props;
+    const { dataSource, isMobile, ...props } = this.props
     // this.getDefaultNav()
-    const { phoneOpen } = this.state;
-    const navData = dataSource.Menu.children;
+    const { phoneOpen } = this.state
+    const navData = dataSource.Menu.children
 
-    const navChildren = navData.map((item) => {
-      const { children: a, subItem, ...itemProps } = item;
+    const navChildren = navData.map(item => {
+      const { children: a, subItem, ...itemProps } = item
       return (
         <Item key={item.name} {...itemProps}>
           <div
@@ -52,9 +52,9 @@ class Header3 extends React.Component {
             {a.children.map(getChildrenToRender)}
           </div>
         </Item>
-      );
-    });
-    const moment = phoneOpen === undefined ? 300 : null;
+      )
+    })
+    const moment = phoneOpen === undefined ? 300 : null
     return (
       <TweenOne
         component="header"
@@ -64,7 +64,7 @@ class Header3 extends React.Component {
       >
         <div
           {...dataSource.page}
-          className={`${dataSource.page.className}${phoneOpen ? " open" : ""}`}
+          className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}
         >
           <TweenOne
             // animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
@@ -76,7 +76,7 @@ class Header3 extends React.Component {
             <div
               {...dataSource.mobileMenu}
               onClick={() => {
-                this.phoneClick();
+                this.phoneClick()
               }}
             >
               <em />
@@ -92,12 +92,12 @@ class Header3 extends React.Component {
                     x: 0,
                     height: 0,
                     duration: 300,
-                    onComplete: (e) => {
+                    onComplete: e => {
                       if (this.state.phoneOpen) {
-                        e.target.style.height = "auto";
+                        e.target.style.height = 'auto'
                       }
                     },
-                    ease: "easeInOutQuad",
+                    ease: 'easeInOutQuad'
                   }
                 : null
             }
@@ -105,7 +105,7 @@ class Header3 extends React.Component {
             reverse={!!phoneOpen}
           >
             <Menu
-              mode={isMobile ? "inline" : "horizontal"}
+              mode={isMobile ? 'inline' : 'horizontal'}
               defaultSelectedKeys={() => this.getDefaultNav()}
               theme="light"
             >
@@ -114,8 +114,8 @@ class Header3 extends React.Component {
           </TweenOne>
         </div>
       </TweenOne>
-    );
+    )
   }
 }
 
-export default Header3;
+export default Header3

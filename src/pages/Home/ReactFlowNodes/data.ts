@@ -1,3 +1,6 @@
 export const edgeProps = {
-  labelBgStyle: { fill: 'black', opacity: 0.3 }, labelStyle: { fill: 'white' }, animated: true, style: { stroke: 'cyan', strokeWidth: 3 }
-};
+  labelBgStyle: { fill: 'black', opacity: 0.3 },
+  labelStyle: { fill: 'white' },
+  animated: true,
+  style: { stroke: 'cyan', strokeWidth: 3 }
+}

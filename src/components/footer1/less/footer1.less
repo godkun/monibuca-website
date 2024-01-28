@@ -1,130 +1,130 @@
 .footer1-wrapper {
-	background: #242424;
-	overflow: hidden;
-	position: relative;
-	.footer1-top {
-		display: flex;
-		height: 107px;
-		align-items: center;
-		justify-content: space-between;
-		&-right {
-			display: flex;
-			align-items: center;
-			&-item {
-				margin-left: 24px;
-				font-size: 18px;
-				font-weight: 500;
-				color: #5a636d;
-				line-height: 25px;
-			}
-		}
-    border-bottom: 1px solid #D8D8D8;
-	}
-	.footer1 {
-		.home-page {
-			padding: 30px 0px 0px 0px;
-		}
-	}
-	.block {
-		.logo {
-			max-width: 180px;
-		}
-		.slogan {
-			font-size: 12px;
-			margin-top: -20px;
-		}
-		> h2 {
-			margin-bottom: 24px;
-			font-size: 18px;
-			color: #fff;
-		}
-		a {
-			color: @template-footer-text-color;
-			margin-bottom: 24px;
-			font-size: 16px;
-			color: #5a636d;
-			float: left;
-			clear: both;
-			&:hover {
-				color: @primary-color;
-			}
-		}
-	}
-	.copyright-wrapper {
-		width: 100%;
-		background: #000;
-		.home-page {
-			padding: 0 24px;
-			overflow: hidden;
-		}
-		.copyright {
-			padding: 20px 0px;
-			text-align: center;
-			color: #5a636d;
-			font-size: 18px;
-			.bei-an {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				cursor: pointer;
-				font-size: 16px;
-				a {
-					color: #939393;
-				}
-				img {
-					margin: 0 5px;
-				}
-			}
-		}
-	}
+  background: #242424;
+  overflow: hidden;
+  position: relative;
+  .footer1-top {
+    display: flex;
+    height: 107px;
+    align-items: center;
+    justify-content: space-between;
+    &-right {
+      display: flex;
+      align-items: center;
+      &-item {
+        margin-left: 24px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #5a636d;
+        line-height: 25px;
+      }
+    }
+    border-bottom: 1px solid #d8d8d8;
+  }
+  .footer1 {
+    .home-page {
+      padding: 30px 0px 0px 0px;
+    }
+  }
+  .block {
+    .logo {
+      max-width: 180px;
+    }
+    .slogan {
+      font-size: 12px;
+      margin-top: -20px;
+    }
+    > h2 {
+      margin-bottom: 24px;
+      font-size: 18px;
+      color: #fff;
+    }
+    a {
+      color: @template-footer-text-color;
+      margin-bottom: 24px;
+      font-size: 16px;
+      color: #5a636d;
+      float: left;
+      clear: both;
+      &:hover {
+        color: @primary-color;
+      }
+    }
+  }
+  .copyright-wrapper {
+    width: 100%;
+    background: #000;
+    .home-page {
+      padding: 0 24px;
+      overflow: hidden;
+    }
+    .copyright {
+      padding: 20px 0px;
+      text-align: center;
+      color: #5a636d;
+      font-size: 18px;
+      .bei-an {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 16px;
+        a {
+          color: #939393;
+        }
+        img {
+          margin: 0 5px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-	.footer1 {
-		min-height: 550px;
-		&-wrapper {
-			.footer1 {
-				.home-page {
-					padding: 64px 24px 32px;
-				}
-			}
-		}
-		.logo {
-			margin: 0 auto 24px;
-		}
-		.block {
-			text-align: center;
-			margin-bottom: 32px;
-			padding: 0;
-		}
-		> ul {
-			width: 90%;
-			margin: 20px auto 0;
-			padding: 10px 0;
-			> li {
-				width: 100%;
-				h2 {
-					margin-bottom: 10px;
-				}
-				li {
-					display: inline-block;
-					margin-right: 10px;
-				}
-			}
-		}
-		.copyright {
-			&-wrapper {
-				.home-page {
-					padding: 0;
-					.copyright {
-						font-size: 12px;
-					}
-				}
-			}
+  .footer1 {
+    min-height: 550px;
+    &-wrapper {
+      .footer1 {
+        .home-page {
+          padding: 64px 24px 32px;
+        }
+      }
+    }
+    .logo {
+      margin: 0 auto 24px;
+    }
+    .block {
+      text-align: center;
+      margin-bottom: 32px;
+      padding: 0;
+    }
+    > ul {
+      width: 90%;
+      margin: 20px auto 0;
+      padding: 10px 0;
+      > li {
+        width: 100%;
+        h2 {
+          margin-bottom: 10px;
+        }
+        li {
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+    }
+    .copyright {
+      &-wrapper {
+        .home-page {
+          padding: 0;
+          .copyright {
+            font-size: 12px;
+          }
+        }
+      }
 
-			span {
-				width: 90%;
-			}
-		}
-	}
+      span {
+        width: 90%;
+      }
+    }
+  }
 }

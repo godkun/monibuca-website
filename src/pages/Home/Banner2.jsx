@@ -1,53 +1,48 @@
-import React from 'react';
-import { Button, Space } from 'antd';
-import { DownOutlined, GithubOutlined } from '@ant-design/icons';
+import React from 'react'
+import { Button, Space } from 'antd'
+import { DownOutlined, GithubOutlined } from '@ant-design/icons'
 
-import QueueAnim from 'rc-queue-anim';
-import TweenOne, { TweenOneGroup } from 'rc-tween-one';
-import BannerAnim, { Element } from 'rc-banner-anim';
-import { isImg } from './utils';
-import 'rc-banner-anim/assets/index.css';
+import QueueAnim from 'rc-queue-anim'
+import TweenOne, { TweenOneGroup } from 'rc-tween-one'
+import BannerAnim, { Element } from 'rc-banner-anim'
+import { isImg } from './utils'
+import 'rc-banner-anim/assets/index.css'
 
-const BgElement = Element.BgElement;
+const BgElement = Element.BgElement
 class Banner extends React.PureComponent {
   render() {
-    const { ...props } = this.props;
-    const { dataSource, isMobile } = props;
-    delete props.dataSource;
-    delete props.isMobile;
+    const { ...props } = this.props
+    const { dataSource, isMobile } = props
+    delete props.dataSource
+    delete props.isMobile
     const childrenToRender = dataSource.BannerAnim.children.map((item, i) => {
-      const elem = item.BannerElement;
-      const elemClassName = elem.className;
-      delete elem.className;
-      const bg = item.bg;
-      const textWrapper = item.textWrapper;
-      const title = item.title;
-      const content = item.content;
-      const kun = item.kun;
-      const button = item.button;
-      const button2 = item.button2;
-      const page = item.page;
+      const elem = item.BannerElement
+      const elemClassName = elem.className
+      delete elem.className
+      const bg = item.bg
+      const textWrapper = item.textWrapper
+      const title = item.title
+      const content = item.content
+      const kun = item.kun
+      const button = item.button
+      const button2 = item.button2
+      const page = item.page
       const follow = !isMobile
         ? {
-          delay: 1000,
-          minMove: 0.1,
-          data: [
-            {
-              id: `bg${i}`,
-              value: 15,
-              type: 'x',
-            },
-            { id: `wrapperBlock${i}`, value: -15, type: 'x' },
-          ],
-        }
-        : null;
+            delay: 1000,
+            minMove: 0.1,
+            data: [
+              {
+                id: `bg${i}`,
+                value: 15,
+                type: 'x'
+              },
+              { id: `wrapperBlock${i}`, value: -15, type: 'x' }
+            ]
+          }
+        : null
       return (
-        <Element
-          key={i.toString()}
-          followParallax={follow}
-          {...elem}
-          prefixCls={elemClassName}
-        >
+        <Element key={i.toString()} followParallax={follow} {...elem} prefixCls={elemClassName}>
           <BgElement key="bg" {...bg} id={`bg${i}`} />
           <div {...page}>
             <QueueAnim
@@ -58,8 +53,7 @@ class Banner extends React.PureComponent {
               id={`wrapperBlock${i}`}
             >
               <div key="logo" {...title}>
-                {typeof title.children === 'string' &&
-                  title.children.match(isImg) ? (
+                {typeof title.children === 'string' && title.children.match(isImg) ? (
                   <img src={title.children} width="100%" alt="img" />
                 ) : (
                   title.children
@@ -74,21 +68,24 @@ class Banner extends React.PureComponent {
               <div key="kun" {...kun}>
                 {kun.children}
               </div>
-              <Space size={isMobile ? 'large' : ''} direction={isMobile ? 'horizontal' : 'horizontal'}>
+              <Space
+                size={isMobile ? 'large' : ''}
+                direction={isMobile ? 'horizontal' : 'horizontal'}
+              >
                 <div style={{ background: '#263036' }} key="button" {...button}>
-                  <img src="/svg/github.svg" alt="" width={36} style={{marginRight: '9px'}} />
+                  <img src="/svg/github.svg" alt="" width={36} style={{ marginRight: '9px' }} />
                   {button.children}
                 </div>
                 <div style={{ background: '#5A00FF' }} key="button2" {...button2}>
-                  <img src="/svg/company.svg" alt="" width={36} style={{marginRight: '9px'}} />
+                  <img src="/svg/company.svg" alt="" width={36} style={{ marginRight: '9px' }} />
                   {button2.children}
                 </div>
               </Space>
             </QueueAnim>
           </div>
         </Element>
-      );
-    });
+      )
+    })
     return (
       <div {...props} {...dataSource.wrapper}>
         <TweenOneGroup
@@ -106,7 +103,7 @@ class Banner extends React.PureComponent {
             y: '-=20',
             yoyo: true,
             repeat: -1,
-            duration: 1000,
+            duration: 1000
           }}
           className="banner2-icon"
           style={{ bottom: 40 }}
@@ -115,8 +112,8 @@ class Banner extends React.PureComponent {
           <DownOutlined />
         </TweenOne>
       </div>
-    );
+    )
   }
 }
 
-export default Banner;
+export default Banner

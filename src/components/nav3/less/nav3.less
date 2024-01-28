@@ -11,7 +11,7 @@
   &-button {
     .nav-button {
       margin-top: 10px;
-      background: #5A00FF;
+      background: #5a00ff;
       width: 180px;
       height: 42px;
       font-size: 16px;
@@ -65,7 +65,7 @@
     &-block {
       padding: 0 8px;
 
-      >* {
+      > * {
         display: inline-block;
       }
     }
@@ -74,7 +74,6 @@
   &-item,
   &-item-child,
   &-menu {
-
     .ant-menu-sub .ant-menu-item,
     .ant-menu-inline .ant-menu-item {
       height: auto;
@@ -123,9 +122,9 @@
       float: inherit;
       position: relative;
       left: -24px;
-      width: ~"calc(100% + 48px)";
+      width: ~'calc(100% + 48px)';
       opacity: 0;
-      transition: opacity .3s @ease-in-out;
+      transition: opacity 0.3s @ease-in-out;
       background: #fff;
 
       & li {
@@ -157,7 +156,9 @@
         height: 2px;
         background: @template-nav-bg-color;
         margin-top: 4px;
-        transition: transform .3s @ease-in-out, opacity .3s @ease-in-out;
+        transition:
+          transform 0.3s @ease-in-out,
+          opacity 0.3s @ease-in-out;
       }
 
       :first-child {
@@ -193,7 +194,7 @@
         }
       }
 
-      >.@{header3}-menu {
+      > .@{header3}-menu {
         opacity: 1;
         pointer-events: auto;
       }

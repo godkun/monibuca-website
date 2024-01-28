@@ -1,85 +1,74 @@
-import React from "react";
-import OverPack from "rc-scroll-anim/lib/ScrollOverPack";
-import QueueAnim from "rc-queue-anim";
-import { Carousel as AntCarousel, Row, Col, Space, Image } from "antd";
-import TweenOne from "rc-tween-one";
-import Children from "rc-tween-one/lib/plugin/ChildrenPlugin";
+import React from 'react'
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
+import QueueAnim from 'rc-queue-anim'
+import { Carousel as AntCarousel, Row, Col, Space, Image } from 'antd'
+import TweenOne from 'rc-tween-one'
+import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin'
 
-import { getChildrenToRender as kunRender } from "./utils";
+import { getChildrenToRender as kunRender } from './utils'
 
-TweenOne.plugins.push(Children);
+TweenOne.plugins.push(Children)
 
 class Feature10 extends React.PureComponent {
   constructor(props) {
-    super(props);
-    this.carouselRef = React.createRef();
+    super(props)
+    this.carouselRef = React.createRef()
     this.state = {
-      current: 0,
-    };
+      current: 0
+    }
   }
 
   onTitleClick = (_, i) => {
-    const carouselRef = this.carouselRef.current.childRefs.carousel;
-    carouselRef.goTo(i);
-  };
+    const carouselRef = this.carouselRef.current.childRefs.carousel
+    carouselRef.goTo(i)
+  }
 
   onBeforeChange = (_, newIndex) => {
     this.setState({
-      current: newIndex,
-    });
-  };
+      current: newIndex
+    })
+  }
 
-  getChildrenToRender = (dataSource) => {
-    const { current } = this.state;
-    const { Carousel } = dataSource;
-    const {
-      titleWrapper,
-      children: childWrapper,
-      wrapper,
-      ...carouselProps
-    } = Carousel;
+  getChildrenToRender = dataSource => {
+    const { current } = this.state
+    const { Carousel } = dataSource
+    const { titleWrapper, children: childWrapper, wrapper, ...carouselProps } = Carousel
 
-    const {
-      barWrapper,
-      title: titleChild,
-      ...titleWrapperProps
-    } = titleWrapper;
-    const titleToRender = [];
+    const { barWrapper, title: titleChild, ...titleWrapperProps } = titleWrapper
+    const titleToRender = []
 
     const childrenToRender = childWrapper.map((item, ii) => {
-      const { title, children, ...itemProps } = item;
+      const { title, children, ...itemProps } = item
       titleToRender.push(
         <div
           {...title}
           key={ii.toString()}
-          onClick={(e) => {
-            this.onTitleClick(e, ii);
+          onClick={e => {
+            this.onTitleClick(e, ii)
           }}
-          className={
-            ii === current ? `${title.className || ""} active` : title.className
-          }
+          className={ii === current ? `${title.className || ''} active` : title.className}
         >
           {title.children}
         </div>
-      );
+      )
       const childrenItem = children.map(($item, i) => {
-        const { number, children: child, ...childProps } = $item;
+        const { number, children: child, ...childProps } = $item
         return (
           <Col {...childProps} key={i.toString()}>
             <p {...child}>{child.children}</p>
           </Col>
-        );
-      });
+        )
+      })
       return (
         <div key={ii.toString()}>
           <QueueAnim type="bottom" component={Row} {...itemProps}>
             {childrenItem}
           </QueueAnim>
         </div>
-      );
-    });
+      )
+    })
 
-    const width = 100 / childrenToRender.length;
+    const width = 100 / childrenToRender.length
     return (
       <QueueAnim
         key="queue"
@@ -99,7 +88,7 @@ class Feature10 extends React.PureComponent {
               {...barWrapper}
               style={{
                 width: `${width}%`,
-                left: `${width * current}%`,
+                left: `${width * current}%`
               }}
             >
               <em {...barWrapper.children} />
@@ -115,11 +104,11 @@ class Feature10 extends React.PureComponent {
           {childrenToRender}
         </AntCarousel>
       </QueueAnim>
-    );
-  };
+    )
+  }
 
   render() {
-    const { dataSource, isMobile, ...props } = this.props;
+    const { dataSource, isMobile, ...props } = this.props
     return (
       <div {...props} {...dataSource.wrapper}>
         <div {...dataSource.page}>
@@ -134,15 +123,11 @@ class Feature10 extends React.PureComponent {
                       Monibuca为了在扩展性上面做足功夫，在较短时间内进行了多次大版本迭代，每一次都重构了核心，很多用户还不能理解这中间发生了哪些变化，以及是否应该升级到最新版本。
                     </div>
                     <div className="left-title-sub dg">内容大纲</div>
-                    <div className="left-desc">
-                      1、简单介绍Monibuca的特点以及如何解决行业痛点。
-                    </div>
+                    <div className="left-desc">1、简单介绍Monibuca的特点以及如何解决行业痛点。</div>
                     <div className="left-desc">
                       2、重点揭示了Monibuca从1.0到4.0中间经过怎样的架构的演变，使得Monibuca的老用户理解升级到4.0的必要性。
                     </div>
-                    <div className="left-desc">
-                      3、聊一下关于升级开源项目架构遇到的挑战
-                    </div>
+                    <div className="left-desc">3、聊一下关于升级开源项目架构遇到的挑战</div>
                   </Space>
                 </Col>
                 <Col span={16}>
@@ -159,11 +144,13 @@ class Feature10 extends React.PureComponent {
                     {" "}
                   </iframe> */}
                   <Image
-                    style={{ cursor: 'pointer'}}
+                    style={{ cursor: 'pointer' }}
                     preview={false}
                     src="/img/video-title.png"
                     onClick={() => {
-                      window.open("https://www.bilibili.com/video/BV1jg411H7qE/?vd_source=3385e5c4706f720a2a249f63b97a1849");
+                      window.open(
+                        'https://www.bilibili.com/video/BV1jg411H7qE/?vd_source=3385e5c4706f720a2a249f63b97a1849'
+                      )
                     }}
                   ></Image>
                 </Col>
@@ -173,11 +160,13 @@ class Feature10 extends React.PureComponent {
               <Row>
                 <Col span={24}>
                   <Image
-                    style={{ cursor: 'pointer'}}
+                    style={{ cursor: 'pointer' }}
                     preview={false}
                     src="/img/video-title.png"
                     onClick={() => {
-                      window.open("https://www.bilibili.com/video/BV1jg411H7qE/?vd_source=3385e5c4706f720a2a249f63b97a1849");
+                      window.open(
+                        'https://www.bilibili.com/video/BV1jg411H7qE/?vd_source=3385e5c4706f720a2a249f63b97a1849'
+                      )
                     }}
                   ></Image>
                 </Col>
@@ -189,15 +178,11 @@ class Feature10 extends React.PureComponent {
                       Monibuca为了在扩展性上面做足功夫，在较短时间内进行了多次大版本迭代，每一次都重构了核心，很多用户还不能理解这中间发生了哪些变化，以及是否应该升级到最新版本。
                     </div>
                     <div className="left-title-sub dg">内容大纲</div>
-                    <div className="left-desc">
-                      1、简单介绍Monibuca的特点以及如何解决行业痛点。
-                    </div>
+                    <div className="left-desc">1、简单介绍Monibuca的特点以及如何解决行业痛点。</div>
                     <div className="left-desc">
                       2、重点揭示了Monibuca从1.0到4.0中间经过怎样的架构的演变，使得Monibuca的老用户理解升级到4.0的必要性。
                     </div>
-                    <div className="left-desc">
-                      3、聊一下关于升级开源项目架构遇到的挑战
-                    </div>
+                    <div className="left-desc">3、聊一下关于升级开源项目架构遇到的挑战</div>
                   </Space>
                 </Col>
               </Row>
@@ -209,7 +194,7 @@ class Feature10 extends React.PureComponent {
           {this.getChildrenToRender(dataSource)}
         </div>
       </div>
-    );
+    )
   }
 }
-export default Feature10;
+export default Feature10

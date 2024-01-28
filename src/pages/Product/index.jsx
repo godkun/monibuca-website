@@ -6,13 +6,11 @@ import { enquireScreen } from 'enquire-js'
 import Banner1 from './Banner1'
 import Feature11 from './Feature11'
 
-import {
-  Feature110DataSource,
-} from './data.source'
+import { Feature110DataSource } from './data.source'
 import './less/antMotionStyle.less'
 
 let isMobile
-enquireScreen((b) => {
+enquireScreen(b => {
   isMobile = b
 })
 
@@ -25,31 +23,26 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    enquireScreen((b) => {
+    enquireScreen(b => {
       this.setState({ isMobile: !!b })
     })
   }
 
   render() {
     const children = [
-      <Banner1
-        id="Banner1_0"
-        key="Banner1_0"
-        isMobile={this.state.isMobile}
-      />,
+      <Banner1 id="Banner1_0" key="Banner1_0" isMobile={this.state.isMobile} />,
 
       <Feature11
         id="Feature11_0"
         key="Feature11_0"
         dataSource={Feature110DataSource}
         isMobile={this.state.isMobile}
-      />,
-
+      />
     ]
     return (
       <div
         className="templates-wrapper"
-        ref={(d) => {
+        ref={d => {
           this.dom = d
         }}
       >

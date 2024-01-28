@@ -1,31 +1,31 @@
-import React from 'react';
-import TweenOne from 'rc-tween-one';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { Tabs, Row, Col } from 'antd';
-import { Icon } from '@ant-design/compatible';
-import { getChildrenToRender } from './utils';
+import React from 'react'
+import TweenOne from 'rc-tween-one'
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
+import { Tabs, Row, Col } from 'antd'
+import { Icon } from '@ant-design/compatible'
+import { getChildrenToRender } from './utils'
 
-const TabPane = Tabs.TabPane;
+const TabPane = Tabs.TabPane
 
 class Content7 extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      current: 1,
-    };
+      current: 1
+    }
   }
 
-  onChange = (key) => {
-    this.setState({ current: parseFloat(key) });
-  };
+  onChange = key => {
+    this.setState({ current: parseFloat(key) })
+  }
 
   getBlockChildren = (item, i) => {
-    const { tag, content } = item;
-    const { text, img } = content;
-    const textChildren = text.children;
-    const { icon } = tag;
-    const iconChildren = icon.children;
-    const tagText = tag.text;
+    const { tag, content } = item
+    const { text, img } = content
+    const textChildren = text.children
+    const { icon } = tag
+    const iconChildren = icon.children
+    const tagText = tag.text
     return (
       <TabPane
         key={i + 1}
@@ -43,17 +43,13 @@ class Content7 extends React.Component {
             delay: 300,
             opacity: 0,
             type: 'from',
-            ease: 'easeOutQuad',
+            ease: 'easeOutQuad'
           }}
           leave={null}
           component=""
         >
           {this.state.current === i + 1 && (
-            <Row
-              key="content"
-              className={content.className}
-              gutter={content.gutter}
-            >
+            <Row key="content" className={content.className} gutter={content.gutter}>
               <Col className={text.className} xs={text.xs} md={text.md}>
                 {textChildren}
               </Col>
@@ -64,15 +60,15 @@ class Content7 extends React.Component {
           )}
         </TweenOne.TweenOneGroup>
       </TabPane>
-    );
-  };
+    )
+  }
 
   render() {
-    const { ...props } = this.props;
-    const { dataSource } = props;
-    delete props.dataSource;
-    delete props.isMobile;
-    const tabsChildren = dataSource.block.children.map(this.getBlockChildren);
+    const { ...props } = this.props
+    const { dataSource } = props
+    delete props.dataSource
+    delete props.isMobile
+    const tabsChildren = dataSource.block.children.map(this.getBlockChildren)
     return (
       <div {...props} {...dataSource.wrapper}>
         <div {...dataSource.page}>
@@ -87,7 +83,7 @@ class Content7 extends React.Component {
                 y: 30,
                 opacity: 0,
                 delay: 200,
-                type: 'from',
+                type: 'from'
               }}
               leave={{ y: 30, opacity: 0 }}
               {...dataSource.tabsWrapper}
@@ -104,8 +100,8 @@ class Content7 extends React.Component {
           </OverPack>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Content7;
+export default Content7
