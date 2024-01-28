@@ -48,7 +48,7 @@ export const Feature120DataSource = {
                       <div className="title">Mac 系统下载</div>
                       <div className="sub-title">系统版本: 请查看安装教程</div>
                     </Space>
-                    <div className="img iconfont icon-apple"></div>
+                    <img className="img" src="/img/ic_mac.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
                     <Button type="primary">立即下载</Button>
@@ -70,7 +70,7 @@ export const Feature120DataSource = {
                       <div className="title">Linux 系统下载</div>
                       <div className="sub-title">系统版本: 请查看安装教程</div>
                     </Space>
-                    <div className="img iconfont icon-linux"></div>
+                    <img className="img" src="/img/ic_linux.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
                     <Button type="primary">立即下载</Button>
@@ -92,7 +92,7 @@ export const Feature120DataSource = {
                       <div className="title">Windows 系统下载</div>
                       <div className="sub-title">系统版本: 请查看安装教程</div>
                     </Space>
-                    <div className="img iconfont icon-windows"></div>
+                    <img className="img" src="/img/ic_windows.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
                     <Button type="primary">立即下载</Button>
@@ -113,7 +113,7 @@ export const Feature120DataSource = {
                       <div className="title">Mac(arm64) 系统下载</div>
                       <div className="sub-title">系统版本: 请查看安装教程</div>
                     </Space>
-                    <div className="img iconfont icon-apple"></div>
+                    <img className="img" src="/img/ic_mac.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
                     <Button type="primary">立即下载</Button>
@@ -135,7 +135,7 @@ export const Feature120DataSource = {
                       <div className="title">Linux(arm64) 系统下载</div>
                       <div className="sub-title">系统版本: 请查看安装教程</div>
                     </Space>
-                    <div className="img iconfont icon-linux"></div>
+                    <img className="img" src="/img/ic_linux.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
                     <Button type="primary">立即下载</Button>

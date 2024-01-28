@@ -917,7 +917,7 @@ export const Feature80DataSource = {
                           <div className="title">Mac(arm64) 系统下载</div>
                           <div className="sub-title">系统版本: 请查看安装教程</div>
                         </Space>
-                        <div className="img iconfont icon-apple"></div>
+                        <img className="img" src="/img/ic_mac.png" alt="" />
                       </Space>
                       <Space direction="vertical" align="start">
                         <Button type="primary">立即下载</Button>
@@ -929,7 +929,7 @@ export const Feature80DataSource = {
                           <div className="title">Windows版下载</div>
                           <div className="sub-title">Windows 10 及以上系统可用</div>
                         </Space>
-                        <div className="img iconfont icon-windows"></div>
+                        <img className="img" src="/img/ic_windows.png" alt="" />
                       </Space>
                       <Space direction="vertical" align="start">
                         <Button type="primary">立即下载</Button>
