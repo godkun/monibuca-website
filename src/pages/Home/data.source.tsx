@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Space, Image, Typography } from 'antd'
+import { Space, Image, Typography, Popover } from 'antd'
 // @ts-ignore
 import { enquireScreen } from 'enquire-js'
 
@@ -843,19 +843,32 @@ export const Feature80DataSource = {
                   />
                   <div className="desc">
                     说明：体验版包括 global 下的所有接口，但不包括插件接口，
-                    获取完整版步骤：扫描本页面最下面左侧支持我们， 赞助 99 元，将 【 截图 】
-                    发送到【 公众号私信】，我们将发送完整版给您。
+                    获取完整版步骤：鼠标移到赞赏按钮上，赞助 99 元，将 【 截图 】
+                    发送到【不卡科技公众号 私信】，我们将发送完整版给您。
                   </div>
                   <Space size="large">
-                    <div className="btn1">
-                      <img
-                        src="/svg/ic_QR code.svg"
-                        alt=""
-                        width={24}
-                        style={{ marginRight: '9px' }}
-                      />
-                      赞赏 99 元
-                    </div>
+                    <Popover
+                      content={
+                        <Space>
+                          <div style={{marginRight: '20px'}}>
+                            <img src="/img/wx-pay.jpg" alt="" height={250} />
+                          </div>
+                          <div>
+                            <img src="/img/zf-pay.jpg" alt="" height={250} />
+                          </div>
+                        </Space>
+                      }
+                    >
+                      <div className="btn1">
+                        <img
+                          src="/svg/ic_QR code.svg"
+                          alt=""
+                          width={24}
+                          style={{ marginRight: '9px' }}
+                        />
+                        赞赏 99 元
+                      </div>
+                    </Popover>
                     <div className="btn2">立即体验</div>
                   </Space>
                 </Space>

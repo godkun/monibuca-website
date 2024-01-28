@@ -1,3 +1,4 @@
+import { Popover } from 'antd'
 // @ts-ignore
 import { enquireScreen } from 'enquire-js'
 
@@ -277,8 +278,55 @@ export const Footer10DataSource = {
         title: { children: '联系我们' },
         childWrapper: {
           children: [
-            { href: '#', name: 'link0', children: 'Monibuca 微信交流群' },
-            { href: '#', name: 'link1', children: '[ 不卡学院 ] 交流群' }
+            {
+              href: '#',
+              name: 'link0',
+
+              children: (
+                <Popover
+                  content={
+                    <div>
+                      <img src="/img/wx-mp.jpg" alt="" height={250} />
+                    </div>
+                  }
+                >
+                  微信号：不卡科技
+                  <img src="/svg/ic_QR code.svg" alt="" width={24} style={{ marginRight: '9px' }} />
+                </Popover>
+              )
+            },
+            {
+              href: '#',
+              name: 'link1',
+              children: (
+                <Popover
+                  content={
+                    <div>
+                      <img src="/img/qq-qun.jpeg" alt="" height={250} />
+                    </div>
+                  }
+                >
+                  QQ群：751639168
+                  <img src="/svg/ic_QR code.svg" alt="" width={24} style={{ marginRight: '9px' }} />
+                </Popover>
+              )
+            },
+            {
+              href: '#',
+              name: 'link2',
+              children: (
+                <Popover
+                  content={
+                    <div>
+                      <img src="/img/qqgroup.jpg" alt="" height={250} />
+                    </div>
+                  }
+                >
+                  QQ频道：p0qq0crz08
+                  <img src="/svg/ic_QR code.svg" alt="" width={24} style={{ marginRight: '9px' }} />
+                </Popover>
+              )
+            }
           ]
         }
       }
