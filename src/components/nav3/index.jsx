@@ -1,10 +1,10 @@
-import React from 'react';
-import TweenOne from 'rc-tween-one';
-import { Menu } from 'antd';
-import { getChildrenToRender } from '../../utils';
-import "./less/antMotionStyle.less"
+import React from "react";
+import TweenOne from "rc-tween-one";
+import { Menu } from "antd";
+import { getChildrenToRender } from "../../utils";
+import "./less/antMotionStyle.less";
 
-import router from '../../router'
+import router from "../../router";
 
 const { Item } = Menu;
 
@@ -24,13 +24,19 @@ class Header3 extends React.Component {
   };
 
   jump = (path) => {
-    if (path.includes('http')) {
+    if (path.includes("http")) {
       window.open(path);
-    } else router.navigate(path)
-  }
+    } else router.navigate(path);
+  };
+
+  getDefaultNav = () => {
+    const path = window.location.pathname;
+    return [path];
+  };
 
   render() {
     const { dataSource, isMobile, ...props } = this.props;
+    // this.getDefaultNav()
     const { phoneOpen } = this.state;
     const navData = dataSource.Menu.children;
 
@@ -38,7 +44,11 @@ class Header3 extends React.Component {
       const { children: a, subItem, ...itemProps } = item;
       return (
         <Item key={item.name} {...itemProps}>
-          <div onClick={() => this.jump(item.children.href)} {...a} className={`header3-item-block ${a.className}`.trim()}>
+          <div
+            onClick={() => this.jump(item.children.href)}
+            {...a}
+            className={`header3-item-block ${a.className}`.trim()}
+          >
             {a.children.map(getChildrenToRender)}
           </div>
         </Item>
@@ -54,7 +64,7 @@ class Header3 extends React.Component {
       >
         <div
           {...dataSource.page}
-          className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}
+          className={`${dataSource.page.className}${phoneOpen ? " open" : ""}`}
         >
           <TweenOne
             // animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
@@ -84,10 +94,10 @@ class Header3 extends React.Component {
                     duration: 300,
                     onComplete: (e) => {
                       if (this.state.phoneOpen) {
-                        e.target.style.height = 'auto';
+                        e.target.style.height = "auto";
                       }
                     },
-                    ease: 'easeInOutQuad',
+                    ease: "easeInOutQuad",
                   }
                 : null
             }
@@ -95,8 +105,8 @@ class Header3 extends React.Component {
             reverse={!!phoneOpen}
           >
             <Menu
-              mode={isMobile ? 'inline' : 'horizontal'}
-              defaultSelectedKeys={['item0']}
+              mode={isMobile ? "inline" : "horizontal"}
+              defaultSelectedKeys={() => this.getDefaultNav()}
               theme="light"
             >
               {navChildren}
