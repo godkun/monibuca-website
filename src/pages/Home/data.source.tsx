@@ -879,7 +879,9 @@ export const Feature80DataSource = {
                         赞赏 99 元
                       </div>
                     </Popover>
-                    <div className="btn2">立即体验</div>
+                    <div className="btn2"  onClick={() => {
+                    window.open("https://apifox.com/apidoc/shared-53418b09-8f45-49e5-94e3-1b93870b304f")
+                  }}>立即体验</div>
                   </Space>
                 </Space>
               )
