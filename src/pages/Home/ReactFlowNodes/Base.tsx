@@ -5,10 +5,16 @@ import 'reactflow/dist/style.css'
 import stream from './Stream'
 import plugin from './Plugin'
 import player from './Player'
-import source from './Source'
+import source, { SourceType as sourceType } from './Source'
 import remote from './Remote'
-import { Tabs, Card, Space } from 'antd'
+import { Tabs, Card, Space, Segmented } from 'antd'
 import Highlight from 'react-highlight'
+
+const playType = memo<{ data: { playType: string; onChangePlayType: () => void } }>(
+  ({ data: { playType, onChangePlayType } }) => {
+    return <Segmented options={['播放', '转推']} value={playType} onChange={onChangePlayType} />
+  }
+)
 export default function Base(props) {
   const graph = (
     <div style={{ width: 500, height: 500 }}>
@@ -18,7 +24,7 @@ export default function Base(props) {
         autoPanOnNodeDrag={false}
         autoPanOnConnect={false}
         panOnDrag={false}
-        draggable={false}
+        // draggable={false}
         zoomOnScroll={false}
         panOnScroll={false}
         zoomOnPinch={false}
@@ -32,7 +38,9 @@ export default function Base(props) {
           stream,
           player,
           source,
-          remote
+          remote,
+          playType,
+          sourceType
         }}
         edges={props.edges}
       >

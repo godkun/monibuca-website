@@ -39,27 +39,132 @@ export class FlowContext {
   setEdges?: React.Dispatch<React.SetStateAction<Edge[]>>
   setPlugins?: React.Dispatch<React.SetStateAction<string[]>>
   setConfig?: React.Dispatch<React.SetStateAction<string>>
+  setStream?: React.Dispatch<React.SetStateAction<string>>
   state: {
     nodes: Node[]
     edges: Edge[]
     plugins: string[]
     config: string
+    stream: string
   } = {
     nodes: [],
     edges: [],
     plugins: [],
-    config: ''
+    config: '',
+    stream: ''
   }
-  constructor(...nodes: Node[]) {
+  constructor({
+    nodes,
+    isMobile,
+    sourceType = true,
+    playType = true
+  }: {
+    nodes?: Node[]
+    isMobile: boolean
+    sourceType: boolean
+    playType: boolean
+  }) {
+    if (!nodes) nodes = defaultM7sNode(isMobile)
+    if (sourceType) {
+      nodes.push({
+        id: 'sourceTypeSelector',
+        type: 'sourceType',
+        position: { x: 0, y: 0 },
+        data: {
+          onChangeSourceType: (t: '推流' | '拉流') => {
+            this.updateNodeData('sourceTypeSelector', { sourceType: t })
+            switch (t) {
+              case '推流':
+                {
+                  const pusher = new PusherContainer(
+                    {
+                      id: 'source',
+                      type: 'source',
+                      position: { x: isMobile ? 0 : 150, y: 0 },
+                      data: {
+                        title: '推流端',
+                        tool: 'ffmpeg'
+                      }
+                    },
+                    this
+                  )
+                  pusher.changeProtocol('rtmp')
+                }
+                break
+              case '拉流': {
+                const puller = new PullerContainer(
+                  {
+                    id: 'source',
+                    type: 'source',
+                    position: { x: isMobile ? 0 : 150, y: 0 },
+                    data: { title: '视频源', tool: '远端服务器' }
+                  },
+                  this
+                )
+                puller.changeProtocol('rtmp')
+              }
+            }
+          }
+        }
+      })
+    }
+    if (playType) {
+      nodes.push({
+        id: 'playTypeSelector',
+        type: 'playType',
+        position: { x: 0, y: 300 },
+        data: {
+          onChangePlayType: (t: '转推' | '播放') => {
+            this.updateNodeData('playTypeSelector', { playType: t })
+            switch (t) {
+              case '转推':
+                {
+                  const pusher = new PushOutContainer(
+                    {
+                      id: 'player',
+                      type: 'remote',
+                      position: { x: isMobile ? 0 : 150, y: 280 },
+                      data: {}
+                    },
+                    this
+                  )
+                  pusher.changeProtocol('CDN')
+                }
+                break
+              case '播放': {
+                const player = new PlayerContainer(
+                  {
+                    id: 'player',
+                    type: 'player',
+                    position: { x: isMobile ? 0 : 150, y: 280 },
+                    data: {}
+                  },
+                  this
+                )
+                player.changeProtocol('http-flv')
+              }
+            }
+          }
+        }
+      })
+    }
     nodes.forEach(n => this.addNode(n))
   }
-  pipe(...nodes: (Node | NodeContainer)[]) {
-    nodes.reduce(
-      (prev: NodeContainer, curr) =>
-        prev.connect(curr instanceof NodeContainer ? curr : new NodeContainer(curr, this)),
-      nodes[0] instanceof NodeContainer ? nodes[0] : new NodeContainer(nodes[0], this)
-    )
+  pipe(...nodes: (Node | NodeContainer | string)[]) {
+    nodes.reduce((prev, curr) => this.getContainer(prev).connect(this.getContainer(curr)))
     return this
+  }
+  replaceNode(node: NodeContainer) {
+    const nc = this.ncs.get(node.data.id)
+    this.ncs.set(node.data.id, node)
+    nc?.next.forEach(n => this.pipe(node, n))
+  }
+  getContainer(key: Node | NodeContainer | string) {
+    return key instanceof NodeContainer
+      ? key
+      : typeof key === 'string'
+        ? this.ncs.get(key)!
+        : new NodeContainer(key, this)
   }
   set pluginState([plugins, setPlugins]: [
     string[],
@@ -67,6 +172,10 @@ export class FlowContext {
   ]) {
     this.setPlugins = setPlugins
     this.state.plugins = plugins
+  }
+  set streamState([stream, setStream]: [string, React.Dispatch<React.SetStateAction<string>>]) {
+    this.setStream = setStream
+    this.state.stream = stream
   }
   set nodeState([nodes, setNodes]: [Node[], React.Dispatch<React.SetStateAction<Node[]>>]) {
     this.setNodes = setNodes
@@ -98,8 +207,23 @@ export class FlowContext {
   }
   _updatePlugins() {
     this.plugins.clear()
-    this.ncs.forEach(n => n.plugin && this.plugins.add(n.plugin))
+    this.ncs.forEach(n => n.data.type === 'plugin' && this.plugins.add(n.data.data.name))
     this.setPlugins?.(Array.from(this.plugins))
+  }
+  _updateConfig() {
+    this.config = ''
+    const s = new Map<string, string>()
+    this.ncs.forEach(n => {
+      n.config.forEach((v, k) => {
+        s.set(k, s.has(k) ? s.get(k) + '\n' + v : v)
+      })
+    })
+    s.forEach((v, k) => {
+      this.config += `
+${k}:${v}`
+    })
+    this.config = this.config.trim()
+    this.setConfig?.(this.config)
   }
   updateNode(key: string | NodeContainer, data?: object) {
     const node = typeof key === 'string' ? this.ncs.get(key) : key
@@ -111,6 +235,7 @@ export class FlowContext {
     const node = typeof key === 'string' ? this.ncs.get(key) : key
     if (!node) return
     if (data) node.data = { ...node.data, data: { ...node.data.data, ...data } }
+    if ('name' in node.data.data) this._updatePlugins()
     this._updateNodes()
   }
   updateEdge(key: string | EdgeContainer, data?: object) {
@@ -131,6 +256,7 @@ export class NodeContainer {
   inputEdge?: EdgeContainer
   next: NodeContainer[] = []
   plugin?: string
+  config = new Map<string, string>()
   stream = 'live/test'
   url?: string
   onChangeProtocol?: (protocol: string) => void
@@ -140,12 +266,21 @@ export class NodeContainer {
   ) {
     if (!this.data.data) this.data.data = {}
     this.data.data.container = this
-    context.ncs.set(data.id, this)
-    context._updateNodes()
+    this.init()
+  }
+  init() {
+    if (this.context.ncs.get(this.data.id)) {
+      this.context.replaceNode(this)
+    } else {
+      this.context.ncs.set(this.data.id, this)
+      // this.context._updateNodes()
+    }
   }
   connect(target: NodeContainer) {
     this.next.push(target)
-    target.inputEdge = new EdgeContainer(this, target, this.context)
+    if (target.inputEdge && this.context.ecs.get(`${this.data.id}-${target.data.id}`))
+      target.inputEdge.source = this
+    else target.inputEdge = new EdgeContainer(this, target, this.context)
     return target
   }
   protocol2url(protocol: string) {
@@ -185,6 +320,8 @@ export class NodeContainer {
   }
   changePlugin(plugin: string) {
     this.plugin = plugin
+    this.config.clear()
+    this.context._updateConfig()
     this.context._updatePlugins()
   }
   changeProtocol(protocol: string) {
@@ -252,6 +389,24 @@ const SourceTypeSelector = memo<{ container: PullerContainer }>(function ({ cont
 })
 
 export class SourceContainer extends NodeContainer {
+  init() {
+    super.init()
+    this.onChangeProtocol = protocol => {
+      switch (protocol) {
+        case 'gb28181':
+          this.context.setStream?.('34020000001310000011/34020000001310000001')
+          this.context.updateNode('stream1', { position: { x: 50, y: 50 } })
+          break
+        case 'onvif':
+          this.context.setStream?.('onvif/eth0/192_168_1_2_8080')
+          this.context.updateNode('stream1', { position: { x: 50, y: 50 } })
+          break
+        default:
+          this.context.setStream?.('live/test')
+          this.context.updateNode('stream1', { position: { x: 150, y: 50 } })
+      }
+    }
+  }
   changeProtocol(protocol: string): void {
     this.url = this.protocol2url(protocol)
     super.changeProtocol(protocol)
@@ -262,50 +417,52 @@ export class SourceContainer extends NodeContainer {
   }
 }
 export class PusherContainer extends SourceContainer {
-  constructor(
-    public data: Node,
-    public context: FlowContext
-  ) {
-    super(data, context)
-    this.data.data.protocols = pusherProtocol[data.data.tool]
+  init() {
+    super.init()
+    this.data.data.protocols = pusherProtocol[this.data.data.tool]
     this.data.data.extra = <ToolSelector container={this} />
   }
 }
 
 export class PullerContainer extends SourceContainer {
-  constructor(
-    public data: Node,
-    public context: FlowContext
-  ) {
-    super(data, context)
-    this.data.data.protocols = sourceTypes[data.data.tool]
+  init() {
+    super.init()
+    this.data.data.protocols = sourceTypes[this.data.data.tool]
     this.data.data.extra = <SourceTypeSelector container={this} />
   }
   changePlugin(plugin: string) {
     super.changePlugin(plugin)
     switch (plugin) {
       case 'gb28181':
-        this.context.config = `${this.plugin}:
+        this.config.set(
+          plugin,
+          `
   sipip: 192.168.1.1
   mediaip:  192.168.1.1`
+        )
         break
       case 'onvif':
-        this.context.config = `${this.plugin}:
+        this.config.set(
+          plugin,
+          `
   interfaces: # 设备发现指定网卡
     - interfacename: eth0  # 网卡名称
       username: admin # onvif 账号
       password: admin # onvif 密码`
+        )
         break
       case 'record':
-        this.context.config = ''
         break
       default:
-        this.context.config = `${this.plugin}:
+        this.config.set(
+          plugin,
+          `
   pull:
     pullonstart:
       ${this.stream}: ${this.url}`
+        )
     }
-    this.context.setConfig?.(this.context.config)
+    this.context._updateConfig()
   }
   protocol2url(protocol: string) {
     const stream = this.stream
@@ -352,18 +509,19 @@ export class PlayerContainer extends NodeContainer {
 
 export class PushOutContainer extends PlayerContainer {
   changePlugin(plugin: string) {
-    this.plugin = plugin == 'm7s' ? 'rtmp' : 'cdn'
-    this.context._updatePlugins()
-    this.context.config =
+    super.changePlugin(plugin == 'm7s' ? 'rtmp' : 'cdn')
+    this.config.set(
+      this.plugin!,
       plugin == 'm7s'
-        ? `${this.plugin}:
+        ? `
   push:
     pushlist:
       ${this.stream}: ${this.url}`
-        : `${this.plugin}:
+        : `
   target:
     - host: ${this.url}`
-    this.context.setConfig?.(this.context.config)
+    )
+    this.context._updateConfig()
   }
 
   protocol2url(protocol: string) {
@@ -392,6 +550,14 @@ export class EdgeContainer {
       labelStyle: { fill: 'white' },
       animated: true,
       style: { stroke: 'cyan', strokeWidth: 3 }
+    }
+    if (target.data.type !== 'stream' && target.data.data.process) {
+      this.data.sourceHandle = 'processOut'
+      this.data.style.strokeWidth = 1
+    }
+    if (source.data.type !== 'stream' && source.data.data.process) {
+      this.data.targetHandle = 'processIn'
+      this.data.style.strokeWidth = 1
     }
     context.ecs.set(this.data.id, this)
     context._updateEdges()

@@ -10,7 +10,7 @@ import {
 
 const Live = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   const [stream, setStream] = React.useState('live/test')
-  const ctx = new FlowContext(...defaultM7sNode(isMobile))
+  const ctx = new FlowContext({ isMobile, sourceType: false, playType: false })
   const pusher = new PusherContainer(
     {
       id: 'pusher',

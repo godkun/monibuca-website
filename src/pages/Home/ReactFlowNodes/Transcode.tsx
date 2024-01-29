@@ -1,15 +1,18 @@
 import React, { memo } from 'react'
 import Base from './Base'
-import { FlowContext, PullerContainer, StreamContext, PlayerContainer } from './Node'
+import { FlowContext, PlayerContainer, PusherContainer, StreamContext } from './Node'
 
-const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
-  const ctx = new FlowContext({ isMobile, sourceType: false, playType: false })
-  const pusher = new PullerContainer(
+const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
+  const ctx = new FlowContext({ isMobile })
+  const pusher = new PusherContainer(
     {
-      id: 'puller',
+      id: 'source',
       type: 'source',
       position: { x: isMobile ? 0 : 150, y: 0 },
-      data: { title: '视频源', tool: '远端服务器' }
+      data: {
+        title: '推流端',
+        tool: 'ffmpeg'
+      }
     },
     ctx
   )
@@ -33,7 +36,7 @@ const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       position: { x: 150, y: 50 },
       parentNode: 'm7s',
       extent: 'parent',
-      data: {}
+      data: { process: true }
     },
     {
       id: 'plugin2',
@@ -45,17 +48,32 @@ const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     },
     player
   )
+  ctx.pipe(
+    'stream1',
+    {
+      id: 'plugin3',
+      type: 'plugin',
+      position: { x: 270, y: 50 },
+      parentNode: 'm7s',
+      extent: 'parent',
+      data: {
+        process: true,
+        name: 'transcode'
+      }
+    },
+    'stream1'
+  )
   pusher.changeProtocol('rtmp')
-  player.changeProtocol('http-flv')
-  ctx.streamState = React.useState('live/test')
+  player.changeProtocol('CDN')
   ctx.pluginState = React.useState(Array.from(ctx.plugins))
   ctx.nodeState = React.useState(ctx.nodes)
   ctx.edgeState = React.useState(ctx.edges)
   ctx.configState = React.useState(ctx.config)
+  ctx.streamState = React.useState('live/test')
   return (
     <StreamContext.Provider value={ctx.state.stream}>
       <Base {...ctx.state} isMobile={isMobile} />
     </StreamContext.Provider>
   )
 })
-export default Relay
+export default Crypto

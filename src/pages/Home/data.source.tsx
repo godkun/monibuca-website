@@ -8,6 +8,8 @@ import { Nav30DataSource } from '../../data/index'
 import Live from './ReactFlowNodes/Live'
 import Relay from './ReactFlowNodes/Relay'
 import CDN from './ReactFlowNodes/CDN'
+import Crypto from './ReactFlowNodes/Crypto'
+import Transcode from './ReactFlowNodes/Transcode'
 const { Text } = Typography
 
 const downloadUrl = {
@@ -275,7 +277,7 @@ export const Feature40DataSource = {
 
     titleWrapper: {
       className: 'feature4-title-wrapper',
-      children: [{ name: 'title', children: '业务场景', className: 'title-h1' }],
+      children: [{ name: 'title', children: '使用场景', className: 'title-h1' }],
       barWrapper: {
         className: 'feature4-title-bar-wrapper',
         children: {
@@ -299,11 +301,11 @@ export const Feature40DataSource = {
       },
       {
         title: '加密',
-        children: Live
+        children: Crypto
       },
       {
         title: '转码',
-        children: Live
+        children: Transcode
       },
       {
         title: '时移',
@@ -314,7 +316,15 @@ export const Feature40DataSource = {
         children: Live
       },
       {
+        title: '语音对讲',
+        children: Relay
+      },
+      {
         title: '视频会议',
+        children: Live
+      },
+      {
+        title: '其他功能',
         children: Live
       }
     ]

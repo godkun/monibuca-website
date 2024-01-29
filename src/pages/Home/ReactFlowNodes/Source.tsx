@@ -1,7 +1,8 @@
-import React, { memo } from 'react'
-import { Handle, Position } from 'reactflow'
-import { Select, Tag, Radio, Card } from 'antd'
-const Source = memo(({ data: { container, protocol, title, protocols, extra } }) => {
+import React, { memo } from 'react';
+import { Handle, Position } from 'reactflow';
+import { Segmented, Tag, Radio, Card } from 'antd';
+import { NodeContainer } from './Node';
+const Source = memo<{ data: { container: NodeContainer; }; }>(({ data: { container, protocol, title, protocols, extra } }) => {
   return (
     <>
       <Card
@@ -32,6 +33,11 @@ const Source = memo(({ data: { container, protocol, title, protocols, extra } })
         style={{ width: 10, height: 8, borderRadius: 3 }}
       />
     </>
-  )
-})
-export default Source
+  );
+});
+export default Source;
+export const SourceType = memo<{ data: { sourceType: string; onChangeSourceType: () => void; }; }>(({ data: { sourceType, onChangeSourceType } }) => {
+  return (
+    <Segmented options={['推流', '拉流']} value={sourceType} onChange={onChangeSourceType} />
+  );
+});
