@@ -20,7 +20,7 @@ export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
   ctx.streamState = React.useState('live/test')
   ctx.configState = React.useState(ctx.config)
   const graph = (
-    <div style={{ width: 500, height: 500 }}>
+    <div className="nowheel" style={{ width: 500, height: 500 }}>
       <StreamContext.Provider value={ctx.state.stream}>
         <ReactFlow
           nodesConnectable={false}
