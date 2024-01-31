@@ -10,6 +10,11 @@ import Relay from './ReactFlowNodes/Relay'
 import CDN from './ReactFlowNodes/CDN'
 import Crypto from './ReactFlowNodes/Crypto'
 import Transcode from './ReactFlowNodes/Transcode'
+import TimeShift from './ReactFlowNodes/TimeShift'
+import Cascade from './ReactFlowNodes/Cascade'
+import Voice from './ReactFlowNodes/Voice'
+import Meet from './ReactFlowNodes/Meet'
+import Other from './ReactFlowNodes/Other'
 const { Text } = Typography
 
 const downloadUrl = {
@@ -309,23 +314,23 @@ export const Feature40DataSource = {
       },
       {
         title: '时移',
-        children: Live
+        children: TimeShift
       },
       {
         title: '级联',
-        children: Live
+        children: Cascade
       },
       {
         title: '语音对讲',
-        children: Relay
+        children: Voice
       },
       {
         title: '视频会议',
-        children: Live
+        children: Meet
       },
       {
         title: '其他功能',
-        children: Live
+        children: Other
       }
     ]
   }

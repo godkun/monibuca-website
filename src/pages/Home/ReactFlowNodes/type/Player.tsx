@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
 import { Select, Tag, Radio, Card } from 'antd'
-import { NodeContainer, PullerContainer, protocol2plugin } from './Node'
+import { NodeContainer, PullerContainer, protocol2plugin } from '../Node'
 const pusherProtocol = {
   jessibuca: [
     'http-flv',
@@ -30,7 +30,7 @@ const Player = memo(({ data: { container, protocol, tool = 'jessibuca' } }) => {
           borderRadius: 10,
           boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)'
         }}
-        headStyle={{ background: 'violet', borderRadius: '10px 10px 0 0', color: 'white' }}
+        headStyle={{ background: '#c217ec', borderRadius: '10px 10px 0 0', color: 'white' }}
         extra={
           <select
             onChange={event => {
@@ -40,7 +40,7 @@ const Player = memo(({ data: { container, protocol, tool = 'jessibuca' } }) => {
                 container.changeProtocol(pusherProtocol[v][0] as keyof typeof protocol2plugin)
               }
             }}
-            style={{ width: 80, border: 'none', color: 'white', background: 'violet' }}
+            style={{ width: 80, border: 'none', color: 'white', background: '#c217ec' }}
           >
             {Object.keys(pusherProtocol).map(type => (
               <option value={type}>{type}</option>

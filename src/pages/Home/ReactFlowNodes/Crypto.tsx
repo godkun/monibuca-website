@@ -1,11 +1,6 @@
 import React, { memo } from 'react'
 import Base from './Base'
-import {
-  FlowContext,
-  PlayerContainer,
-  PusherContainer,
-  StreamContext,
-} from './Node'
+import { FlowContext, PlayerContainer, PusherContainer } from './Node'
 
 const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   const ctx = new FlowContext({ isMobile })
@@ -13,7 +8,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'source',
       type: 'source',
-      position: { x: isMobile ? 0 : 150, y: 0 },
+      position: { x: 150, y: 0 },
       data: {
         title: '推流端',
         tool: 'ffmpeg'
@@ -22,7 +17,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     ctx
   )
   const player = new PlayerContainer(
-    { id: 'player', type: 'player', position: { x: isMobile ? 0 : 150, y: 280 }, data: {} },
+    { id: 'player', type: 'player', position: { x: 150, y: 280 }, data: {} },
     ctx
   )
   ctx.pipe(
@@ -70,15 +65,6 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   )
   pusher.changeProtocol('rtmp')
   player.changeProtocol('CDN')
-  ctx.pluginState = React.useState(Array.from(ctx.plugins))
-  ctx.nodeState = React.useState(ctx.nodes)
-  ctx.edgeState = React.useState(ctx.edges)
-  ctx.configState = React.useState(ctx.config)
-  ctx.streamState = React.useState('live/test')
-  return (
-    <StreamContext.Provider value={ctx.state.stream}>
-      <Base {...ctx.state} isMobile={isMobile} />
-    </StreamContext.Provider>
-  )
+  return <Base ctx={ctx} />
 })
 export default Crypto

@@ -11,7 +11,7 @@ export const defaultM7sNode = (isMobile: boolean) => [
       width: isMobile ? 380 : 400,
       height: 120,
       backdropFilter: 'blur(10px)',
-      background: 'gray'
+      background: '#6d1eff'
     },
     data: {}
   },
@@ -31,10 +31,12 @@ export interface NodeData {
   protocols?: string[]
 }
 export class FlowContext {
+  isMobile: boolean
   ncs = new Map<string, NodeContainer>()
   ecs = new Map<string, EdgeContainer>()
   plugins = new Set<string>()
   config = ''
+  configs?: { [key: string]: string }
   setNodes?: React.Dispatch<React.SetStateAction<Node[]>>
   setEdges?: React.Dispatch<React.SetStateAction<Edge[]>>
   setPlugins?: React.Dispatch<React.SetStateAction<string[]>>
@@ -61,18 +63,21 @@ export class FlowContext {
   }: {
     nodes?: Node[]
     isMobile: boolean
-    sourceType: boolean
-    playType: boolean
+    sourceType?: boolean
+    playType?: boolean
   }) {
+    this.isMobile = isMobile
     if (!nodes) nodes = defaultM7sNode(isMobile)
     if (sourceType) {
       nodes.push({
         id: 'sourceTypeSelector',
-        type: 'sourceType',
+        type: 'segmented',
         position: { x: 0, y: 0 },
         data: {
-          onChangeSourceType: (t: '推流' | '拉流') => {
-            this.updateNodeData('sourceTypeSelector', { sourceType: t })
+          value: '推流',
+          options: ['推流', '拉流'],
+          onChange: (t: '推流' | '拉流') => {
+            this.updateNodeData('sourceTypeSelector', { value: t })
             switch (t) {
               case '推流':
                 {
@@ -111,11 +116,13 @@ export class FlowContext {
     if (playType) {
       nodes.push({
         id: 'playTypeSelector',
-        type: 'playType',
+        type: 'segmented',
         position: { x: 0, y: 300 },
         data: {
-          onChangePlayType: (t: '转推' | '播放') => {
-            this.updateNodeData('playTypeSelector', { playType: t })
+          value: '播放',
+          options: ['播放','转推'],
+          onChange: (t: '转推' | '播放') => {
+            this.updateNodeData('playTypeSelector', { value: t })
             switch (t) {
               case '转推':
                 {
@@ -149,6 +156,12 @@ export class FlowContext {
       })
     }
     nodes.forEach(n => this.addNode(n))
+  }
+  clear() {
+    this.ecs.clear()
+    this.ncs.clear()
+    this._updateNodes()
+    this._updateEdges()
   }
   pipe(...nodes: (Node | NodeContainer | string)[]) {
     nodes.reduce((prev, curr) => this.getContainer(prev).connect(this.getContainer(curr)))
@@ -348,7 +361,7 @@ const ToolSelector = memo<{ container: PusherContainer }>(function ({ container 
           container.changeProtocol(pusherProtocol[v][0])
         }
       }}
-      style={{ width: 70, border: 'none', color: 'white', background: 'violet' }}
+      style={{ width: 70, border: 'none', color: 'white', background: '#c217ec' }}
     >
       {Object.keys(pusherProtocol).map(type => (
         <option value={type} selected={container.data.data.tool === type}>
@@ -376,7 +389,7 @@ const SourceTypeSelector = memo<{ container: PullerContainer }>(function ({ cont
           container.changeProtocol(sourceTypes[v][0])
         }
       }}
-      style={{ width: 100, border: 'none', color: 'white', background: 'violet' }}
+      style={{ width: 100, border: 'none', color: 'white', background: '#c217ec' }}
     >
       {Object.keys(sourceTypes).map(type => (
         <option value={type} selected={container.data.data.tool === type}>
@@ -560,7 +573,6 @@ export class EdgeContainer {
       this.data.style.strokeWidth = 1
     }
     context.ecs.set(this.data.id, this)
-    context._updateEdges()
   }
   update(data: object) {
     this.context.updateEdge(this, data)

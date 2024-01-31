@@ -2,50 +2,55 @@ import React, { memo } from 'react'
 import ReactFlow, { Background } from 'reactflow'
 import 'rc-banner-anim/assets/index.css'
 import 'reactflow/dist/style.css'
-import stream from './Stream'
-import plugin from './Plugin'
-import player from './Player'
-import source, { SourceType as sourceType } from './Source'
-import remote from './Remote'
+import stream from './type/Stream'
+import plugin from './type/Plugin'
+import player from './type/Player'
+import source from './type/Source'
+import remote from './type/Remote'
+import segmented from './type/Segmented'
+import { TagNode as tagNode } from './type/Tag'
 import { Tabs, Card, Space, Segmented } from 'antd'
 import Highlight from 'react-highlight'
+import { FlowContext, StreamContext } from './Node'
 
-const playType = memo<{ data: { playType: string; onChangePlayType: () => void } }>(
-  ({ data: { playType, onChangePlayType } }) => {
-    return <Segmented options={['播放', '转推']} value={playType} onChange={onChangePlayType} />
-  }
-)
-export default function Base(props) {
+export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
+  ctx.pluginState = React.useState(Array.from(ctx.plugins))
+  ctx.nodeState = React.useState(ctx.nodes)
+  ctx.edgeState = React.useState(ctx.edges)
+  ctx.streamState = React.useState('live/test')
+  ctx.configState = React.useState(ctx.config)
   const graph = (
     <div style={{ width: 500, height: 500 }}>
-      <ReactFlow
-        nodesConnectable={false}
-        connectOnClick={false}
-        autoPanOnNodeDrag={false}
-        autoPanOnConnect={false}
-        panOnDrag={false}
-        // draggable={false}
-        zoomOnScroll={false}
-        panOnScroll={false}
-        zoomOnPinch={false}
-        zoomOnDoubleClick={false}
-        nodes={props.nodes}
-        proOptions={{
-          hideAttribution: true
-        }}
-        nodeTypes={{
-          plugin,
-          stream,
-          player,
-          source,
-          remote,
-          playType,
-          sourceType
-        }}
-        edges={props.edges}
-      >
-        <Background color="#ccc" variant="dots" />
-      </ReactFlow>
+      <StreamContext.Provider value={ctx.state.stream}>
+        <ReactFlow
+          nodesConnectable={false}
+          connectOnClick={false}
+          autoPanOnNodeDrag={false}
+          autoPanOnConnect={false}
+          panOnDrag={false}
+          // draggable={false}
+          zoomOnScroll={false}
+          panOnScroll={false}
+          zoomOnPinch={false}
+          zoomOnDoubleClick={false}
+          nodes={ctx.state.nodes}
+          proOptions={{
+            hideAttribution: true
+          }}
+          nodeTypes={{
+            plugin,
+            stream,
+            player,
+            source,
+            remote,
+            tagNode,
+            segmented
+          }}
+          edges={ctx.state.edges}
+        >
+          <Background color="#ccc" variant="dots" />
+        </ReactFlow>
+      </StreamContext.Provider>
     </div>
   )
   const main = (
@@ -53,15 +58,17 @@ export default function Base(props) {
       {`import (
   "context"
   "m7s.live/engine/v4"
-${props.plugins.map(plugin => `  _ "m7s.live/plugin/${plugin}/v4"`).join('\n')}
+${ctx.state.plugins.map(plugin => `  _ "m7s.live/plugin/${plugin}/v4"`).join('\n')}
 )
 func main() {
   engine.Run(context.Background(), "config.yaml")
 }`}
     </Highlight>
   )
-  const config = <Highlight language="yaml">{props.config || `//无需配置`}</Highlight>
-  if (props.isMobile) {
+  const [selectedConfig, setSelectedConfig] = React.useState(ctx.state.config)
+  const [selectedName, setSelectedName] = React.useState(ctx.configs ? ctx.configs[0] : '')
+  const config = <Highlight language="yaml">{selectedConfig || `//无需配置`}</Highlight>
+  if (ctx.isMobile) {
     return (
       <Tabs
         items={[
@@ -91,10 +98,25 @@ func main() {
         <Card size="small" title="启动源码：main.go">
           {main}
         </Card>
-        <Card size="small" title="配置文件：config.yaml">
+        <Card
+          size="small"
+          title="配置文件：config.yaml"
+          extra={
+            ctx.configs ? (
+              <Segmented
+                options={Object.keys(ctx.configs)}
+                value={selectedName}
+                onChange={name => {
+                  setSelectedName(name)
+                  setSelectedConfig(ctx.configs[name])
+                }}
+              />
+            ) : null
+          }
+        >
           {config}
         </Card>
       </Space>
     </Space>
   )
-}
+})
