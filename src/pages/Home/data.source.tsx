@@ -913,15 +913,17 @@ export const Feature80DataSource = {
                     src="/img/console.png"
                   />
                   <div className="desc">
-                    说明：Console功能性描述xxxxxxxxxx 请查看在线版本和 Dock 部署,我们还提供了 widows
+                    说明：Console 提供了对m7s实例的可视化管理后台的能力，支持多实例管理。 请查看在线版本和 Docker 部署,我们还提供了 windows
                     版本下载 和 Mac (arm64) 下载
                   </div>
                   <Space size="large">
-                    <div className="btn1">使用在线版本</div>
+                    <div className="btn1" onClick={() => {
+                        window.open('https://console.monibuca.com')
+                      }}>使用在线版本</div>
                     <div
                       className="btn2"
                       onClick={() => {
-                        window.open('https://console.monibuca.com')
+                        window.open('https://mp.weixin.qq.com/s?__biz=MzkyMDQ5Nzg5MQ==&mid=2247483848&idx=1&sn=b0908a8387ad10beef92323f0722dad7&chksm=c190ba44f6e7335227003e949412b0406e0f0696ffad79234c186e87c3f28bd4975aad0dfb19&scene=178&cur_album_id=2996567829959376897#rd')
                       }}
                     >
                       Docker部署
@@ -978,17 +980,24 @@ export const Feature80DataSource = {
                     src="/img/admin.png"
                   />
                   <div className="desc">
-                    说明：Admin功能简介 XXXXXX, 提供了那些便捷的服务 XXXXXXX， 为大家带了XXXXX的便捷
-                    发送到【 公众号私信】，完成开发我们将第一时间为您提供版本体验
+                    说明：Admin 为 m7s pro版（包含付费插件） 提供可视化 UI 界面
                   </div>
                   <Space size="large">
                     <div
-                      className="btn2"
+                      className="btn1"
                       onClick={() => {
                         window.open('https://test.monibuca.com:8081/ui/#/instance')
                       }}
                     >
                       在线体验
+                    </div>
+                    <div
+                      className="btn2"
+                      onClick={() => {
+                        window.open('https://github.com/Monibuca/pro')
+                      }}
+                    >
+                      Github
                     </div>
                   </Space>
                 </Space>
