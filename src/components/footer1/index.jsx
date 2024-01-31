@@ -43,7 +43,7 @@ class Footer extends React.Component {
               </div>
               <div className="footer1-top-right">
                 <div className="footer1-top-right-item">
-                  <a href="https://github.com/langhuihui/monibuca" target="blank">
+                  <a href="https://github.com/langhuihui/monibuca" style={{ opacity: 0.5 }} target="blank">
                     <img src="/svg/github.svg" alt="" width={30} />
                   </a>
                 </div>
