@@ -64,7 +64,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     'stream1'
   )
   pusher.changeProtocol('rtmp')
-  player.changeProtocol('CDN')
+  player.changeProtocol('http-flv')
   return <Base ctx={ctx} />
 })
 export default Crypto

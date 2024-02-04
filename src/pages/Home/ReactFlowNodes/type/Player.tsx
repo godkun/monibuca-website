@@ -27,10 +27,7 @@ const Player = memo(({ data: { container, protocol, tool = 'jessibuca' } }) => {
         title="播放端"
         style={{
           width: 250,
-          borderRadius: 10,
-          boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)'
         }}
-        headStyle={{ background: '#c217ec', borderRadius: '10px 10px 0 0', color: 'white' }}
         extra={
           <select
             onChange={event => {
@@ -40,7 +37,7 @@ const Player = memo(({ data: { container, protocol, tool = 'jessibuca' } }) => {
                 container.changeProtocol(pusherProtocol[v][0] as keyof typeof protocol2plugin)
               }
             }}
-            style={{ width: 80, border: 'none', color: 'white', background: '#c217ec' }}
+            style={{ width: 80 }}
           >
             {Object.keys(pusherProtocol).map(type => (
               <option value={type}>{type}</option>

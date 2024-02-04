@@ -38,7 +38,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       label: '视频文件',
       handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
       style: { margin: 0 },
-      color: '#f50'
+      color: 'white'
     }
   })
   ctx.pipe('monitor', {
@@ -49,7 +49,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       label: '记录文件',
       handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
       style: { margin: 0 },
-      color: '#f50'
+      color: 'white'
     }
   })
   ctx.pipe('hook', {
@@ -60,7 +60,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       label: '服务器',
       handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
       style: { margin: 0 },
-      color: '#f50'
+      color: 'white'
     }
   })
   ctx.pipe('snap', {
@@ -71,7 +71,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       label: '浏览器',
       handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
       style: { margin: 0 },
-      color: '#f50'
+      color: 'white'
     }
   })
   ctx.pipe('logrotate', {
@@ -82,7 +82,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       label: '日志文件',
       handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
       style: { margin: 0 },
-      color: '#f50'
+      color: 'white'
     }
   })
   ctx.pipe('debug', {
@@ -93,7 +93,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       label: '浏览器',
       handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
       style: { margin: 0 },
-      color: '#f50'
+      color: 'white'
     }
   })
   ctx.pipe('preview', {
@@ -104,7 +104,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       label: '浏览器',
       handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
       style: { margin: 0 },
-      color: '#f50'
+      color: 'white'
     }
   })
   ctx.config = ``

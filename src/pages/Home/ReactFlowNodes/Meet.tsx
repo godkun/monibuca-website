@@ -49,7 +49,20 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     parentNode: '设备',
     extent: 'parent',
     type: 'tagNode',
-    data: { label: '信令', handles: [createHandle('target', Position.Right)] }
+    data: {
+      label: '信令',
+      style: {
+        margin: 0
+      },
+      handles: [
+        createHandle('target', Position.Right, {
+          style: {
+            width: 8,
+            height: 10
+          }
+        })
+      ]
+    }
   })
   ctx.addNode({
     id: 'userB',
@@ -57,7 +70,20 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     parentNode: 'Jessibuca',
     extent: 'parent',
     type: 'tagNode',
-    data: { label: '信令' , handles: [createHandle('target', Position.Right)]}
+    data: {
+      label: '信令',
+      style: {
+        margin: 0
+      },
+      handles: [
+        createHandle('target', Position.Right, {
+          style: {
+            width: 8,
+            height: 10
+          }
+        })
+      ]
+    }
   })
   ctx.pipe(
     {
@@ -104,7 +130,7 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       extent: 'parent',
       data: {
         icon: <IconFont type="m7s-mtsmeitichuli" spin />,
-        color: 'success',
+        color: 'default',
         style: { margin: 0 },
         label: 'room/streamB',
         handles: [createHandle('target', Position.Bottom), createHandle('source', Position.Top)]
@@ -126,6 +152,8 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     parentNode: 'm7s',
     extent: 'parent',
     data: {
+      icon: <IconFont type="m7s-mtsmeitichuli" spin />,
+      color: 'default',
       label: 'room/meet',
       handles: [
         createHandle('source', Position.Top, { id: 'up' }),

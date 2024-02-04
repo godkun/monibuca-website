@@ -8,7 +8,7 @@ type TProp = {
 const T = memo<TProp>(({ label, handles, ...props }) => {
   return (
     <>
-      <Tag color="cyan" {...props}>
+      <Tag color="#17E4FF" {...props}>
         {label}
       </Tag>
       {handles}

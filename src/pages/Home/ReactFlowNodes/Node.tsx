@@ -11,7 +11,6 @@ export const defaultM7sNode = (isMobile: boolean) => [
       width: isMobile ? 380 : 400,
       height: 120,
       backdropFilter: 'blur(10px)',
-      background: '#6d1eff'
     },
     data: {}
   },
@@ -361,7 +360,7 @@ const ToolSelector = memo<{ container: PusherContainer }>(function ({ container 
           container.changeProtocol(pusherProtocol[v][0])
         }
       }}
-      style={{ width: 70, border: 'none', color: 'white', background: '#c217ec' }}
+      style={{ width: 70}}
     >
       {Object.keys(pusherProtocol).map(type => (
         <option value={type} selected={container.data.data.tool === type}>
@@ -389,7 +388,7 @@ const SourceTypeSelector = memo<{ container: PullerContainer }>(function ({ cont
           container.changeProtocol(sourceTypes[v][0])
         }
       }}
-      style={{ width: 100, border: 'none', color: 'white', background: '#c217ec' }}
+      style={{ width: 100}}
     >
       {Object.keys(sourceTypes).map(type => (
         <option value={type} selected={container.data.data.tool === type}>
@@ -562,7 +561,7 @@ export class EdgeContainer {
       labelBgStyle: { fill: 'black', opacity: 0.3 },
       labelStyle: { fill: 'white' },
       animated: true,
-      style: { stroke: 'cyan', strokeWidth: 3 }
+      style: { stroke: 'black', strokeWidth: 3 }
     }
     if (target.data.type !== 'stream' && target.data.data.process) {
       this.data.sourceHandle = 'processOut'
