@@ -98,19 +98,6 @@ class Banner extends React.PureComponent {
             {childrenToRender}
           </BannerAnim>
         </TweenOneGroup>
-        <TweenOne
-          animation={{
-            y: '-=20',
-            yoyo: true,
-            repeat: -1,
-            duration: 1000
-          }}
-          className="banner2-icon"
-          style={{ bottom: 40 }}
-          key="icon"
-        >
-          <DownOutlined />
-        </TweenOne>
       </div>
     )
   }
