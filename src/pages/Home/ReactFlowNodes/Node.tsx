@@ -4,23 +4,15 @@ export const StreamContext = createContext('live/test')
 export const defaultM7sNode = (isMobile: boolean) => [
   {
     id: 'm7s',
-    type: 'group',
-    position: { x: isMobile ? 0 : 50, y: 130 },
+    type: 'm7s',
+    position: { x: 300, y: 80 },
     zIndex: -1,
     style: {
-      width: isMobile ? 380 : 400,
-      height: 120,
-      backdropFilter: 'blur(10px)',
+      width: 200,
+      height: 352,
+      backdropFilter: 'blur(10px)'
     },
     data: {}
-  },
-  {
-    id: 'note',
-    type: 'default',
-    position: { x: 0, y: 0 },
-    parentNode: 'm7s',
-    data: { label: 'm7s 192.168.1.1' },
-    className: 'annotation'
   }
 ]
 export interface NodeData {
@@ -71,7 +63,7 @@ export class FlowContext {
       nodes.push({
         id: 'sourceTypeSelector',
         type: 'segmented',
-        position: { x: 0, y: 0 },
+        position: { x: 0, y: 20 },
         data: {
           value: '推流',
           options: ['推流', '拉流'],
@@ -84,7 +76,7 @@ export class FlowContext {
                     {
                       id: 'source',
                       type: 'source',
-                      position: { x: isMobile ? 0 : 150, y: 0 },
+                      position: { x: 0, y: 80 },
                       data: {
                         title: '推流端',
                         tool: 'ffmpeg'
@@ -100,7 +92,7 @@ export class FlowContext {
                   {
                     id: 'source',
                     type: 'source',
-                    position: { x: isMobile ? 0 : 150, y: 0 },
+                    position: { x: 0, y: 80 },
                     data: { title: '视频源', tool: '远端服务器' }
                   },
                   this
@@ -116,10 +108,10 @@ export class FlowContext {
       nodes.push({
         id: 'playTypeSelector',
         type: 'segmented',
-        position: { x: 0, y: 300 },
+        position: { x: 0, y: 230 },
         data: {
           value: '播放',
-          options: ['播放','转推'],
+          options: ['播放', '转推'],
           onChange: (t: '转推' | '播放') => {
             this.updateNodeData('playTypeSelector', { value: t })
             switch (t) {
@@ -129,7 +121,7 @@ export class FlowContext {
                     {
                       id: 'player',
                       type: 'remote',
-                      position: { x: isMobile ? 0 : 150, y: 280 },
+                      position: { x: 0, y: 280 },
                       data: {}
                     },
                     this
@@ -142,7 +134,7 @@ export class FlowContext {
                   {
                     id: 'player',
                     type: 'player',
-                    position: { x: isMobile ? 0 : 150, y: 280 },
+                    position: { x: 0, y: 280 },
                     data: {}
                   },
                   this
@@ -250,7 +242,7 @@ ${k}:${v}`
     if ('name' in node.data.data) this._updatePlugins()
     this._updateNodes()
   }
-  updateEdge(key: string | EdgeContainer, data?: object) {
+  updateEdge(key: string | EdgeContainer, data?: Edge) {
     const edge = typeof key === 'string' ? this.ecs.get(key) : key
     if (!edge) return
     if (data) edge.data = { ...edge.data, ...data }
@@ -360,7 +352,7 @@ const ToolSelector = memo<{ container: PusherContainer }>(function ({ container 
           container.changeProtocol(pusherProtocol[v][0])
         }
       }}
-      style={{ width: 70}}
+      style={{ width: 70 }}
     >
       {Object.keys(pusherProtocol).map(type => (
         <option value={type} selected={container.data.data.tool === type}>
@@ -388,7 +380,7 @@ const SourceTypeSelector = memo<{ container: PullerContainer }>(function ({ cont
           container.changeProtocol(sourceTypes[v][0])
         }
       }}
-      style={{ width: 100}}
+      style={{ width: 100 }}
     >
       {Object.keys(sourceTypes).map(type => (
         <option value={type} selected={container.data.data.tool === type}>
@@ -406,25 +398,25 @@ export class SourceContainer extends NodeContainer {
     this.onChangeProtocol = protocol => {
       switch (protocol) {
         case 'gb28181':
-          this.context.setStream?.('34020000001310000011/34020000001310000001')
-          this.context.updateNode('stream1', { position: { x: 50, y: 50 } })
+          this.context.setStream?.('34020000001310000011/')
+          this.context.updateNode('stream1', { position: { x: 2, y: 150 } })
           break
         case 'onvif':
           this.context.setStream?.('onvif/eth0/192_168_1_2_8080')
-          this.context.updateNode('stream1', { position: { x: 50, y: 50 } })
+          this.context.updateNode('stream1', { position: { x: 2, y: 150 } })
           break
         default:
           this.context.setStream?.('live/test')
-          this.context.updateNode('stream1', { position: { x: 150, y: 50 } })
+          this.context.updateNode('stream1', { position: { x: 50, y: 150 } })
       }
     }
   }
   changeProtocol(protocol: string): void {
     this.url = this.protocol2url(protocol)
     super.changeProtocol(protocol)
+    this.updateData({ url: this.url })
     this.next.forEach(n => {
       n.updateData({ name: this.plugin })
-      n.inputEdge?.update({ label: this.url })
     })
   }
 }
@@ -514,8 +506,8 @@ export class PlayerContainer extends NodeContainer {
   changeProtocol(protocol: string): void {
     this.url = this.protocol2url(protocol)
     super.changeProtocol(protocol)
+    this.updateData({ url: this.url })
     this.inputEdge?.source.updateData({ name: this.plugin })
-    this.inputEdge?.update({ label: this.url })
   }
 }
 
@@ -561,7 +553,8 @@ export class EdgeContainer {
       labelBgStyle: { fill: 'black', opacity: 0.3 },
       labelStyle: { fill: 'white' },
       animated: true,
-      style: { stroke: 'black', strokeWidth: 3 }
+      style: { stroke: 'black', strokeWidth: 3 },
+      type: source.data.parentNode != target.data.parentNode ? 'step' : 'default'
     }
     if (target.data.type !== 'stream' && target.data.data.process) {
       this.data.sourceHandle = 'processOut'
@@ -573,7 +566,7 @@ export class EdgeContainer {
     }
     context.ecs.set(this.data.id, this)
   }
-  update(data: object) {
+  update(data: Edge) {
     this.context.updateEdge(this, data)
   }
   updateData(data: object) {

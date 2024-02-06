@@ -8,6 +8,7 @@ import player from './type/Player'
 import source from './type/Source'
 import remote from './type/Remote'
 import segmented from './type/Segmented'
+import m7s from './type/Monibuca'
 import { TagNode as tagNode } from './type/Tag'
 import { Tabs, Card, Space, Segmented } from 'antd'
 import Highlight from 'react-highlight'
@@ -44,7 +45,8 @@ export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
             source,
             remote,
             tagNode,
-            segmented
+            segmented,
+            m7s
           }}
           edges={ctx.state.edges}
         >

@@ -2,14 +2,14 @@ import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
 import { Select, Tag, Radio, Card } from 'antd'
 const pusherProtocol = ['CDN', 'm7s', '阿里云', '腾讯云', '网宿'] as const
-const Remote = memo(({ data: { container, protocol } }) => {
+const Remote = memo(({ data: { container, protocol,url } }) => {
   return (
     <>
       <Card
         size="small"
         title="远端服务器"
         style={{
-          width: 200,
+          width: 250, marginRight:5,height:152
         }}
       >
         <Radio.Group
@@ -23,11 +23,12 @@ const Remote = memo(({ data: { container, protocol } }) => {
             <Radio.Button value={protocol}>{protocol}</Radio.Button>
           ))}
         </Radio.Group>
+        {url && <p>{url}</p>}
       </Card>
       <Handle
         type="target"
-        position={Position.Top}
-        style={{ width: 10, height: 8, borderRadius: 3 }}
+        position={Position.Right}
+        style={{ width: 20, height: 20 ,background:'lightgray',borderWidth:4 ,borderColor:'black' }}
       />
     </>
   )

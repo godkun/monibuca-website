@@ -8,13 +8,13 @@ const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'puller',
       type: 'source',
-      position: { x:  150, y: 0 },
+      position: { x:  0, y: 80 },
       data: { title: '视频源', tool: '远端服务器' }
     },
     ctx
   )
   const player = new PlayerContainer(
-    { id: 'player', type: 'player', position: { x:  150, y: 280 }, data: {} },
+    { id: 'player', type: 'player', position: { x:  0, y: 280 }, data: {} },
     ctx
   )
   ctx.pipe(
@@ -22,15 +22,17 @@ const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'plugin1',
       type: 'plugin',
-      position: { x: 150, y: 10 },
+      position: { x: 35, y: 31 },
       parentNode: 'm7s',
       extent: 'parent',
-      data: {}
+      data: {
+        big: true
+      }
     },
     {
       id: 'stream1',
       type: 'stream',
-      position: { x: 150, y: 50 },
+      position: { x: 50, y: 150 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {}
@@ -38,10 +40,13 @@ const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'plugin2',
       type: 'plugin',
-      position: { x: 150, y: 90 },
+      position: { x: 35, y: 255 },
       parentNode: 'm7s',
       extent: 'parent',
-      data: {}
+      data: {
+        big: true,
+        reverse: true
+      }
     },
     player
   )

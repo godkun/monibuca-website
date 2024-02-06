@@ -8,7 +8,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'source',
       type: 'source',
-      position: { x:  150, y: 0 },
+      position: { x: 0, y: 80 },
       data: {
         title: '推流端',
         tool: 'ffmpeg'
@@ -17,7 +17,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     ctx
   )
   const player = new PlayerContainer(
-    { id: 'player', type: 'player', position: { x:  150, y: 280 }, data: {} },
+    { id: 'player', type: 'player', position: { x: 0, y: 280 }, data: {} },
     ctx
   )
   ctx.pipe(
@@ -25,43 +25,43 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'plugin1',
       type: 'plugin',
-      position: { x: 150, y: 10 },
+      position: { x: 35, y: 31 },
       parentNode: 'm7s',
       extent: 'parent',
-      data: {}
+      data: {
+        big: true
+      }
     },
     {
       id: 'stream1',
       type: 'stream',
-      position: { x: 150, y: 50 },
-      parentNode: 'm7s',
-      extent: 'parent',
-      data: { process: true }
-    },
-    {
-      id: 'plugin2',
-      type: 'plugin',
-      position: { x: 150, y: 90 },
+      position: { x: 50, y: 150 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {}
     },
-    player
-  )
-  ctx.pipe(
-    'stream1',
     {
       id: 'plugin3',
       type: 'plugin',
-      position: { x: 270, y: 50 },
+      position: { x: 40, y: 200 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {
-        process: true,
         name: 'transcode'
       }
     },
-    'stream1'
+    {
+      id: 'plugin2',
+      type: 'plugin',
+      position: { x: 35, y: 255 },
+      parentNode: 'm7s',
+      extent: 'parent',
+      data: {
+        big: true,
+        reverse: true
+      }
+    },
+    player
   )
   pusher.changeProtocol('rtmp')
   player.changeProtocol('http-flv')

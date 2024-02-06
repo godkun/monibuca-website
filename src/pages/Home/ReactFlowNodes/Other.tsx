@@ -19,7 +19,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
         label: id + '插件',
         icon: <ApiOutlined />,
         style: { margin: 0 },
-        handles: [createHandle('source', Position.Right, { style: { width: 8, height: 10 } })]
+        handles: [['source', Position.Right, { style: { width: 8, height: 10 } }]]
       }
     }))
   })
@@ -36,7 +36,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     position: { x: 250, y: 60 },
     data: {
       label: '视频文件',
-      handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
+      handles: [['target', Position.Left, { style: { width: 8, height: 10 } }]],
       style: { margin: 0 },
       color: 'white'
     }
@@ -47,7 +47,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     position: { x: 250, y: 100 },
     data: {
       label: '记录文件',
-      handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
+      handles: [['target', Position.Left, { style: { width: 8, height: 10 } }]],
       style: { margin: 0 },
       color: 'white'
     }
@@ -58,7 +58,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     position: { x: 250, y: 140 },
     data: {
       label: '服务器',
-      handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
+      handles: [['target', Position.Left, { style: { width: 8, height: 10 } }]],
       style: { margin: 0 },
       color: 'white'
     }
@@ -69,7 +69,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     position: { x: 250, y: 180 },
     data: {
       label: '浏览器',
-      handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
+      handles: [['target', Position.Left, { style: { width: 8, height: 10 } }]],
       style: { margin: 0 },
       color: 'white'
     }
@@ -80,7 +80,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     position: { x: 250, y: 220 },
     data: {
       label: '日志文件',
-      handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
+      handles: [['target', Position.Left, { style: { width: 8, height: 10 } }]],
       style: { margin: 0 },
       color: 'white'
     }
@@ -91,7 +91,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     position: { x: 250, y: 260 },
     data: {
       label: '浏览器',
-      handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
+      handles: [['target', Position.Left, { style: { width: 8, height: 10 } }]],
       style: { margin: 0 },
       color: 'white'
     }
@@ -102,7 +102,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     position: { x: 250, y: 300 },
     data: {
       label: '浏览器',
-      handles: [createHandle('target', Position.Left, { style: { width: 8, height: 10 } })],
+      handles: [['target', Position.Left, { style: { width: 8, height: 10 } }]],
       style: { margin: 0 },
       color: 'white'
     }

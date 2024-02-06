@@ -16,13 +16,13 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   ctx.addNode({
     id: '设备',
     style: { width: 200, height: 100 },
-    position: { x: 150, y: 10 },
+    position: { x: 0, y: 10 },
     type: 'group',
     data: { label: '设备' }
   })
   ctx.addNode({
     id: 'Jessibuca',
-    position: { x: 150, y: 300 },
+    position: { x: 0, y: 310 },
     style: { width: 200, height: 100 },
     type: 'group',
     data: { label: 'Jessibuca' }
@@ -55,12 +55,16 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
         margin: 0
       },
       handles: [
-        createHandle('target', Position.Right, {
-          style: {
-            width: 8,
-            height: 10
+        [
+          'target',
+          Position.Right,
+          {
+            style: {
+              width: 8,
+              height: 10
+            }
           }
-        })
+        ]
       ]
     }
   })
@@ -76,12 +80,16 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
         margin: 0
       },
       handles: [
-        createHandle('target', Position.Right, {
-          style: {
-            width: 8,
-            height: 10
+        [
+          'target',
+          Position.Right,
+          {
+            style: {
+              width: 8,
+              height: 10
+            }
           }
-        })
+        ]
       ]
     }
   })
@@ -92,12 +100,16 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       parentNode: '设备',
       extent: 'parent',
       type: 'tagNode',
-      data: { label: '上行推流', handles: [createHandle('source', Position.Bottom)] }
+      data: {
+        label: '上行推流',
+        style: { margin: 0 },
+        handles: [['source', Position.Right, { style: { width: 10, height: 10 } }]]
+      }
     },
     {
       id: 'stream1',
       type: 'stream',
-      position: { x: 150, y: 50 },
+      position: { x: 80, y: 250 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {
@@ -110,7 +122,11 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       parentNode: 'Jessibuca',
       extent: 'parent',
       type: 'tagNode',
-      data: { label: '下行拉流', handles: [createHandle('target', Position.Top)] }
+      data: {
+        label: '下行拉流',
+        style: { margin: 0 },
+        handles: [['target', Position.Right, { style: { width: 10, height: 10 } }]]
+      }
     }
   )
   ctx.pipe(
@@ -120,12 +136,12 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       parentNode: 'Jessibuca',
       extent: 'parent',
       type: 'tagNode',
-      data: { label: '上行推流', handles: [createHandle('source', Position.Top)] }
+      data: { label: '上行推流', handles: [['source', Position.Top]] }
     },
     {
       id: 'stream2',
       type: 'tagNode',
-      position: { x: 20, y: 50 },
+      position: { x: 20, y: 150 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {
@@ -133,7 +149,10 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
         color: 'default',
         style: { margin: 0 },
         label: 'room/streamB',
-        handles: [createHandle('target', Position.Bottom), createHandle('source', Position.Top)]
+        handles: [
+          ['target', Position.Bottom],
+          ['source', Position.Top]
+        ]
       }
     },
     {
@@ -142,13 +161,13 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       parentNode: '设备',
       extent: 'parent',
       type: 'tagNode',
-      data: { label: '下行拉流', handles: [createHandle('target', Position.Bottom)] }
+      data: { label: '下行拉流', handles: [['target', Position.Bottom]] }
     }
   )
   ctx.addNode({
     id: '会控',
     type: 'tagNode',
-    position: { x: 280, y: 50 },
+    position: { x: 100, y: 50 },
     parentNode: 'm7s',
     extent: 'parent',
     data: {
@@ -156,11 +175,12 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       color: 'default',
       label: 'room/meet',
       handles: [
-        createHandle('source', Position.Top, { id: 'up' }),
-        createHandle('source', Position.Bottom, { id: 'down' })
+        ['source', Position.Top, { id: 'up' }],
+        ['source', Position.Bottom, { id: 'down' }]
       ]
     }
   })
+  ctx.updateNode('m7s', { position: { x: 230, y: 10 }, style: { width: 200, height: 400 } })
   const meetUp = new EdgeContainer(ctx.getContainer('会控'), ctx.getContainer('userA'), ctx)
   meetUp.data.sourceHandle = 'up'
   const meetDown = new EdgeContainer(ctx.getContainer('会控'), ctx.getContainer('userB'), ctx)

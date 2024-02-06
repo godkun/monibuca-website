@@ -10,7 +10,7 @@ const Stream = memo(({ data: { process, streamPath } }) => {
   const streamPathG = useContext(StreamContext)
   return (
     <>
-      <Tag icon={<IconFont type="m7s-mtsmeitichuli" spin />} color="default" style={{ margin: 0 }}>
+      <Tag icon={<IconFont type="m7s-mtsmeitichuli" spin />} color="default" style={{ margin: 0,color:'#6d1eff'}}>
         {streamPath || streamPathG}
       </Tag>
       <Handle

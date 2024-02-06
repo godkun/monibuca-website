@@ -3,14 +3,14 @@ import { Handle, Position } from 'reactflow'
 import { Radio, Card } from 'antd'
 import { NodeContainer } from '../Node'
 const Source = memo<{ data: { container: NodeContainer } }>(
-  ({ data: { container, protocol, title, protocols, extra } }) => {
+  ({ data: { container, protocol, title, protocols, extra ,url } }) => {
     return (
       <>
         <Card
           size="small"
           title={title}
           style={{
-            width: 230,
+            width: 250,marginRight:5
           }}
           extra={extra}
         >
@@ -24,11 +24,12 @@ const Source = memo<{ data: { container: NodeContainer } }>(
               <Radio.Button value={protocol}>{protocol}</Radio.Button>
             ))}
           </Radio.Group>
+          {url && <p>{url}</p>}
         </Card>
         <Handle
           type="source"
-          position={Position.Bottom}
-          style={{ width: 10, height: 8, borderRadius: 3 }}
+          position={Position.Right}
+          style={{ width: 20, height: 20 ,background:'lightgray',borderWidth:4 ,borderColor:'black'}}
         />
       </>
     )

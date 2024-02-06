@@ -19,14 +19,14 @@ const pusherProtocol = {
   vlc: ['rtmp', 'rtsp', 'http-h265', 'hls', 'llhls', 'fmp4'],
   browser: ['webrtc', 'fmp4']
 } as const
-const Player = memo(({ data: { container, protocol, tool = 'jessibuca' } }) => {
+const Player = memo(({ data: { container, protocol, url, tool = 'jessibuca' } }) => {
   return (
     <>
       <Card
         size="small"
         title="播放端"
         style={{
-          width: 250,
+          width: 250,marginRight:5
         }}
         extra={
           <select
@@ -56,11 +56,12 @@ const Player = memo(({ data: { container, protocol, tool = 'jessibuca' } }) => {
             <Radio.Button value={protocol}>{protocol}</Radio.Button>
           ))}
         </Radio.Group>
+        {url && <p>播放地址 {url}</p>}
       </Card>
       <Handle
         type="target"
-        position={Position.Top}
-        style={{ width: 10, height: 8, borderRadius: 3 }}
+        position={Position.Right}
+        style={{ width: 20, height: 20 ,background:'lightgray',borderWidth:4 ,borderColor:'black'}}
       />
     </>
   )
