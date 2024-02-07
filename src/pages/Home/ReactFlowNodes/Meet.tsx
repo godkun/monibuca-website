@@ -3,7 +3,6 @@ import Base from './Base'
 import { EdgeContainer, FlowContext } from './Node'
 import { Position } from 'reactflow'
 import { createFromIconfontCN } from '@ant-design/icons'
-import { createHandle } from './type/Tag'
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/c/font_4420346_eodc0ksyv9k.js'
 })
@@ -108,11 +107,14 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     },
     {
       id: 'stream1',
-      type: 'stream',
+      type: 'tagNode',
       position: { x: 80, y: 250 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {
+        icon: <IconFont type="m7s-mtsmeitichuli" spin />,
+        color: 'default',
+        style: { margin: 0 },
         streamPath: 'room/streamA'
       }
     },
@@ -180,7 +182,7 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       ]
     }
   })
-  ctx.updateNode('m7s', { position: { x: 230, y: 10 }, style: { width: 200, height: 400 } })
+  ctx.updateNode('m7s', { position: { x: 300, y: 10 }, style: { width: 200, height: 400 } })
   const meetUp = new EdgeContainer(ctx.getContainer('会控'), ctx.getContainer('userA'), ctx)
   meetUp.data.sourceHandle = 'up'
   const meetDown = new EdgeContainer(ctx.getContainer('会控'), ctx.getContainer('userB'), ctx)

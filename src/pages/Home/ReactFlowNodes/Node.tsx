@@ -398,16 +398,13 @@ export class SourceContainer extends NodeContainer {
     this.onChangeProtocol = protocol => {
       switch (protocol) {
         case 'gb28181':
-          this.context.setStream?.('34020000001310000011/')
-          this.context.updateNode('stream1', { position: { x: 2, y: 150 } })
+          this.context.setStream?.('34020000001320000011/34020000001310000011')
           break
         case 'onvif':
           this.context.setStream?.('onvif/eth0/192_168_1_2_8080')
-          this.context.updateNode('stream1', { position: { x: 2, y: 150 } })
           break
         default:
           this.context.setStream?.('live/test')
-          this.context.updateNode('stream1', { position: { x: 50, y: 150 } })
       }
     }
   }

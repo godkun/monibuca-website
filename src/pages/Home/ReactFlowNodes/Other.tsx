@@ -25,7 +25,7 @@ const Other = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   })
   ctx.addNode({
     id: 'm7s',
-    type: 'group',
+    type: 'm7s',
     position: { x: 10, y: 50 },
     style: { width: 200, height: 350 },
     data: {}

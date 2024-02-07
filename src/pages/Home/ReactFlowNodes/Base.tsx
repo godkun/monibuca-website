@@ -21,7 +21,7 @@ export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
   ctx.streamState = React.useState('live/test')
   ctx.configState = React.useState(ctx.config)
   const graph = (
-    <div className="nowheel" style={{ width: 500, height: 500 }}>
+    <div className="nowheel" style={{ width: 500, height: 450 }}>
       <StreamContext.Provider value={ctx.state.stream}>
         <ReactFlow
           nodesConnectable={false}
@@ -57,18 +57,21 @@ export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
   )
   const main = (
     <Highlight language="go">
-      {`import (
+      {`package main
+
+import (
   "context"
   "m7s.live/engine/v4"
 ${ctx.state.plugins.map(plugin => `  _ "m7s.live/plugin/${plugin}/v4"`).join('\n')}
 )
+
 func main() {
   engine.Run(context.Background(), "config.yaml")
 }`}
     </Highlight>
   )
   const [selectedConfig, setSelectedConfig] = React.useState(ctx.state.config)
-  const [selectedName, setSelectedName] = React.useState(ctx.configs ? ctx.configs[0] : '')
+  const [selectedName, setSelectedName] = React.useState(ctx.configs ? ctx.configs[0] : 'main.go')
   const config = <Highlight language="yaml">{selectedConfig || `//无需配置`}</Highlight>
   if (ctx.isMobile) {
     return (
@@ -96,29 +99,22 @@ func main() {
   return (
     <Space direction="horizontal" style={{ width: '100%' }} align="start">
       {graph}
-      <Space direction="vertical">
-        <Card size="small" title="启动源码：main.go">
-          {main}
-        </Card>
-        <Card
-          size="small"
-          title="配置文件：config.yaml"
-          extra={
-            ctx.configs ? (
-              <Segmented
-                options={Object.keys(ctx.configs)}
-                value={selectedName}
-                onChange={name => {
-                  setSelectedName(name)
-                  setSelectedConfig(ctx.configs[name])
-                }}
-              />
-            ) : null
-          }
-        >
-          {config}
-        </Card>
-      </Space>
+      <Card
+        style={{ width: 500, height: 430 }}
+        size="small"
+        tabList={['main.go']
+          .concat(ctx.configs ? Object.keys(ctx.configs) : ['config.yaml'])
+          .map(name => ({
+            key: name,
+            tab: name
+          }))}
+        onTabChange={name => {
+          setSelectedName(name)
+          if (ctx.configs) setSelectedConfig(ctx.configs[name])
+        }}
+      >
+        {selectedName === 'main.go' ? main : config}
+      </Card>
     </Space>
   )
 })

@@ -2,7 +2,6 @@ import { memo } from 'react'
 import Base from './Base'
 import { FlowContext } from './Node'
 import { Position } from 'reactflow'
-import { createHandle } from './type/Tag'
 
 const Voice = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   const ctx = new FlowContext({
@@ -118,7 +117,7 @@ const Voice = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   ctx.config = ``
   ctx.plugins.add('voice')
   ctx.plugins.add('gb28181')
-  ctx.updateNode('m7s', { position: { x: 230, y: 10 }, style: { width: 200, height: 400 } })
+  ctx.updateNode('m7s', { position: { x: 300, y: 10 }, style: { width: 200, height: 400 } })
   return <Base ctx={ctx} />
 })
 export default Voice

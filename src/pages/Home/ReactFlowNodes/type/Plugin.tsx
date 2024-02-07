@@ -10,7 +10,11 @@ const Plugin = memo(({ data }) => {
       <T
         icon={<ApiOutlined />}
         label={data.name + '插件'}
-        style={data.big ? { paddingTop: 10, paddingBottom: 10, fontSize: 20, marginLeft: 5 } : {}}
+        style={
+          data.big
+            ? { paddingTop: 10, paddingBottom: 10, fontSize: 20, marginLeft: 5, width: 140 }
+            : {}
+        }
         handles={[
           [
             'target',

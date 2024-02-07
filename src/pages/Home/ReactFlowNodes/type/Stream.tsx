@@ -1,6 +1,6 @@
 import React, { memo, useContext } from 'react'
 import { Handle, HandleType, Position } from 'reactflow'
-import { Tag } from 'antd'
+import { Tag, Tooltip } from 'antd'
 import { createFromIconfontCN } from '@ant-design/icons'
 import { StreamContext } from '../Node'
 const IconFont = createFromIconfontCN({
@@ -9,9 +9,20 @@ const IconFont = createFromIconfontCN({
 const Stream = memo(({ data: { process, streamPath } }) => {
   const streamPathG = useContext(StreamContext)
   return (
-    <>
-      <Tag icon={<IconFont type="m7s-mtsmeitichuli" spin />} color="default" style={{ margin: 0,color:'#6d1eff'}}>
-        {streamPath || streamPathG}
+    <Tooltip title={streamPath || streamPathG}>
+      <Tag
+        icon={<IconFont type="m7s-mtsmeitichuli" spin />}
+        color="default"
+        style={{
+          paddingTop: 10,
+          paddingBottom: 10,
+          fontSize: 20,
+          marginLeft: 5,
+          color: '#6d1eff',
+          width: 140
+        }}
+      >
+        Stream
       </Tag>
       <Handle
         type="target"
@@ -41,7 +52,7 @@ const Stream = memo(({ data: { process, streamPath } }) => {
             />
           ]
         : null}
-    </>
+    </Tooltip>
   )
 })
 export default Stream

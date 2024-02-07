@@ -35,7 +35,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'stream1',
       type: 'stream',
-      position: { x: 50, y: 150 },
+      position: { x: 35, y: 150 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {}

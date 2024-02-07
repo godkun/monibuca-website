@@ -152,13 +152,13 @@ const TimeShift = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   createLiveStage(ctx)
   ctx.plugins.add('cascade')
   ctx.configs = {
-    源服务器: `cascadeserver:
+    'server.yaml': `cascadeserver:
   quic:
     listenaddr: :44944`,
-    边缘服务器: `cascadeclient:
+    'client.yaml': `cascadeclient:
   server: 192.168.1.100`
   }
-  ctx.config = ctx.configs['源服务器']
+  ctx.config = ctx.configs['server.yaml']
   return <Base ctx={ctx} />
 })
 export default TimeShift
