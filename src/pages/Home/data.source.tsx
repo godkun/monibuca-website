@@ -839,6 +839,141 @@ export const Feature80DataSource = {
 
     children: [
       {
+        title: { className: 'feature8-title-text', children: 'Admin' },
+        className: 'feature8-item',
+        name: 'block2',
+        children: [
+          {
+            md: 24,
+            xs: 24,
+            children: {
+              className: 'feature8-text',
+              children: (
+                <Space direction="vertical">
+                  <Image
+                    className="img-box"
+                    preview={false}
+                    width={!isMobile ? 900 : 300}
+                    height={!isMobile ? 599 : 200}
+                    src="/img/admin.png"
+                  />
+                  <div className="desc">
+                    说明：Admin 为 m7s pro版（包含付费插件） 提供可视化 UI 界面
+                  </div>
+                  <Space size="large">
+                    <div
+                      className="btn1"
+                      onClick={() => {
+                        window.open('https://test.monibuca.com:8081/ui/#/instance')
+                      }}
+                    >
+                      在线体验
+                    </div>
+                    <div
+                      className="btn2"
+                      onClick={() => {
+                        window.open('https://github.com/Monibuca/pro')
+                      }}
+                    >
+                      Github
+                    </div>
+                  </Space>
+                </Space>
+              )
+            }
+          }
+        ]
+      },
+      {
+        title: { className: 'feature8-title-text', children: 'Console' },
+        className: 'feature8-item',
+        name: 'block1',
+        children: [
+          {
+            md: 24,
+            xs: 24,
+            children: {
+              className: 'feature8-text',
+              children: (
+                <Space direction="vertical">
+                  <Image
+                    className="img-box"
+                    preview={false}
+                    width={!isMobile ? 900 : 300}
+                    height={!isMobile ? 599 : 200}
+                    src="/img/console.png"
+                  />
+                  <div className="desc">
+                    说明：Console 提供了对m7s实例的可视化管理后台的能力，支持多实例管理。
+                    请查看在线版本和 Docker 部署,我们还提供了 windows 版本下载 和 Mac (arm64) 下载
+                  </div>
+                  <Space size="large">
+                    <div
+                      className="btn1"
+                      onClick={() => {
+                        window.open('https://console.monibuca.com')
+                      }}
+                    >
+                      使用在线版本
+                    </div>
+                    <div
+                      className="btn2"
+                      onClick={() => {
+                        window.open(
+                          'https://mp.weixin.qq.com/s?__biz=MzkyMDQ5Nzg5MQ==&mid=2247483848&idx=1&sn=b0908a8387ad10beef92323f0722dad7&chksm=c190ba44f6e7335227003e949412b0406e0f0696ffad79234c186e87c3f28bd4975aad0dfb19&scene=178&cur_album_id=2996567829959376897#rd'
+                        )
+                      }}
+                    >
+                      Docker部署
+                    </div>
+                  </Space>
+                  <Space style={{ marginTop: '36px' }}>
+                    <Space direction="vertical" className="item">
+                      <Space className="item-wrap">
+                        <Space direction="vertical">
+                          <div className="title">Mac(arm64) 系统下载</div>
+                          <div className="sub-title">系统版本: 请查看安装教程</div>
+                        </Space>
+                        <img className="img" src="/img/ic_mac.png" alt="" />
+                      </Space>
+                      <Space direction="vertical" align="start">
+                        <Button
+                          type="primary"
+                          onClick={() => {
+                            window.open('https://download.m7s.live/bin/console_mac.zip?v=0.1.20')
+                          }}
+                        >
+                          立即下载
+                        </Button>
+                      </Space>
+                    </Space>
+                    <Space direction="vertical" className="item">
+                      <Space className="item-wrap">
+                        <Space direction="vertical">
+                          <div className="title">Windows版下载</div>
+                          <div className="sub-title">Windows 10 及以上系统可用</div>
+                        </Space>
+                        <img className="img" src="/img/ic_windows.png" alt="" />
+                      </Space>
+                      <Space direction="vertical" align="start">
+                        <Button
+                          type="primary"
+                          onClick={() => {
+                            window.open('https://download.m7s.live/bin/console_windows_amd64.zip?v=0.1.20')
+                          }}
+                        >
+                          立即下载
+                        </Button>
+                      </Space>
+                    </Space>
+                  </Space>
+                </Space>
+              )
+            }
+          }
+        ]
+      },
+      {
         title: { className: 'feature8-title-text', children: 'API调试工具' },
         className: 'feature8-item',
         name: 'block0',
@@ -851,6 +986,7 @@ export const Feature80DataSource = {
               children: (
                 <Space direction="vertical">
                   <Image
+                    className="img-box"
                     preview={false}
                     width={!isMobile ? 900 : 300}
                     height={!isMobile ? 599 : 200}
@@ -884,120 +1020,15 @@ export const Feature80DataSource = {
                         赞赏 99 元
                       </div>
                     </Popover>
-                    <div className="btn2"  onClick={() => {
-                    window.open("https://apifox.com/apidoc/shared-53418b09-8f45-49e5-94e3-1b93870b304f")
-                  }}>立即体验</div>
-                  </Space>
-                </Space>
-              )
-            }
-          }
-        ]
-      },
-      {
-        title: { className: 'feature8-title-text', children: 'Console' },
-        className: 'feature8-item',
-        name: 'block1',
-        children: [
-          {
-            md: 24,
-            xs: 24,
-            children: {
-              className: 'feature8-text',
-              children: (
-                <Space direction="vertical">
-                  <Image
-                    preview={false}
-                    width={!isMobile ? 900 : 300}
-                    height={!isMobile ? 599 : 200}
-                    src="/img/console.png"
-                  />
-                  <div className="desc">
-                    说明：Console 提供了对m7s实例的可视化管理后台的能力，支持多实例管理。 请查看在线版本和 Docker 部署,我们还提供了 windows
-                    版本下载 和 Mac (arm64) 下载
-                  </div>
-                  <Space size="large">
-                    <div className="btn1" onClick={() => {
-                        window.open('https://console.monibuca.com')
-                      }}>使用在线版本</div>
                     <div
                       className="btn2"
                       onClick={() => {
-                        window.open('https://mp.weixin.qq.com/s?__biz=MzkyMDQ5Nzg5MQ==&mid=2247483848&idx=1&sn=b0908a8387ad10beef92323f0722dad7&chksm=c190ba44f6e7335227003e949412b0406e0f0696ffad79234c186e87c3f28bd4975aad0dfb19&scene=178&cur_album_id=2996567829959376897#rd')
+                        window.open(
+                          'https://apifox.com/apidoc/shared-53418b09-8f45-49e5-94e3-1b93870b304f'
+                        )
                       }}
                     >
-                      Docker部署
-                    </div>
-                  </Space>
-                  <Space style={{ marginTop: '36px' }}>
-                    <Space direction="vertical" className="item">
-                      <Space className="item-wrap">
-                        <Space direction="vertical">
-                          <div className="title">Mac(arm64) 系统下载</div>
-                          <div className="sub-title">系统版本: 请查看安装教程</div>
-                        </Space>
-                        <img className="img" src="/img/ic_mac.png" alt="" />
-                      </Space>
-                      <Space direction="vertical" align="start">
-                        <Button type="primary">立即下载</Button>
-                      </Space>
-                    </Space>
-                    <Space direction="vertical" className="item">
-                      <Space className="item-wrap">
-                        <Space direction="vertical">
-                          <div className="title">Windows版下载</div>
-                          <div className="sub-title">Windows 10 及以上系统可用</div>
-                        </Space>
-                        <img className="img" src="/img/ic_windows.png" alt="" />
-                      </Space>
-                      <Space direction="vertical" align="start">
-                        <Button type="primary">立即下载</Button>
-                      </Space>
-                    </Space>
-                  </Space>
-                </Space>
-              )
-            }
-          }
-        ]
-      },
-      {
-        title: { className: 'feature8-title-text', children: 'Admin' },
-        className: 'feature8-item',
-        name: 'block2',
-        children: [
-          {
-            md: 24,
-            xs: 24,
-            children: {
-              className: 'feature8-text',
-              children: (
-                <Space direction="vertical">
-                  <Image
-                    preview={false}
-                    width={!isMobile ? 900 : 300}
-                    height={!isMobile ? 599 : 200}
-                    src="/img/admin.png"
-                  />
-                  <div className="desc">
-                    说明：Admin 为 m7s pro版（包含付费插件） 提供可视化 UI 界面
-                  </div>
-                  <Space size="large">
-                    <div
-                      className="btn1"
-                      onClick={() => {
-                        window.open('https://test.monibuca.com:8081/ui/#/instance')
-                      }}
-                    >
-                      在线体验
-                    </div>
-                    <div
-                      className="btn2"
-                      onClick={() => {
-                        window.open('https://github.com/Monibuca/pro')
-                      }}
-                    >
-                      Github
+                      立即体验
                     </div>
                   </Space>
                 </Space>
