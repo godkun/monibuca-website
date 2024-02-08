@@ -28,19 +28,21 @@ class Feature4 extends React.PureComponent {
             {titleWrapper.children.map(kunRender)}
           </div>
         </div>
-        <Tabs
-          size="small"
-          tabPosition={isMobile ? 'top' : 'left'}
-          type={isMobile ? 'line' : 'card'}
-          tabBarGutter={9}
-          items={childWrapper.map((item, i) => {
-            return {
-              label: item.title,
-              key: i,
-              children: <item.children isMobile={isMobile} />
-            }
-          })}
-        />
+        <div className='tab'>
+          <Tabs
+            size="small"
+            tabPosition={isMobile ? 'top' : 'left'}
+            type={isMobile ? 'line' : 'card'}
+            tabBarGutter={9}
+            items={childWrapper.map((item, i) => {
+              return {
+                label: item.title,
+                key: i,
+                children: <item.children isMobile={isMobile} />
+              }
+            })}
+          />
+        </div>
       </>
     )
   }

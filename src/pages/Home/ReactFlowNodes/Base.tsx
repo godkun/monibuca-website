@@ -10,9 +10,15 @@ import remote from './type/Remote'
 import segmented from './type/Segmented'
 import m7s from './type/Monibuca'
 import { TagNode as tagNode } from './type/Tag'
-import { Tabs, Card, Space, Segmented } from 'antd'
-import Highlight from 'react-highlight'
+import { Tabs, Card, Space } from 'antd'
 import { FlowContext, StreamContext } from './Node'
+
+import Markdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import './Base.css'
+import { CopyOutlined } from '@ant-design/icons'
+import { Tooltip } from 'antd'
+import copy from 'copy-to-clipboard'
 
 export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
   ctx.pluginState = React.useState(Array.from(ctx.plugins))
@@ -20,6 +26,25 @@ export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
   ctx.edgeState = React.useState(ctx.edges)
   ctx.streamState = React.useState('live/test')
   ctx.configState = React.useState(ctx.config)
+
+  const [copyMsg, setCopyMsg] = React.useState('复制代码')
+
+  const markdown = `
+~~~go
+package main
+
+import (
+  "context"
+  "m7s.live/engine/v4"
+${ctx.state.plugins.map(plugin => `  _ "m7s.live/plugin/${plugin}/v4"`).join('\n')}
+)
+
+func main() {
+  engine.Run(context.Background(), "config.yaml")
+}
+
+~~~`
+
   const graph = (
     <div className="nowheel" style={{ width: 500, height: 450 }}>
       <StreamContext.Provider value={ctx.state.stream}>
@@ -56,23 +81,105 @@ export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
     </div>
   )
   const main = (
-    <Highlight language="go">
-      {`package main
-
-import (
-  "context"
-  "m7s.live/engine/v4"
-${ctx.state.plugins.map(plugin => `  _ "m7s.live/plugin/${plugin}/v4"`).join('\n')}
-)
-
-func main() {
-  engine.Run(context.Background(), "config.yaml")
-}`}
-    </Highlight>
+    <Markdown
+      children={markdown}
+      components={{
+        code(props) {
+          const { children, className, node, ...rest } = props
+          const match = /language-(\w+)/.exec(className || '')
+          return match ? (
+            <div className="code-box">
+              <div className="copy">
+                <Tooltip
+                  title={copyMsg}
+                  onOpenChange={value => {
+                    if (copyMsg == '复制成功!') {
+                      if (!value) {
+                        setCopyMsg('复制代码')
+                      }
+                    }
+                  }}
+                >
+                  <CopyOutlined
+                    onClick={() => {
+                      copy(markdown)
+                      setCopyMsg('复制成功!')
+                    }}
+                  />
+                </Tooltip>
+              </div>
+              <SyntaxHighlighter
+                {...rest}
+                PreTag="div"
+                children={String(children).replace(/\n$/, '')}
+                language={match[1]}
+                showLineNumbers
+              />
+            </div>
+          ) : (
+            <code {...rest} className={className}>
+              {children}
+            </code>
+          )
+        }
+      }}
+    />
   )
+
   const [selectedConfig, setSelectedConfig] = React.useState(ctx.state.config)
   const [selectedName, setSelectedName] = React.useState(ctx.configs ? ctx.configs[0] : 'main.go')
-  const config = <Highlight language="yaml">{selectedConfig || `//无需配置`}</Highlight>
+
+  const config = (
+    <Markdown
+      children={`
+~~~yaml;
+${selectedConfig || '// 无需配置'}
+~~~`}
+      components={{
+        code(props) {
+          const { children, className, node, ...rest } = props
+          const match = /language-(\w+)/.exec(className || '')
+          return match ? (
+            <div className="code-box">
+              {selectedConfig && (
+                <div className="copy">
+                  <Tooltip
+                    title={copyMsg}
+                    onOpenChange={value => {
+                      if (copyMsg == '复制成功!') {
+                        if (!value) {
+                          setCopyMsg('复制代码')
+                        }
+                      }
+                    }}
+                  >
+                    <CopyOutlined
+                      onClick={() => {
+                        copy(selectedConfig)
+                        setCopyMsg('复制成功!')
+                      }}
+                    />
+                  </Tooltip>
+                </div>
+              )}
+              <SyntaxHighlighter
+                {...rest}
+                PreTag="div"
+                children={String(children).replace(/\n$/, '')}
+                language={match[1]}
+                showLineNumbers
+              />
+            </div>
+          ) : (
+            <code {...rest} className={className}>
+              {children}
+            </code>
+          )
+        }
+      }}
+    />
+  )
+
   if (ctx.isMobile) {
     return (
       <Tabs
@@ -100,7 +207,7 @@ func main() {
     <Space direction="horizontal" style={{ width: '100%' }} align="start">
       {graph}
       <Card
-        style={{ width: 500, height: 430 }}
+        style={{ width: 500 }}
         size="small"
         tabList={['main.go']
           .concat(ctx.configs ? Object.keys(ctx.configs) : ['config.yaml'])

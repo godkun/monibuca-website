@@ -27,20 +27,21 @@ class Banner extends React.PureComponent {
       const button = item.button
       const button2 = item.button2
       const page = item.page
-      const follow = !isMobile
-        ? {
-            delay: 1000,
-            minMove: 0.1,
-            data: [
-              {
-                id: `bg${i}`,
-                value: 15,
-                type: 'x'
-              },
-              { id: `wrapperBlock${i}`, value: -15, type: 'x' }
-            ]
-          }
-        : null
+      const follow = null
+      // const follow = !isMobile
+      //   ? {
+      //       delay: 1000,
+      //       minMove: 0.1,
+      //       data: [
+      //         {
+      //           id: `bg${i}`,
+      //           value: 15,
+      //           type: 'x'
+      //         },
+      //         { id: `wrapperBlock${i}`, value: -15, type: 'x' }
+      //       ]
+      //     }
+      //   : null
       return (
         <Element key={i.toString()} followParallax={follow} {...elem} prefixCls={elemClassName}>
           <BgElement key="bg" {...bg} id={`bg${i}`} />
