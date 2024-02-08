@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Button, Space } from 'antd'
+import { DownloadOutlined } from '@ant-design/icons'
 
 import { Nav30DataSource } from '../../data/index'
 
@@ -51,7 +52,15 @@ export const Feature120DataSource = {
                     <img className="img" src="/img/ic_mac.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
-                    <Button type="primary">立即下载</Button>
+                    <Button
+                      icon={<DownloadOutlined />}
+                      type="primary"
+                      onClick={() => {
+                        window.open('https://download.m7s.live/bin/m7s_darwin_amd64.tar.gz')
+                      }}
+                    >
+                      立即下载
+                    </Button>
                   </Space>
                 </Space>
               )
@@ -73,7 +82,15 @@ export const Feature120DataSource = {
                     <img className="img" src="/img/ic_linux.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
-                    <Button type="primary">立即下载</Button>
+                    <Button
+                      icon={<DownloadOutlined />}
+                      type="primary"
+                      onClick={() => {
+                        window.open('https://download.m7s.live/bin/m7s_linux_amd64.tar.gz')
+                      }}
+                    >
+                      立即下载
+                    </Button>
                   </Space>
                 </Space>
               )
@@ -95,7 +112,15 @@ export const Feature120DataSource = {
                     <img className="img" src="/img/ic_windows.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
-                    <Button type="primary">立即下载</Button>
+                    <Button
+                      type="primary"
+                      icon={<DownloadOutlined />}
+                      onClick={() => {
+                        window.open('https://download.m7s.live/bin/m7s_windows_amd64.tar.gz')
+                      }}
+                    >
+                      立即下载
+                    </Button>
                   </Space>
                 </Space>
               )
@@ -116,7 +141,15 @@ export const Feature120DataSource = {
                     <img className="img" src="/img/ic_mac.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
-                    <Button type="primary">立即下载</Button>
+                    <Button
+                      type="primary"
+                      icon={<DownloadOutlined />}
+                      onClick={() => {
+                        window.open('https://download.m7s.live/bin/m7s_darwin_arm64.tar.gz')
+                      }}
+                    >
+                      立即下载
+                    </Button>
                   </Space>
                 </Space>
               )
@@ -138,7 +171,15 @@ export const Feature120DataSource = {
                     <img className="img" src="/img/ic_linux.png" alt="" />
                   </Space>
                   <Space direction="vertical" align="start">
-                    <Button type="primary">立即下载</Button>
+                    <Button
+                      type="primary"
+                      icon={<DownloadOutlined />}
+                      onClick={() => {
+                        window.open('https://download.m7s.live/bin/m7s_linux_arm64.tar.gz')
+                      }}
+                    >
+                      立即下载
+                    </Button>
                   </Space>
                 </Space>
               )
