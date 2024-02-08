@@ -29,9 +29,7 @@ export default memo<{ ctx: FlowContext }>(function Base({ ctx }) {
 
   const [copyMsg, setCopyMsg] = React.useState('复制代码')
 
-  const markdown = `
-~~~go
-package main
+  const rawCode = `package main
 
 import (
   "context"
@@ -41,7 +39,11 @@ ${ctx.state.plugins.map(plugin => `  _ "m7s.live/plugin/${plugin}/v4"`).join('\n
 
 func main() {
   engine.Run(context.Background(), "config.yaml")
-}
+}`
+
+  const markdown = `
+~~~go
+${rawCode}
 
 ~~~`
 
@@ -102,7 +104,7 @@ func main() {
                 >
                   <CopyOutlined
                     onClick={() => {
-                      copy(markdown)
+                      copy(rawCode)
                       setCopyMsg('复制成功!')
                     }}
                   />
