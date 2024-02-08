@@ -51,7 +51,14 @@ export const Feature110DataSource = {
                       <span style={{ color: '#000', fontWeight: 500 }}>Monibuca</span>
                       旨在提供一个对开发者极度友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。
                     </div>
-                    <Button type="primary">查看詳情</Button>
+                    <Button
+                      type="primary"
+                      onClick={() => {
+                        window.open(`https://monibuca.com`)
+                      }}
+                    >
+                      查看详情
+                    </Button>
                   </Space>
                 </Space>
               )
@@ -75,7 +82,14 @@ export const Feature110DataSource = {
                       <span style={{ color: '#000', fontWeight: 500 }}>Jessibuca</span>
                       是一款纯Web（H5）打造的直播流播放器。兼容几乎所有Web传输协议格式以及主流的音视频编码格式。具有低延时、高性能、兼容性强等特点。
                     </div>
-                    <Button type="primary">查看詳情</Button>
+                    <Button
+                      type="primary"
+                      onClick={() => {
+                        window.open(`https://jessibuca.com`)
+                      }}
+                    >
+                      查看详情
+                    </Button>
                   </Space>
                 </Space>
               )
@@ -99,7 +113,14 @@ export const Feature110DataSource = {
                       是一个使用 Rust 开发的 桌面端 ffmpeg 管理器。可以帮助我们更好的管理繁多复杂的
                       ffmpeg 参数和 ffmpeg 命令运行状态。
                     </div>
-                    <Button type="primary">查看詳情</Button>
+                    <Button
+                      type="primary"
+                      onClick={() => {
+                        window.open(`https://rebebuca.com`)
+                      }}
+                    >
+                      查看详情
+                    </Button>
                   </Space>
                 </Space>
               )
