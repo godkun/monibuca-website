@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
 import { Select, Tag, Radio, Card } from 'antd'
 import { NodeContainer, PullerContainer, protocol2plugin } from '../Node'
+import { PlayTypeSelector } from './Segmented'
 const pusherProtocol = {
   jessibuca: [
     'http-flv',
@@ -19,14 +20,15 @@ const pusherProtocol = {
   vlc: ['rtmp', 'rtsp', 'http-h265', 'hls', 'llhls', 'fmp4'],
   browser: ['webrtc', 'fmp4']
 } as const
-const Player = memo(({ data: { container, protocol, url, tool = 'jessibuca' } }) => {
+const Player = memo(({ data: { container, protocol, url, tool = 'jessibuca', disableChange } }) => {
   return (
     <>
       <Card
         size="small"
-        title="播放端"
+        title={<PlayTypeSelector ctx={container.context} value="播放" disabled={disableChange} />}
         style={{
-          width: 250,marginRight:5
+          width: 250,
+          marginRight: 5
         }}
         extra={
           <select
@@ -61,7 +63,13 @@ const Player = memo(({ data: { container, protocol, url, tool = 'jessibuca' } })
       <Handle
         type="target"
         position={Position.Right}
-        style={{ width: 20, height: 20 ,background:'lightgray',borderWidth:4 ,borderColor:'black'}}
+        style={{
+          width: 20,
+          height: 20,
+          background: 'lightgray',
+          borderWidth: 4,
+          borderColor: 'black'
+        }}
       />
     </>
   )

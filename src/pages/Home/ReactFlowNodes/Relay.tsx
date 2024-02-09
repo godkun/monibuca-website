@@ -3,31 +3,18 @@ import Base from './Base'
 import { FlowContext, PullerContainer, StreamContext, PlayerContainer } from './Node'
 
 const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
-  const ctx = new FlowContext({ isMobile, sourceType: false, playType: false ,nodes:[
-    {
-      id: 'm7s',
-      type: 'm7s',
-      position: { x: 300, y: 0 },
-      zIndex: -1,
-      style: {
-        width: 200,
-        height: 352,
-        backdropFilter: 'blur(10px)'
-      },
-      data: {}
-    }
-  ]})
+  const ctx = new FlowContext({ isMobile })
   const pusher = new PullerContainer(
     {
       id: 'puller',
       type: 'source',
-      position: { x:  0, y: 0 },
-      data: { title: '视频源', tool: '远端服务器' }
+      position: { x: 0, y: 0 },
+      data: { title: '拉流', tool: '远端服务器' }
     },
     ctx
   )
   const player = new PlayerContainer(
-    { id: 'player', type: 'player', position: { x:  0, y: 200 }, data: {} },
+    { id: 'player', type: 'player', position: { x: 0, y: 200 }, data: { disableChange: true } },
     ctx
   )
   ctx.pipe(
@@ -35,7 +22,7 @@ const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'plugin1',
       type: 'plugin',
-      position: { x: 35, y: 31 },
+      position: { x: 35, y: 32 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {
@@ -53,7 +40,7 @@ const Relay = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'plugin2',
       type: 'plugin',
-      position: { x: 35, y: 255 },
+      position: { x: 35, y: 256 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {

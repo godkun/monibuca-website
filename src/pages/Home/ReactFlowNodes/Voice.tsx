@@ -12,13 +12,13 @@ const Voice = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   ctx.addNode({
     id: '设备',
     style: { width: 200, height: 100 },
-    position: { x: 0, y: 10 },
+    position: { x: 0, y: 0 },
     type: 'group',
     data: { label: '设备' }
   })
   ctx.addNode({
     id: 'Jessibuca',
-    position: { x: 0, y: 310 },
+    position: { x: 0, y: 300 },
     style: { width: 200, height: 100 },
     type: 'group',
     data: { label: 'Jessibuca' }
@@ -117,7 +117,7 @@ const Voice = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   ctx.config = ``
   ctx.plugins.add('voice')
   ctx.plugins.add('gb28181')
-  ctx.updateNode('m7s', { position: { x: 300, y: 10 }, style: { width: 200, height: 400 } })
+  ctx.updateNode('m7s', { position: { x: 300, y: 0 }, style: { width: 200, height: 400 } })
   return <Base ctx={ctx} />
 })
 export default Voice

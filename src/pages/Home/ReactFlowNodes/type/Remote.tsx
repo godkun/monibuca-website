@@ -1,13 +1,14 @@
 import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
 import { Select, Tag, Radio, Card } from 'antd'
+import { PlayTypeSelector } from './Segmented';
 const pusherProtocol = ['CDN', 'm7s', '阿里云', '腾讯云', '网宿'] as const
-const Remote = memo(({ data: { container, protocol,url } }) => {
+const Remote = memo(({ data: { container, protocol,url ,disableChange} }) => {
   return (
     <>
       <Card
         size="small"
-        title="远端服务器"
+        title={<PlayTypeSelector ctx={container.context} value="转推" disabled={disableChange}/>}
         style={{
           width: 250, marginRight:5,height:152
         }}

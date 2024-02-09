@@ -15,13 +15,13 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
   ctx.addNode({
     id: '设备',
     style: { width: 200, height: 100 },
-    position: { x: 0, y: 10 },
+    position: { x: 0, y: 0 },
     type: 'group',
     data: { label: '设备' }
   })
   ctx.addNode({
     id: 'Jessibuca',
-    position: { x: 0, y: 310 },
+    position: { x: 0, y: 300 },
     style: { width: 200, height: 100 },
     type: 'group',
     data: { label: 'Jessibuca' }
@@ -115,7 +115,11 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
         icon: <IconFont type="m7s-mtsmeitichuli" spin />,
         color: 'default',
         style: { margin: 0 },
-        streamPath: 'room/streamA'
+        label: 'room/streamA',
+        handles: [
+          ['source', Position.Bottom, { style: { width: 10, height: 8, borderRadius: 3 } }],
+          ['target', Position.Top, { style: { width: 10, height: 8, borderRadius: 3 } }]
+        ]
       }
     },
     {
@@ -182,7 +186,7 @@ const Meet = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       ]
     }
   })
-  ctx.updateNode('m7s', { position: { x: 300, y: 10 }, style: { width: 200, height: 400 } })
+  ctx.updateNode('m7s', { position: { x: 300, y: 0 }, style: { width: 200, height: 400 } })
   const meetUp = new EdgeContainer(ctx.getContainer('会控'), ctx.getContainer('userA'), ctx)
   meetUp.data.sourceHandle = 'up'
   const meetDown = new EdgeContainer(ctx.getContainer('会控'), ctx.getContainer('userB'), ctx)

@@ -8,7 +8,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'source',
       type: 'source',
-      position: { x: 0, y: 80 },
+      position: { x: 0, y: 0 },
       data: {
         title: '推流端',
         tool: 'ffmpeg'
@@ -17,7 +17,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     ctx
   )
   const player = new PlayerContainer(
-    { id: 'player', type: 'player', position: { x: 0, y: 280 }, data: {} },
+    { id: 'player', type: 'player', position: { x: 0, y: 200 }, data: {} },
     ctx
   )
   ctx.pipe(
@@ -25,7 +25,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'plugin1',
       type: 'plugin',
-      position: { x: 35, y: 31 },
+      position: { x: 35, y: 32 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {
@@ -53,7 +53,7 @@ const Crypto = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     {
       id: 'plugin2',
       type: 'plugin',
-      position: { x: 35, y: 255 },
+      position: { x: 35, y: 256 },
       parentNode: 'm7s',
       extent: 'parent',
       data: {

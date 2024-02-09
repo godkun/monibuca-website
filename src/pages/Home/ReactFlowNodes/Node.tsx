@@ -5,7 +5,7 @@ export const defaultM7sNode = (isMobile: boolean) => [
   {
     id: 'm7s',
     type: 'm7s',
-    position: { x: 300, y: 80 },
+    position: { x: 300, y: 0 },
     zIndex: -1,
     style: {
       width: 200,
@@ -49,8 +49,6 @@ export class FlowContext {
   constructor({
     nodes,
     isMobile,
-    sourceType = true,
-    playType = true
   }: {
     nodes?: Node[]
     isMobile: boolean
@@ -59,93 +57,6 @@ export class FlowContext {
   }) {
     this.isMobile = isMobile
     if (!nodes) nodes = defaultM7sNode(isMobile)
-    if (sourceType) {
-      nodes.push({
-        id: 'sourceTypeSelector',
-        type: 'segmented',
-        position: { x: 0, y: 20 },
-        data: {
-          value: '推流',
-          options: ['推流', '拉流'],
-          onChange: (t: '推流' | '拉流') => {
-            this.updateNodeData('sourceTypeSelector', { value: t })
-            switch (t) {
-              case '推流':
-                {
-                  const pusher = new PusherContainer(
-                    {
-                      id: 'source',
-                      type: 'source',
-                      position: { x: 0, y: 80 },
-                      data: {
-                        title: '推流端',
-                        tool: 'ffmpeg'
-                      }
-                    },
-                    this
-                  )
-                  pusher.changeProtocol('rtmp')
-                }
-                break
-              case '拉流': {
-                const puller = new PullerContainer(
-                  {
-                    id: 'source',
-                    type: 'source',
-                    position: { x: 0, y: 80 },
-                    data: { title: '视频源', tool: '远端服务器' }
-                  },
-                  this
-                )
-                puller.changeProtocol('rtmp')
-              }
-            }
-          }
-        }
-      })
-    }
-    if (playType) {
-      nodes.push({
-        id: 'playTypeSelector',
-        type: 'segmented',
-        position: { x: 0, y: 230 },
-        data: {
-          value: '播放',
-          options: ['播放', '转推'],
-          onChange: (t: '转推' | '播放') => {
-            this.updateNodeData('playTypeSelector', { value: t })
-            switch (t) {
-              case '转推':
-                {
-                  const pusher = new PushOutContainer(
-                    {
-                      id: 'player',
-                      type: 'remote',
-                      position: { x: 0, y: 280 },
-                      data: {}
-                    },
-                    this
-                  )
-                  pusher.changeProtocol('CDN')
-                }
-                break
-              case '播放': {
-                const player = new PlayerContainer(
-                  {
-                    id: 'player',
-                    type: 'player',
-                    position: { x: 0, y: 280 },
-                    data: {}
-                  },
-                  this
-                )
-                player.changeProtocol('http-flv')
-              }
-            }
-          }
-        }
-      })
-    }
     nodes.forEach(n => this.addNode(n))
   }
   clear() {

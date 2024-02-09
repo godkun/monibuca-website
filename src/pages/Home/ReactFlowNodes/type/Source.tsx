@@ -2,13 +2,14 @@ import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
 import { Radio, Card } from 'antd'
 import { NodeContainer } from '../Node'
+import { SourceTypeSelector } from './Segmented';
 const Source = memo<{ data: { container: NodeContainer } }>(
-  ({ data: { container, protocol, title, protocols, extra ,url } }) => {
+  ({ data: { container, protocol, title, protocols, extra ,url ,disableChange} }) => {
     return (
       <>
         <Card
           size="small"
-          title={title}
+          title={<SourceTypeSelector ctx={container.context} value={title}  disabled={disableChange} />}
           style={{
             width: 250,marginRight:5
           }}
