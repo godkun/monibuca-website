@@ -1,7 +1,7 @@
 import React from 'react'
 import TweenOne from 'rc-tween-one'
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
-import { getChildrenToRender } from './utils'
+import { getChildrenToRender } from '../utils'
 
 import { Image } from 'antd'
 

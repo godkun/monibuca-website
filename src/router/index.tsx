@@ -5,7 +5,7 @@ import About from '../pages/About'
 import Plugin from '../pages/Plugin'
 import Product from '../pages/Product'
 import Download from '../pages/Download'
-import React from 'react'
+import Doc from '../pages/Doc'
 import MainLayout from '../layouts/MainLayout'
 
 const router = createBrowserRouter([
@@ -34,7 +34,10 @@ const router = createBrowserRouter([
         path: '/product',
         element: <Product />
       },
-
+      {
+        path: '/doc',
+        element: <Doc />
+      },
       {
         path: '/download',
         element: <Download />

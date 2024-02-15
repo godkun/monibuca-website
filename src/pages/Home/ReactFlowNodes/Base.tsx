@@ -12,7 +12,6 @@ import m7s from './type/Monibuca'
 import { TagNode as tagNode } from './type/Tag'
 import { Tabs, Card, Space } from 'antd'
 import { FlowContext, StreamContext } from './Node'
-import { AutoFit } from './data'
 import Markdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import './Base.css'
@@ -52,7 +51,7 @@ ${rawCode}
       <StreamContext.Provider value={ctx.state.stream}>
         <ReactFlow
           onInit={instance => {
-            instance.fitView()
+            if (ctx.isMobile) instance.fitView()
           }}
           nodesConnectable={false}
           connectOnClick={false}

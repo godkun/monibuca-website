@@ -98,7 +98,8 @@ export const Feature130DataSource = {
     wrapper: { className: 'feature13-content-wrapper' },
     titleWrapper: {
       className: 'feature13-title-wrapper',
-      children: [{ name: 'title', children: '插件生态', className: 'title-h1' }],
+      // children: [{ name: 'title', children: '插件生态', className: 'title-h1' }],
+      children:[],
       barWrapper: {
         className: 'feature13-title-bar-wrapper',
         children: {

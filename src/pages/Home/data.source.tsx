@@ -50,7 +50,10 @@ export const Banner20DataSource = {
         name: 'elem0',
         BannerElement: { className: 'banner-user-elem' },
         page: { className: 'home-page banner2-page' },
-        textWrapper: { className: 'banner2-text-wrapper',style:{ backdropFilter: 'blur(10px)' } },
+        textWrapper: {
+          className: 'banner2-text-wrapper',
+          style: isMobile ? {} : { backdropFilter: 'blur(10px)', width: 500 }
+        },
         bg: { className: 'bg bg0' },
         title: {
           className: 'banner2-title',
@@ -58,19 +61,29 @@ export const Banner20DataSource = {
         },
         content: {
           className: 'banner2-version',
-          children: '最新版:v4.7.4',
+          children: (
+            <code>
+              <pre style={{ textWrap: 'wrap' ,margin:0}}>
+                docker run -id -p 1935:1935 -p 8080:8080 -p 8443:8443 -p 554:554 -p 58200-59200:58200-59200 -p
+                5060:5060/udp -p 9000:9000 langhuihui/monibuca:latest
+              </pre>
+            </code>
+          ),
+          style: isMobile
+            ? { marginTop: 300 }
+            : { background: 'black', color: 'white', borderRadius: 5, padding: 10 },
           onClick: () => {
-            window.open('https://mp.weixin.qq.com/s/wXNSoMl6H6Wp9Sz2xzaxuw')
+            // window.open('https://mp.weixin.qq.com/s/wXNSoMl6H6Wp9Sz2xzaxuw')
           }
         },
         kun: {
           className: 'banner2-content',
-          children:
-            '二开友好、代码简洁、插件丰富、延迟极低、性能强悍、部署方便、生态共建、合作共赢'
+          children: '二开友好、代码简洁、插件丰富、延迟极低、性能强悍、部署方便、生态共建、合作共赢'
         },
         button: {
           className: 'banner2-button',
           children: '社区版',
+          style: isMobile ? { width: '40vw', background: '#263036' } : { background: '#263036' },
           onClick: () => {
             window.open('https://github.com/langhuihui/monibuca')
           }
@@ -78,6 +91,7 @@ export const Banner20DataSource = {
         button2: {
           className: 'banner2-button',
           children: '专业版',
+          style: isMobile ? { width: '40vw', background: '#5A00FF' } : { background: '#5A00FF' },
           onClick: () => {
             window.open('https://github.com/Monibuca/pro')
           }
@@ -959,7 +973,9 @@ export const Feature80DataSource = {
                         <Button
                           type="primary"
                           onClick={() => {
-                            window.open('https://download.m7s.live/bin/console_windows_amd64.zip?v=0.1.20')
+                            window.open(
+                              'https://download.m7s.live/bin/console_windows_amd64.zip?v=0.1.20'
+                            )
                           }}
                         >
                           立即下载

@@ -4,7 +4,7 @@ import QueueAnim from 'rc-queue-anim';
 import { Carousel as AntCarousel, Row, Col, Space, Tabs, Select } from 'antd';
 import TweenOne from 'rc-tween-one';
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin';
-import { getChildrenToRender as kunRender } from './utils';
+import { getChildrenToRender as kunRender } from '../utils';
 
 TweenOne.plugins.push(Children);
 
@@ -14,7 +14,7 @@ class Feature4 extends React.PureComponent {
     this.carouselRef = React.createRef();
     this.state = {
       current: 0,
-      child:props.dataSource.tabs.children[0].children
+      child: props.dataSource.tabs.children[0].children
     };
   }
   render() {
@@ -34,25 +34,25 @@ class Feature4 extends React.PureComponent {
           </div>
           <div className='tab'>
             {isMobile ? <div><Select
-              style={{width:200}}
+              style={{ width: 200 }}
               value={this.state.current}
-              onChange={i => this.setState({child:childWrapper[i].children,current:i})}
+              onChange={i => this.setState({ child: childWrapper[i].children, current: i })}
               options={childWrapper.map((item, i) => ({ label: item.title, value: i }))}
             />
-            <this.state.child isMobile={isMobile} /></div>:
-            <Tabs
-              size="small"
-              tabPosition={isMobile ? 'top' : 'left'}
-              type={isMobile ? 'line' : 'card'}
-              tabBarGutter={9}
-              items={childWrapper.map((item, i) => {
-                return {
-                  label: item.title,
-                  key: i,
-                  children: <item.children isMobile={isMobile} />
-                };
-              })}
-            />}
+              <this.state.child isMobile={isMobile} /></div> :
+              <Tabs
+                size="small"
+                tabPosition={isMobile ? 'top' : 'left'}
+                type={isMobile ? 'line' : 'card'}
+                tabBarGutter={9}
+                items={childWrapper.map((item, i) => {
+                  return {
+                    label: item.title,
+                    key: i,
+                    children: <item.children isMobile={isMobile} />
+                  };
+                })}
+              />}
           </div>
         </div>
       </div>
