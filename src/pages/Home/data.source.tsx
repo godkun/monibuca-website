@@ -947,7 +947,7 @@ export const Feature80DataSource = {
                       Docker部署
                     </div>
                   </Space>
-                  <Space style={{ marginTop: '36px' }}>
+                  <Space style={{ marginTop: '36px' }} direction={isMobile ? 'vertical' : 'horizontal' }>
                     <Space direction="vertical" className="item">
                       <Space className="item-wrap">
                         <Space direction="vertical">
