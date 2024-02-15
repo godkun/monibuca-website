@@ -12,7 +12,7 @@ import m7s from './type/Monibuca'
 import { TagNode as tagNode } from './type/Tag'
 import { Tabs, Card, Space } from 'antd'
 import { FlowContext, StreamContext } from './Node'
-
+import { AutoFit } from './data'
 import Markdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import './Base.css'
@@ -48,9 +48,12 @@ ${rawCode}
 ~~~`
 
   const graph = (
-    <div className="nowheel" style={{ width: 500, height: 450 }}>
+    <div className="nowheel" style={{ width: ctx.isMobile ? '100vw' : 500, height: 450 }}>
       <StreamContext.Provider value={ctx.state.stream}>
         <ReactFlow
+          onInit={instance => {
+            instance.fitView()
+          }}
           nodesConnectable={false}
           connectOnClick={false}
           autoPanOnNodeDrag={false}
@@ -90,7 +93,7 @@ ${rawCode}
           const { children, className, node, ...rest } = props
           const match = /language-(\w+)/.exec(className || '')
           return match ? (
-            <div className="code-box">
+            <div className="code-box" style={{ width: '100vw' }}>
               <div className="copy">
                 <Tooltip
                   title={copyMsg}
@@ -142,7 +145,7 @@ ${selectedConfig || '// 无需配置'}
           const { children, className, node, ...rest } = props
           const match = /language-(\w+)/.exec(className || '')
           return match ? (
-            <div className="code-box">
+            <div className="code-box" style={{ width: '100vw' }}>
               {selectedConfig && (
                 <div className="copy">
                   <Tooltip
@@ -192,14 +195,14 @@ ${selectedConfig || '// 无需配置'}
             children: graph
           },
           {
-            label: 'config.yaml',
-            key: '1',
-            children: config
-          },
-          {
             label: 'main.go',
             key: '2',
             children: main
+          },
+          {
+            label: 'config.yaml',
+            key: '1',
+            children: config
           }
         ]}
       ></Tabs>
@@ -209,7 +212,7 @@ ${selectedConfig || '// 无需配置'}
     <Space direction="horizontal" style={{ width: '100%' }} align="start">
       {graph}
       <Card
-        style={{ width: 500 }}
+        style={{ width: ctx.isMobile ? '100vw' : 500 }}
         size="small"
         tabList={['main.go']
           .concat(ctx.configs ? Object.keys(ctx.configs) : ['config.yaml'])

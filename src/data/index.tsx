@@ -27,6 +27,14 @@ export const Nav30DataSource = {
         }
       },
       {
+        name: '/docs',
+        className: 'header3-item',
+        children: {
+          href: 'https://monibuca.com/docs/index.html',
+          children: [{ children: '文档', name: 'text' }]
+        }
+      },
+      {
         name: '/product',
         className: 'header3-item',
         children: {
@@ -66,56 +74,56 @@ export const Nav30DataSource = {
           children: [{ children: '关于我们', name: 'text' }]
         }
       },
-      {
-        name: 'item6',
-        className: 'header3-button',
-        children: {
-          href: 'https://console.monibuca.com',
-          children: isMobile
-            ? [{ children: '控制台', name: 'text' }]
-            : [
-                {
-                  children: (
-                    <div className="nav-button" key="button-console">
-                      <img
-                        src="/svg/console.svg"
-                        alt=""
-                        width={24}
-                        style={{ marginRight: '9px' }}
-                      />
-                      控制台
-                    </div>
-                  ),
-                  name: 'text'
-                }
-              ]
-        }
-      },
-      {
-        name: 'item7',
-        className: 'header3-button',
-        children: {
-          href: 'https://test.monibuca.com:8081/ui/#/instance',
-          children: isMobile
-            ? [{ children: 'Monibuca 开源', name: 'text' }]
-            : [
-                {
-                  children: (
-                    <div className="nav-button-2" key="button-github">
-                      <img
-                        src="/svg/console.svg"
-                        alt=""
-                        width={24}
-                        style={{ marginRight: '9px' }}
-                      />
-                      Pro Demo
-                    </div>
-                  ),
-                  name: 'text'
-                }
-              ]
-        }
-      }
+      // {
+      //   name: 'item6',
+      //   className: 'header3-button',
+      //   children: {
+      //     href: 'https://console.monibuca.com',
+      //     children: isMobile
+      //       ? [{ children: '控制台', name: 'text' }]
+      //       : [
+      //           {
+      //             children: (
+      //               <div className="nav-button" key="button-console">
+      //                 <img
+      //                   src="/svg/console.svg"
+      //                   alt=""
+      //                   width={24}
+      //                   style={{ marginRight: '9px' }}
+      //                 />
+      //                 控制台
+      //               </div>
+      //             ),
+      //             name: 'text'
+      //           }
+      //         ]
+      //   }
+      // },
+      // {
+      //   name: 'item7',
+      //   className: 'header3-button',
+      //   children: {
+      //     href: 'https://test.monibuca.com:8081/ui/#/instance',
+      //     children: isMobile
+      //       ? [{ children: 'Monibuca 开源', name: 'text' }]
+      //       : [
+      //           {
+      //             children: (
+      //               <div className="nav-button-2" key="button-github">
+      //                 <img
+      //                   src="/svg/console.svg"
+      //                   alt=""
+      //                   width={24}
+      //                   style={{ marginRight: '9px' }}
+      //                 />
+      //                 Pro Demo
+      //               </div>
+      //             ),
+      //             name: 'text'
+      //           }
+      //         ]
+      //   }
+      // }
     ]
   },
   mobileMenu: { className: 'header3-mobile-menu' }

@@ -50,7 +50,7 @@ export const Banner20DataSource = {
         name: 'elem0',
         BannerElement: { className: 'banner-user-elem' },
         page: { className: 'home-page banner2-page' },
-        textWrapper: { className: 'banner2-text-wrapper' },
+        textWrapper: { className: 'banner2-text-wrapper',style:{ backdropFilter: 'blur(10px)' } },
         bg: { className: 'bg bg0' },
         title: {
           className: 'banner2-title',
@@ -58,7 +58,7 @@ export const Banner20DataSource = {
         },
         content: {
           className: 'banner2-version',
-          children: '最新版:v4.7.2',
+          children: '最新版:v4.7.4',
           onClick: () => {
             window.open('https://mp.weixin.qq.com/s/wXNSoMl6H6Wp9Sz2xzaxuw')
           }
@@ -66,18 +66,18 @@ export const Banner20DataSource = {
         kun: {
           className: 'banner2-content',
           children:
-            '旨在提供一个对开发者友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。Monibuca 的理念是共建共赢，平等互利，打造一个行业业务复用生态环境，降低企业在音视频领域重复开发付出的高昂成本。'
+            '二开友好、代码简洁、插件丰富、延迟极低、性能强悍、部署方便、生态共建、合作共赢'
         },
         button: {
           className: 'banner2-button',
-          children: '开源版本',
+          children: '社区版',
           onClick: () => {
             window.open('https://github.com/langhuihui/monibuca')
           }
         },
         button2: {
           className: 'banner2-button',
-          children: '企业版',
+          children: '专业版',
           onClick: () => {
             window.open('https://github.com/Monibuca/pro')
           }
