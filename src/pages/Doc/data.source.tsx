@@ -112,6 +112,7 @@ export const Feature110DataSource = {
           className: 'Feature11-text',
           children: (<Space
             className="item"
+            style={{ cursor: 'pointer' }}
             onClick={() => {
               window.open(child.href)
             }}
