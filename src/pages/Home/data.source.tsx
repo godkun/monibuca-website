@@ -62,12 +62,18 @@ export const Banner20DataSource = {
         content: {
           className: 'banner2-version',
           children: (
-            <code>
-              <pre style={{ textWrap: 'wrap' ,margin:0}}>
-                docker run -id -p 1935:1935 -p 8080:8080 -p 8443:8443 -p 554:554 -p 58200-59200:58200-59200 -p
-                5060:5060/udp -p 9000:9000 langhuihui/monibuca:latest
-              </pre>
-            </code>
+            <Text copyable code style={{ color: '#fff', textWrap: 'wrap', fontSize: '20px' }}>
+              docker run -id -p 1935:1935 -p 8080:8080 -p 8443:8443 -p 554:554 -p
+              58200:58200 -p 5060:5060/udp -p 8000:8000/udp -p 9000:9000
+              langhuihui/monibuca:latest
+            </Text>
+
+            // <code>
+            //   <pre style={{ textWrap: 'wrap' ,margin:0}}>
+            //     docker run -id -p 1935:1935 -p 8080:8080 -p 8443:8443 -p 554:554 -p 58200-59200:58200-59200 -p
+            //     5060:5060/udp -p 9000:9000 langhuihui/monibuca:latest
+            //   </pre>
+            // </code>
           ),
           style: isMobile
             ? { marginTop: 300 }
