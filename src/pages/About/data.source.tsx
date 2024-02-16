@@ -1,4 +1,3 @@
-import React from 'react'
 import { List } from 'antd'
 import { Nav30DataSource } from '../../data/index'
 
@@ -16,7 +15,7 @@ const faqData = [
   },
   {
     title: 'Monibuca要收费吗？',
-    description: `Monibuca是完全开源免费的，但是基于Monibuca二次开发的软件可以收费。`
+    description: `Monibuca是完全开源免费的，但是基于Monibuca二次开发的软件可以收费。此外为了维持项目的可持续发展，团队提供定制化插件服务，和专业版功能，会收取费用。`
   },
   {
     title: 'Monibuca的愿景是什么？',
