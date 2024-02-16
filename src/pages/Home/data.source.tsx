@@ -884,7 +884,7 @@ export const Feature80DataSource = {
                     <div
                       className="btn1"
                       onClick={() => {
-                        window.open('https://test.monibuca.com:8081/ui/#/instance')
+                        window.open('https://test.monibuca.com/ui')
                       }}
                     >
                       在线体验

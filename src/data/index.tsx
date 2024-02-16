@@ -299,7 +299,7 @@ export const Footer10DataSource = {
                     </div>
                   }
                 >
-                  微信号：不卡科技
+                  微信公众号：不卡科技
                   <img src="/svg/ic_QR code.svg" alt="" width={24} style={{ marginRight: '9px' }} />
                 </Popover>
               )
