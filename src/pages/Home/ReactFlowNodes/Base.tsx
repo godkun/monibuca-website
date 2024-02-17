@@ -37,7 +37,9 @@ ${ctx.state.plugins.map(plugin => `  _ "m7s.live/plugin/${plugin}/v4"`).join('\n
 )
 
 func main() {
-  engine.Run(context.Background(), "config.yaml")
+  engine.Run(
+    context.Background(), "config.yaml"
+  )
 }`
 
   const markdown = `
@@ -47,7 +49,7 @@ ${rawCode}
 ~~~`
 
   const graph = (
-    <div className="nowheel" style={{ width: ctx.isMobile ? '100vw' : 500, height: 450 }}>
+    <div className="nowheel" style={{ width: ctx.isMobile ? '100vw' : 500, height: ctx.isMobile ? 350 : 450 }}>
       <StreamContext.Provider value={ctx.state.stream}>
         <ReactFlow
           onInit={instance => {
@@ -187,6 +189,7 @@ ${selectedConfig || '// 无需配置'}
   if (ctx.isMobile) {
     return (
       <Tabs
+        centered
         items={[
           {
             label: '可视化',
