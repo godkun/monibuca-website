@@ -8,7 +8,7 @@ import { getChildrenToRender as kunRender } from '../utils';
 
 TweenOne.plugins.push(Children);
 
-class Feature11 extends React.PureComponent {
+class Feature14 extends React.PureComponent {
   constructor(props) {
     super(props);
     this.carouselRef = React.createRef();
@@ -115,4 +115,4 @@ class Feature11 extends React.PureComponent {
     );
   }
 }
-export default Feature11;
+export default Feature14;

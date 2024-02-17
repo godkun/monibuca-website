@@ -1,12 +1,12 @@
-@Feature11: Feature11;
+@Feature14: Feature14;
 
-.@{Feature11} {
+.@{Feature14} {
   &-wrapper {
     background: #f9f9fa;
     min-height: 360px;
     margin: 0 auto;
     overflow: hidden;
-    margin-top: -270px;
+    margin-top: -200px;
     background: transparent;
 
     &.home-page-wrapper {
@@ -108,10 +108,10 @@
 
   &-text {
     .item {
+      background: #f9f9fa !important;
       .imgbox {
         width: 344px;
         height: 150px;
-        background: linear-gradient(270deg, #ffffff 0%, #e6f0ff 100%);
         position: relative;
         &-t1 {
           position: absolute;
@@ -179,7 +179,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .@{Feature11}-wrapper {
+  .@{Feature14}-wrapper {
     padding-bottom: 0;
     min-height: 580px;
 
@@ -190,23 +190,30 @@
     }
   }
 
-  .@{Feature11}-title {
+  .@{Feature14}-title {
     &-wrapper {
       margin-bottom: 30px;
     }
   }
 
-  .@{Feature11}-t1 {
+  .@{Feature14}-title-text {
+    width: 90px;
+    font-size: 14px;
+
+  }
+
+  .@{Feature14}-t1 {
     font-size: 30px;
   }
 
-  .@{Feature11}-text {
+  .@{Feature14}-text {
     .item {
+      margin-top: 20px;
       margin-bottom: 0px;
     }
   }
 
-  .@{Feature11}-number-wrapper {
+  .@{Feature14}-number-wrapper {
     margin-bottom: 16px;
   }
 }

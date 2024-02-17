@@ -4,9 +4,9 @@ import React from 'react'
 import { enquireScreen } from 'enquire-js'
 
 import Banner1 from './Banner10'
-import Feature11 from './Feature11'
+import Feature14 from './Feature14'
 
-import { Feature110DataSource } from './data.source'
+import { Feature140DataSource } from './data.source'
 import './less/antMotionStyle.less'
 
 let isMobile
@@ -32,10 +32,10 @@ export default class Home extends React.Component {
     const children = [
       <Banner1 id="Banner1_0" key="Banner1_0" isMobile={this.state.isMobile} />,
 
-      <Feature11
-        id="Feature11_0"
-        key="Feature11_0"
-        dataSource={Feature110DataSource}
+      <Feature14
+        id="Feature14_0"
+        key="Feature14_0"
+        dataSource={Feature140DataSource}
         isMobile={this.state.isMobile}
       />
     ]

@@ -84,32 +84,32 @@ const data = [
     ]
   },
 ];
-export const Feature110DataSource = {
-  wrapper: { className: 'home-page-wrapper Feature11-wrapper' },
-  page: { className: 'home-page Feature11' },
+export const Feature140DataSource = {
+  wrapper: { className: 'home-page-wrapper Feature14-wrapper' },
+  page: { className: 'home-page Feature14' },
   Carousel: {
-    className: 'Feature11-content',
+    className: 'Feature14-content',
     dots: false,
-    wrapper: { className: 'Feature11-content-wrapper' },
+    wrapper: { className: 'Feature14-content-wrapper' },
     titleWrapper: {
-      className: 'Feature11-title-wrapper',
+      className: 'Feature14-title-wrapper',
       children: [],
       barWrapper: {
-        className: 'Feature11-title-bar-wrapper',
+        className: 'Feature14-title-bar-wrapper',
         children: {
-          className: 'Feature11-title-bar'
+          className: 'Feature14-title-bar'
         }
       }
     },
     children: data.map((item, i) => ({
-      title: { className: 'Feature11-title-text', children: item.title },
-      className: 'Feature11-item',
+      title: { className: 'Feature14-title-text', children: item.title },
+      className: 'Feature14-item',
       name: `block${i}`,
       children: item.children.map((child, j) => ({
         md: 8,
         xs: 24,
         children: {
-          className: 'Feature11-text',
+          className: 'Feature14-text',
           children: (<Space
             className="item"
             style={{ cursor: 'pointer' }}
