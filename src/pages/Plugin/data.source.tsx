@@ -47,6 +47,11 @@ const plugins2 = [
     url: 'https://github.com/bigbeer1/m7s-reportor'
   },
   {
+    name: 'plugin-jtt1078',
+    desc: 'jtt1078协议接入插件',
+    url: 'https://github.com/bytebit/plugin-jtt1078'
+  },
+  {
     name: '虚位以待',
     desc: '可联系我们添加到此列表',
     url: ''
