@@ -352,7 +352,7 @@ export const Footer10DataSource = {
           <a href="https://beian.miit.gov.cn/" target="_blank">
             苏ICP备2023025807号-1
           </a>
-          <img src="https://monibuca.com/images/beian.png"></img>
+          <img src="/img/beian.png"></img>
           <a
             href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011302321580"
             target="_blank"
