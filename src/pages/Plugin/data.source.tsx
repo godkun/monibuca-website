@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Space, Image } from 'antd'
 
 import { Nav30DataSource } from '../../data/index'
@@ -52,6 +50,11 @@ const plugins2 = [
     url: 'https://github.com/bytebit/plugin-jtt1078'
   },
   {
+    name: 'plugin-transform',
+    desc: '一个转码插件，基于 ffmpeg 进程',
+    url: 'https://github.com/erroot/plugin-transform'
+  },
+  {
     name: '虚位以待',
     desc: '可联系我们添加到此列表',
     url: ''
@@ -60,32 +63,44 @@ const plugins2 = [
 
 const plugins3 = [
   {
-    name: 'cascade',
+    name: 'plugin-cascade',
     desc: '级联插件，提供 m7s 无限级联能力'
   },
   {
-    name: 'transcode',
+    name: 'plugin-transcode',
     desc: '提供转码能力，可以将流转码为其他格式'
   },
   {
-    name: 'snappro',
+    name: 'plugin-snappro',
     desc: '极速截图，比 snap 插件截图速度高 10 倍以上'
   },
   {
-    name: 'cryptor',
+    name: 'plugin-cryptor',
     desc: '提供对流的加密能力'
   },
   {
-    name: 'gb28181pro',
+    name: 'plugin-gb28181pro',
     desc: '提供GB28181协议的级联等功能'
   },
   {
-    name: 'recordpro',
+    name: 'plugin-recordpro',
     desc: '高级录制插件，增加定时任务等额外的功能'
   },
   {
     name: 'plugin-cdn',
     desc: '可以将流推送到CDN,适配多种云厂商'
+  },
+  {
+    name: 'plugin-sei',
+    desc: '可插入自定义 sei 信息'
+  },
+  {
+    name: 'plugin-voice',
+    desc: '支持公网语音对讲，需要购买硬件'
+  },
+  {
+    name: 'plugin-admin',
+    desc: '精美UI界面'
   },
   {
     name: '虚位以待',
@@ -104,7 +119,7 @@ export const Feature130DataSource = {
     titleWrapper: {
       className: 'feature13-title-wrapper',
       // children: [{ name: 'title', children: '插件生态', className: 'title-h1' }],
-      children:[],
+      children: [],
       barWrapper: {
         className: 'feature13-title-bar-wrapper',
         children: {
