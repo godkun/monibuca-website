@@ -48,7 +48,7 @@ export class FlowContext {
   }
   constructor({
     nodes,
-    isMobile,
+    isMobile
   }: {
     nodes?: Node[]
     isMobile: boolean

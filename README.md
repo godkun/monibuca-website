@@ -2,8 +2,8 @@
 
 # 安装
 
-yarn
+pnpm i 
 
 # 启动
 
-yarn start
+pnpm dev

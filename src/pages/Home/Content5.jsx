@@ -1,9 +1,9 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { TweenOneGroup } from 'rc-tween-one';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import React from 'react'
+import { Row, Col } from 'antd'
+import { TweenOneGroup } from 'rc-tween-one'
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 // import { getChildrenToRender } from './utils';
-import { getChildrenToRender as kunRender } from '../utils';
+import { getChildrenToRender as kunRender } from '../utils'
 
 class Content5 extends React.PureComponent {
   getChildrenToRender = data =>
@@ -15,15 +15,15 @@ class Content5 extends React.PureComponent {
             <p {...item.children.content}>{item.children.content.children}</p>
           </a>
         </Col>
-      );
-    });
+      )
+    })
 
   render() {
-    const { ...props } = this.props;
-    const { dataSource } = props;
-    delete props.dataSource;
-    delete props.isMobile;
-    const childrenToRender = this.getChildrenToRender(dataSource.block.children);
+    const { ...props } = this.props
+    const { dataSource } = props
+    delete props.dataSource
+    delete props.isMobile
+    const childrenToRender = this.getChildrenToRender(dataSource.block.children)
     return (
       <div {...props} {...dataSource.wrapper}>
         <div {...dataSource.page}>
@@ -65,8 +65,8 @@ class Content5 extends React.PureComponent {
           </TweenOneGroup>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Content5;
+export default Content5

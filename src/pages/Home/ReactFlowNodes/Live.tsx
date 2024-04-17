@@ -12,13 +12,13 @@ const Live = memo<{ isMobile: boolean }>(function ({ isMobile }) {
       data: {
         title: '推流',
         tool: 'ffmpeg',
-        disableChange:true
+        disableChange: true
       }
     },
     ctx
   )
   const player = new PlayerContainer(
-    { id: 'player', type: 'player', position: { x: 0, y: 200 }, data: { disableChange:true} },
+    { id: 'player', type: 'player', position: { x: 0, y: 200 }, data: { disableChange: true } },
     ctx
   )
   ctx.pipe(

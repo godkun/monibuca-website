@@ -41,7 +41,7 @@ const TimeShift = memo<{ isMobile: boolean }>(function ({ isMobile }) {
     },
     {
       id: '订阅者',
-      position: { x: isMobile ? 0 : 150, y:  300 },
+      position: { x: isMobile ? 0 : 150, y: 300 },
       data: { label: '订阅者' }
     }
   )

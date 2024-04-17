@@ -49,7 +49,10 @@ ${rawCode}
 ~~~`
 
   const graph = (
-    <div className="nowheel" style={{ width: ctx.isMobile ? '100vw' : 500, height: ctx.isMobile ? 350 : 450 }}>
+    <div
+      className="nowheel"
+      style={{ width: ctx.isMobile ? '100vw' : 500, height: ctx.isMobile ? 350 : 450 }}
+    >
       <StreamContext.Provider value={ctx.state.stream}>
         <ReactFlow
           onInit={instance => {

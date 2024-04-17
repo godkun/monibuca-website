@@ -73,7 +73,7 @@ export const Nav30DataSource = {
           href: '/about',
           children: [{ children: '关于我们', name: 'text' }]
         }
-      },
+      }
       // {
       //   name: 'item6',
       //   className: 'header3-button',

@@ -1,33 +1,33 @@
-import React from 'react';
-import { Button, Space } from 'antd';
-import { DownOutlined, GithubOutlined } from '@ant-design/icons';
+import React from 'react'
+import { Button, Space } from 'antd'
+import { DownOutlined, GithubOutlined } from '@ant-design/icons'
 
-import QueueAnim from 'rc-queue-anim';
-import TweenOne, { TweenOneGroup } from 'rc-tween-one';
-import BannerAnim, { Element } from 'rc-banner-anim';
-import { isImg } from '../utils';
-import 'rc-banner-anim/assets/index.css';
+import QueueAnim from 'rc-queue-anim'
+import TweenOne, { TweenOneGroup } from 'rc-tween-one'
+import BannerAnim, { Element } from 'rc-banner-anim'
+import { isImg } from '../utils'
+import 'rc-banner-anim/assets/index.css'
 
-const BgElement = Element.BgElement;
+const BgElement = Element.BgElement
 class Banner extends React.PureComponent {
   render() {
-    const { ...props } = this.props;
-    const { dataSource, isMobile } = props;
-    delete props.dataSource;
-    delete props.isMobile;
+    const { ...props } = this.props
+    const { dataSource, isMobile } = props
+    delete props.dataSource
+    delete props.isMobile
     const childrenToRender = dataSource.BannerAnim.children.map((item, i) => {
-      const elem = item.BannerElement;
-      const elemClassName = elem.className;
-      delete elem.className;
-      const bg = item.bg;
-      const textWrapper = item.textWrapper;
-      const title = item.title;
-      const content = item.content;
-      const kun = item.kun;
-      const button = item.button;
-      const button2 = item.button2;
-      const page = item.page;
-      const follow = null;
+      const elem = item.BannerElement
+      const elemClassName = elem.className
+      delete elem.className
+      const bg = item.bg
+      const textWrapper = item.textWrapper
+      const title = item.title
+      const content = item.content
+      const kun = item.kun
+      const button = item.button
+      const button2 = item.button2
+      const page = item.page
+      const follow = null
       // const follow = !isMobile
       //   ? {
       //       delay: 1000,
@@ -85,8 +85,8 @@ class Banner extends React.PureComponent {
             </QueueAnim>
           </div>
         </Element>
-      );
-    });
+      )
+    })
     return (
       <div {...props} {...dataSource.wrapper}>
         <TweenOneGroup
@@ -100,8 +100,8 @@ class Banner extends React.PureComponent {
           </BannerAnim>
         </TweenOneGroup>
       </div>
-    );
+    )
   }
 }
 
-export default Banner;
+export default Banner
