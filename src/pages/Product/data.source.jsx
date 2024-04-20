@@ -1,9 +1,4 @@
-import React from 'react'
-
 import { Button, Space } from 'antd'
-import { Nav30DataSource } from '../../data/index'
-
-export { Nav30DataSource }
 
 export const Feature110DataSource = {
   wrapper: { className: 'home-page-wrapper Feature11-wrapper' },
@@ -77,7 +72,6 @@ export const Feature110DataSource = {
                     <img alt="" className="imgbox-img" src="/img/m-icon.png" />
                   </div>
                   <Space direction="vertical" align="start">
-                    {/* <div className='title'>从零启动 m7s V4</div> */}
                     <div className="desc">
                       <span style={{ color: '#000', fontWeight: 500 }}>Jessibuca</span>
                       是一款纯Web（H5）打造的直播流播放器。兼容几乎所有Web传输协议格式以及主流的音视频编码格式。具有低延时、高性能、兼容性强等特点。

@@ -1,8 +1,4 @@
 import { Space, Image } from 'antd'
-import { Nav30DataSource } from '../../data/index'
-import { LinkOutlined } from '@ant-design/icons'
-
-export { Nav30DataSource }
 
 const videoData = [
   {
@@ -208,7 +204,6 @@ export const Feature100DataSource = {
                   </div>
                   <Space direction="vertical" align="start">
                     <div className="title">{item.title}</div>
-                    {/* <div className="title">{item.title} <LinkOutlined /></div> */}
                     <div className="desc">{item.desc}</div>
                     <div className="desc">
                       创建时间 {item.createdDate} &nbsp;<span>|</span>&nbsp; 播放量 {item.pv}

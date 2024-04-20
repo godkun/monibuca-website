@@ -1,10 +1,8 @@
 import React from 'react'
 
 import { Space, Image, Typography, Popover, Button } from 'antd'
-// @ts-ignore
 import { enquireScreen } from 'enquire-js'
 
-import { Nav30DataSource } from '../../data/index'
 import Live from './ReactFlowNodes/Live'
 import Relay from './ReactFlowNodes/Relay'
 import CDN from './ReactFlowNodes/CDN'
@@ -24,11 +22,10 @@ const downloadUrl = {
 }
 
 let isMobile
-enquireScreen((b: boolean) => {
+enquireScreen((b) => {
   isMobile = b
 })
 
-export { Nav30DataSource }
 export const Banner10DataSource = {
   wrapper: { className: 'banner1' },
   defaultPreset: 'live',

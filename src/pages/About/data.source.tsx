@@ -1,7 +1,4 @@
 import { List } from 'antd'
-import { Nav30DataSource } from '../../data/index'
-
-export { Nav30DataSource }
 
 const faqData = [
   {
@@ -96,7 +93,6 @@ const teamData = [
 export const Feature140DataSource = {
   wrapper: { className: 'home-page-wrapper feature14-wrapper feature14' },
   page: { className: 'home-page feature14' },
-  // OverPack: { className: 'home-page feature14', playScale: 0.3 },
   tabs: {
     className: 'feature14-content',
     wrapper: { className: 'feature14-content-wrapper' },

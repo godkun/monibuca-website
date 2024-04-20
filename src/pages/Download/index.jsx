@@ -1,5 +1,3 @@
-/* eslint no-undef: 0 */
-/* eslint arrow-parens: 0 */
 import React from 'react'
 import { enquireScreen } from 'enquire-js'
 

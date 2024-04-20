@@ -1,11 +1,10 @@
 import React from 'react'
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import QueueAnim from 'rc-queue-anim'
 import { Carousel as AntCarousel, Row, Col, Space, Image } from 'antd'
 import TweenOne from 'rc-tween-one'
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin'
 
-import { getChildrenToRender as kunRender } from '../utils'
+import { getChildrenToRender as kunRender } from '@/utils'
 
 TweenOne.plugins.push(Children)
 
@@ -131,18 +130,6 @@ class Feature10 extends React.PureComponent {
                   </Space>
                 </Col>
                 <Col span={16}>
-                  {/* <iframe
-                    src="//player.bilibili.com/player.html?aid=518354873&bvid=BV1jg411H7qE&cid=910583689&p=1"
-                    scrolling="no"
-                    border="0"
-                    frameborder="no"
-                    framespacing="0"
-                    allowfullscreen="true"
-                    height={"100%"}
-                    width={"100%"}
-                  >
-                    {" "}
-                  </iframe> */}
                   <Image
                     style={{ cursor: 'pointer' }}
                     preview={false}
@@ -188,9 +175,6 @@ class Feature10 extends React.PureComponent {
               </Row>
             )}
           </div>
-          {/* <OverPack {...dataSource.OverPack}>
-            {this.getChildrenToRender(dataSource)}
-          </OverPack> */}
           {this.getChildrenToRender(dataSource)}
         </div>
       </div>

@@ -1,9 +1,10 @@
-# 环境
+# Monibuca 官方网站
 
-# 安装
+官网地址：https://monibuca.com
 
-pnpm i 
+## 本地开发
 
-# 启动
-
+```sh
+pnpm i
 pnpm dev
+```

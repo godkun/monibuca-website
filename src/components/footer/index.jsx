@@ -2,8 +2,8 @@ import React from 'react'
 import TweenOne from 'rc-tween-one'
 import QueueAnim from 'rc-queue-anim'
 import { Row, Col, Popover } from 'antd'
-import { getChildrenToRender, isImg } from '../../utils'
-import './less/antMotionStyle.less'
+import { getChildrenToRender, isImg } from '@/utils'
+import './less/index.less'
 
 class Footer extends React.Component {
   static defaultProps = {

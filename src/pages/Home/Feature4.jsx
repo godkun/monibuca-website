@@ -4,7 +4,7 @@ import QueueAnim from 'rc-queue-anim'
 import { Carousel as AntCarousel, Row, Col, Space, Tabs, Select } from 'antd'
 import TweenOne from 'rc-tween-one'
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin'
-import { getChildrenToRender as kunRender } from '../utils'
+import { getChildrenToRender as kunRender } from '@/utils'
 
 TweenOne.plugins.push(Children)
 

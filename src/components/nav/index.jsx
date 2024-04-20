@@ -1,8 +1,8 @@
 import React from 'react'
 import TweenOne from 'rc-tween-one'
 import { Menu } from 'antd'
-import { getChildrenToRender } from '../../utils'
-import './less/antMotionStyle.less'
+import { getChildrenToRender } from '@/utils'
+import './less/index.less'
 
 import router from '../../router'
 
@@ -36,7 +36,6 @@ class Header3 extends React.Component {
 
   render() {
     const { dataSource, isMobile, ...props } = this.props
-    // this.getDefaultNav()
     const { phoneOpen } = this.state
     const navData = dataSource.Menu.children
 
@@ -56,20 +55,12 @@ class Header3 extends React.Component {
     })
     const moment = phoneOpen === undefined ? 300 : null
     return (
-      <TweenOne
-        component="header"
-        // animation={{ opacity: 0, type: 'from' }}
-        {...dataSource.wrapper}
-        {...props}
-      >
+      <TweenOne component="header" {...dataSource.wrapper} {...props}>
         <div
           {...dataSource.page}
           className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}
         >
-          <TweenOne
-            // animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
-            {...dataSource.logo}
-          >
+          <TweenOne {...dataSource.logo}>
             <img height={40} src={dataSource.logo.children} alt="img" />
           </TweenOne>
           {isMobile && (

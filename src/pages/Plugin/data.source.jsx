@@ -1,9 +1,5 @@
 import { Space, Image } from 'antd'
 
-import { Nav30DataSource } from '../../data/index'
-
-export { Nav30DataSource }
-
 const plugins = {
   rtmp: 'rtmp协议接受推拉、对外推拉',
   rtsp: 'rtsp协议接受推拉、对外推拉',
@@ -111,14 +107,12 @@ const plugins3 = [
 export const Feature130DataSource = {
   wrapper: { className: 'home-page-wrapper feature13-wrapper' },
   page: { className: 'home-page feature13' },
-  // OverPack: { className: 'home-page feature13', playScale: 0.3 },
   Carousel: {
     className: 'feature13-content',
     dots: false,
     wrapper: { className: 'feature13-content-wrapper' },
     titleWrapper: {
       className: 'feature13-title-wrapper',
-      // children: [{ name: 'title', children: '插件生态', className: 'title-h1' }],
       children: [],
       barWrapper: {
         className: 'feature13-title-bar-wrapper',

@@ -1,7 +1,5 @@
-import { Button, Space } from 'antd'
-import { Nav30DataSource } from '../../data/index'
+import { Space } from 'antd'
 
-export { Nav30DataSource }
 const data = [
   {
     title: '快速上手',

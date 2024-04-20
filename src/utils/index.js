@@ -1,7 +1,19 @@
 import React from 'react'
 import { Button } from 'antd'
 
+/**
+ * 判断是否为图片链接
+ * @param {string} url
+ * @return {boolean}
+ */
 export const isImg = /^http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/
+
+/**
+ * 获取需要渲染的子元素
+ * @param {object} item
+ * @param {number} i
+ * @return {React.Element}
+ */
 export const getChildrenToRender = (item, i) => {
   let tag = item.name.indexOf('title') === 0 ? 'h1' : 'div'
   tag = item.href ? 'a' : tag

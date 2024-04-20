@@ -5,7 +5,7 @@ import { DownOutlined, GithubOutlined } from '@ant-design/icons'
 import QueueAnim from 'rc-queue-anim'
 import TweenOne, { TweenOneGroup } from 'rc-tween-one'
 import BannerAnim, { Element } from 'rc-banner-anim'
-import { isImg } from '../utils'
+import { isImg } from '@/utils'
 import 'rc-banner-anim/assets/index.css'
 
 const BgElement = Element.BgElement

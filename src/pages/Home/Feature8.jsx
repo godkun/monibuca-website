@@ -6,7 +6,7 @@ import TweenOne from 'rc-tween-one'
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin'
 import CarouselKun from 'nuka-carousel'
 
-import { getChildrenToRender as kunRender } from '../utils'
+import { getChildrenToRender as kunRender } from '@/utils'
 
 TweenOne.plugins.push(Children)
 

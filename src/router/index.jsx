@@ -1,11 +1,15 @@
+/**
+ *react-router-dom router configuration
+ */
+
 import { createBrowserRouter } from 'react-router-dom'
+import Doc from '../pages/Doc'
 import Home from '../pages/Home'
 import Video from '../pages/Video'
 import About from '../pages/About'
 import Plugin from '../pages/Plugin'
 import Product from '../pages/Product'
 import Download from '../pages/Download'
-import Doc from '../pages/Doc'
 import MainLayout from '../layouts/MainLayout'
 
 const router = createBrowserRouter([

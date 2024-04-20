@@ -3,24 +3,18 @@ import React from 'react'
 import { Button, Space } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons'
 
-import { Nav30DataSource } from '../../data/index'
-
-export { Nav30DataSource }
 const version = 'v4.7.4'
 const beta = 'v4.7.5-beta02111031'
 export const Feature120DataSource = {
   wrapper: { className: 'home-page-wrapper Feature12-wrapper' },
   page: { className: 'home-page Feature12' },
-  // OverPack: { className: 'home-page Feature12', playScale: 0.3 },
   Carousel: {
     className: 'Feature12-content',
     dots: false,
     wrapper: { className: 'Feature12-content-wrapper' },
     titleWrapper: {
       className: 'Feature12-title-wrapper',
-      children: [
-        // { name: 'title', children: '插件生态', className: 'title-h1' },
-      ],
+      children: [],
       barWrapper: {
         className: 'Feature12-title-bar-wrapper',
         children: {
@@ -75,7 +69,6 @@ export const Feature120DataSource = {
               children: (
                 <Space direction="vertical" className="item">
                   <Space className="item-wrap">
-                    {/* <div className='desc'> <span style={{ color: '#000', fontWeight: 500 }}>Monibuca</span>旨在提供一个对开发者极度友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。</div> */}
                     <Space direction="vertical">
                       <div className="title">Linux(x86) 系统下载</div>
                       <div className="sub-title">版本: {version}</div>
@@ -105,7 +98,6 @@ export const Feature120DataSource = {
               children: (
                 <Space direction="vertical" className="item">
                   <Space className="item-wrap">
-                    {/* <div className='desc'> <span style={{ color: '#000', fontWeight: 500 }}>Monibuca</span>旨在提供一个对开发者极度友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。</div> */}
                     <Space direction="vertical">
                       <div className="title">Windows(x86) 系统下载</div>
                       <div className="sub-title">版本: {version}</div>
@@ -164,7 +156,6 @@ export const Feature120DataSource = {
               children: (
                 <Space direction="vertical" className="item">
                   <Space className="item-wrap">
-                    {/* <div className='desc'> <span style={{ color: '#000', fontWeight: 500 }}>Monibuca</span>旨在提供一个对开发者极度友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。</div> */}
                     <Space direction="vertical">
                       <div className="title">Linux(arm) 系统下载</div>
                       <div className="sub-title">版本: {version}</div>
@@ -263,7 +254,6 @@ export const Feature120DataSource = {
               children: (
                 <Space direction="vertical" className="item">
                   <Space className="item-wrap">
-                    {/* <div className='desc'> <span style={{ color: '#000', fontWeight: 500 }}>Monibuca</span>旨在提供一个对开发者极度友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。</div> */}
                     <Space direction="vertical">
                       <div className="title">Windows(x86) 系统下载</div>
                       <div className="sub-title">版本: {beta}</div>
@@ -322,7 +312,6 @@ export const Feature120DataSource = {
               children: (
                 <Space direction="vertical" className="item">
                   <Space className="item-wrap">
-                    {/* <div className='desc'> <span style={{ color: '#000', fontWeight: 500 }}>Monibuca</span>旨在提供一个对开发者极度友好，兼具高性能的流媒体服务器开发框架，对于想快速入门流媒体开发的公司和个人提供一个低门槛的方案。</div> */}
                     <Space direction="vertical">
                       <div className="title">Linux(arm) 系统下载</div>
                       <div className="sub-title">版本: {beta}</div>
