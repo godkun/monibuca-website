@@ -1,9 +1,7 @@
 import React from 'react'
-import { Button, Space } from 'antd'
-import { DownOutlined, GithubOutlined } from '@ant-design/icons'
+import { Space } from 'antd'
 
-import QueueAnim from 'rc-queue-anim'
-import TweenOne, { TweenOneGroup } from 'rc-tween-one'
+import  { TweenOneGroup } from 'rc-tween-one'
 import BannerAnim, { Element } from 'rc-banner-anim'
 import { isImg } from '@/utils'
 import 'rc-banner-anim/assets/index.css'
@@ -28,27 +26,11 @@ class Banner extends React.PureComponent {
       const button2 = item.button2
       const page = item.page
       const follow = null
-      // const follow = !isMobile
-      //   ? {
-      //       delay: 1000,
-      //       minMove: 0.1,
-      //       data: [
-      //         {
-      //           id: `bg${i}`,
-      //           value: 15,
-      //           type: 'x'
-      //         },
-      //         { id: `wrapperBlock${i}`, value: -15, type: 'x' }
-      //       ]
-      //     }
-      //   : null
       return (
         <Element key={i.toString()} followParallax={follow} {...elem} prefixCls={elemClassName}>
           <BgElement key="bg" {...bg} id={`bg${i}`} />
           <div {...page}>
-            <QueueAnim
-              type={['bottom', 'top']}
-              delay={200}
+            <div
               key="text"
               {...textWrapper}
               id={`wrapperBlock${i}`}
@@ -63,9 +45,6 @@ class Banner extends React.PureComponent {
               <div key="content" {...content}>
                 {content.children}
               </div>
-              {/* { !isMobile && <div key="kun" {...kun}>
-                {kun.children}
-              </div> } */}
               <div key="kun" {...kun}>
                 {kun.children}
               </div>
@@ -82,7 +61,7 @@ class Banner extends React.PureComponent {
                   {button2.children}
                 </div>
               </Space>
-            </QueueAnim>
+            </div>
           </div>
         </Element>
       )

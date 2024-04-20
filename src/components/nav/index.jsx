@@ -1,5 +1,4 @@
 import React from 'react'
-import TweenOne from 'rc-tween-one'
 import { Menu } from 'antd'
 import { getChildrenToRender } from '@/utils'
 import './less/index.less'
@@ -55,14 +54,14 @@ class Header3 extends React.Component {
     })
     const moment = phoneOpen === undefined ? 300 : null
     return (
-      <TweenOne component="header" {...dataSource.wrapper} {...props}>
+      <div {...dataSource.wrapper} {...props}>
         <div
           {...dataSource.page}
           className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}
         >
-          <TweenOne {...dataSource.logo}>
+          <span {...dataSource.logo}>
             <img height={40} src={dataSource.logo.children} alt="img" />
-          </TweenOne>
+          </span>
           {isMobile && (
             <div
               {...dataSource.mobileMenu}
@@ -75,26 +74,8 @@ class Header3 extends React.Component {
               <em />
             </div>
           )}
-          <TweenOne
-            {...dataSource.Menu}
-            animation={
-              isMobile
-                ? {
-                    x: 0,
-                    height: 0,
-                    duration: 300,
-                    onComplete: e => {
-                      if (this.state.phoneOpen) {
-                        e.target.style.height = 'auto'
-                      }
-                    },
-                    ease: 'easeInOutQuad'
-                  }
-                : null
-            }
-            moment={moment}
-            reverse={!!phoneOpen}
-          >
+
+          {phoneOpen && (
             <Menu
               mode={isMobile ? 'inline' : 'horizontal'}
               defaultSelectedKeys={() => this.getDefaultNav()}
@@ -102,9 +83,21 @@ class Header3 extends React.Component {
             >
               {navChildren}
             </Menu>
-          </TweenOne>
+          )}
+
+          <div className="header3-menu">
+            {!isMobile && (
+              <Menu
+                mode="horizontal"
+                defaultSelectedKeys={() => this.getDefaultNav()}
+                theme="light"
+              >
+                {navChildren}
+              </Menu>
+            )}
+          </div>
         </div>
-      </TweenOne>
+      </div>
     )
   }
 }
