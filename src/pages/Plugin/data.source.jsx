@@ -1,58 +1,59 @@
 import { Space, Image } from 'antd'
 
 const plugins = {
-  rtmp: 'rtmp协议接受推拉、对外推拉',
-  rtsp: 'rtsp协议接受推拉、对外推拉',
-  hls: '1、提供HLS协议拉流播放。2、远程拉取HLS到m7s',
-  gb28181: 'GB28181协议拉流播放、查看录像',
-  ps: '接收Mpeg2-PS格式的流',
-  onvif: 'ONVIF协议拉流播放',
-  webrtc: 'WebRTC协议的推流和拉流',
-  webtransport: '通过WebTransport进行推拉流',
-  record: 'hls、flv、mp4、裸流格式录制功能以及回放',
-  hdl: '1、HTTP-FLV格式拉流播放。2、远程拉取HTTP-FLV到m7s',
-  jessica: '1、提供WS-FLV协议拉流播放。2、提供WS-RAW协议拉流播放。',
-  fmp4: '提供FMP4格式拉流播放',
-  preview: '借助Jessibuca提供视频实时预览能力',
-  snap: '提供对I帧的实时截图能力',
-  room: '提供房间功能，可以向房间内用户广播信息',
-  hook: '提供API钩子回调能力，通知远程服务器',
-  exporter: '提供监控数据导出能力，支持Prometheus、InfluxDB、ElasticSearch',
-  logrotate: '提供日志轮转能力',
-  edge: '可以m7s实例作为边缘节点',
-  debug: '提供调试能力',
-  monitor: '提供监控数据存储和访问'
+  rtmp: 'RTMP protocol for receiving and pushing streams',
+  rtsp: 'RTSP protocol for receiving and pushing streams',
+  hls: 'Provides HLS protocol for streaming and pulls HLS to m7s',
+  gb28181: 'GB28181 protocol for streaming and viewing recordings',
+  ps: 'Accepts Mpeg2-PS format streams',
+  onvif: 'ONVIF protocol for streaming',
+  webrtc: 'WebRTC protocol for pushing and pulling streams',
+  webtransport: 'Pushing and pulling streams using WebTransport',
+  record: 'HLS, FLV, MP4, raw stream recording and playback capabilities',
+  hdl: 'Provides HTTP-FLV format for streaming and pulls HTTP-FLV to m7s',
+  jessica: 'Provides WS-FLV and WS-RAW protocols for streaming',
+  fmp4: 'Provides FMP4 format for streaming',
+  preview: 'Provides video real-time preview capabilities through Jessibuca',
+  snap: 'Provides real-time screenshot capabilities',
+  room: 'Provides room functionality to broadcast information to users in the room',
+  hook: 'Provides API hook callback capabilities to notify remote servers',
+  exporter:
+    'Provides monitoring data export capabilities, supporting Prometheus, InfluxDB, and ElasticSearch',
+  logrotate: 'Provides log rotation capabilities',
+  edge: 'Can be an m7s instance as an edge node',
+  debug: 'Provides debugging capabilities',
+  monitor: 'Provides storage and access to monitoring data'
 }
 
 const plugins2 = [
   {
     name: 'mpegts',
-    desc: '提供MPEG-TS格式拉流播放',
+    desc: 'Provides MPEG-TS format for streaming',
     url: 'https://github.com/kingecg/mpegts'
   },
   {
     name: 'plugin-snapplug',
-    desc: '录制开始或结束就 自动生成 视频封面图',
+    desc: 'Automatically generates a video cover image when recording starts or ends',
     url: 'https://github.com/3201301734/plugin-snapplug'
   },
   {
     name: 'm7s-reportor',
-    desc: '将m7s的流信息和设备信息上报到redis',
+    desc: 'Reports m7s stream information and device information to redis',
     url: 'https://github.com/bigbeer1/m7s-reportor'
   },
   {
     name: 'plugin-jtt1078',
-    desc: 'jtt1078协议接入插件',
+    desc: 'JTT1078 protocol access plugin',
     url: 'https://github.com/bytebit/plugin-jtt1078'
   },
   {
     name: 'plugin-transform',
-    desc: '一个转码插件，基于 ffmpeg 进程',
+    desc: 'A transcoding plugin based on ffmpeg process',
     url: 'https://github.com/erroot/plugin-transform'
   },
   {
-    name: '虚位以待',
-    desc: '可联系我们添加到此列表',
+    name: 'Coming Soon',
+    desc: 'Contact us to add to this list',
     url: ''
   }
 ]
@@ -60,47 +61,47 @@ const plugins2 = [
 const plugins3 = [
   {
     name: 'plugin-cascade',
-    desc: '级联插件，提供 m7s 无限级联能力'
+    desc: 'Cascade plugin, provides m7s infinite cascade capabilities'
   },
   {
     name: 'plugin-transcode',
-    desc: '提供转码能力，可以将流转码为其他格式'
+    desc: 'Provides transcoding capabilities, can convert streams to other formats'
   },
   {
     name: 'plugin-snappro',
-    desc: '极速截图，比 snap 插件截图速度高 10 倍以上'
+    desc: 'Fast screenshot, faster than the snap plugin by 10 times or more'
   },
   {
     name: 'plugin-cryptor',
-    desc: '提供对流的加密能力'
+    desc: 'Provides the ability to encrypt streams'
   },
   {
     name: 'plugin-gb28181pro',
-    desc: '提供GB28181协议的级联等功能'
+    desc: 'Provides GB28181 protocol cascade and other functions'
   },
   {
     name: 'plugin-recordpro',
-    desc: '高级录制插件，增加定时任务等额外的功能'
+    desc: 'Advanced recording plugin, with additional features such as timed tasks'
   },
   {
     name: 'plugin-cdn',
-    desc: '可以将流推送到CDN,适配多种云厂商'
+    desc: 'Can push streams to CDN, compatible with multiple cloud vendors'
   },
   {
     name: 'plugin-sei',
-    desc: '可插入自定义 sei 信息'
+    desc: 'Can insert custom sei information'
   },
   {
     name: 'plugin-voice',
-    desc: '支持公网语音对讲，需要购买硬件'
+    desc: 'Supports public network voice intercom, requires purchase of hardware'
   },
   {
     name: 'plugin-admin',
-    desc: '精美UI界面'
+    desc: 'Beautiful UI interface'
   },
   {
-    name: '虚位以待',
-    desc: '可联系我们添加到此列表'
+    name: 'Coming Soon',
+    desc: 'Contact us to add to this list'
   }
 ]
 
@@ -124,7 +125,7 @@ export const Feature130DataSource = {
 
     children: [
       {
-        title: { className: 'feature13-title-text', children: '官方插件' },
+        title: { className: 'feature13-title-text', children: 'Official Plugins' },
         className: 'feature13-item',
         name: 'block0',
         children: Object.keys(plugins).map(item => {
@@ -152,7 +153,7 @@ export const Feature130DataSource = {
         })
       },
       {
-        title: { className: 'feature13-title-text', children: '第三方开源' },
+        title: { className: 'feature13-title-text', children: 'Third-party Open Source' },
         className: 'feature13-item',
         name: 'block1',
         children: plugins2.map(item => {
@@ -180,7 +181,7 @@ export const Feature130DataSource = {
         })
       },
       {
-        title: { className: 'feature13-title-text', children: '付费插件' },
+        title: { className: 'feature13-title-text', children: 'Paid Plugins' },
         className: 'feature13-item',
         name: 'block2',
         children: plugins3.map(item => {

@@ -8,3 +8,7 @@
 pnpm i
 pnpm dev
 ```
+
+// const a = "不卡"
+// const b = "不卡科技"
+// const c = "不卡系列"

@@ -2,81 +2,81 @@ import { Space } from 'antd'
 
 const data = [
   {
-    title: '快速上手',
+    title: 'Quick Start',
     children: [
       {
-        title: '📖 介绍',
-        content: '什么是Monibuca',
+        title: '📖 Introduction',
+        content: 'What is Monibuca',
         href: '/docs/guide/introduction.html'
       },
       {
-        title: '⏬ 下载',
-        content: '安装与运行',
+        title: '⏬ Download',
+        content: 'Installation and Running',
         href: '/docs/guide/startup.html'
       },
       {
-        title: '💿 版本',
-        content: '最新版本和更新记录',
+        title: '💿 Version',
+        content: 'Latest version and update history',
         href: '/docs/guide/v4.html'
       }
     ]
   },
   {
-    title: '使用手册',
+    title: 'User Manual',
     children: [
       {
-        title: '🛠️ 配置',
-        content: '配置文件如何修改',
+        title: '🛠️ Configuration',
+        content: 'How to modify the configuration file',
         href: '/docs/guide/config.html'
       },
       {
         title: '🔑 API',
-        content: '通过HTTP请求控制Monibuca',
+        content: 'Control Monibuca via HTTP requests',
         href: '/docs/guide/api.html'
       },
       {
-        title: '🔐 鉴权',
-        content: '对推拉流安全性控制',
+        title: '🔐 Authentication',
+        content: 'Control the security of push and pull streams',
         href: '/docs/guide/authentication.html'
       }
     ]
   },
   {
-    title: '常见问题',
+    title: 'Frequently Questions',
     children: [
       {
-        title: '💢 崩溃',
-        content: '程序崩溃后如何找到崩溃的原因',
+        title: '💢 Crash',
+        content: 'How to find the cause of the crash after the program crashes',
         href: '/docs/guide/qa/error.html'
       },
       {
-        title: '🎥 推流',
-        content: '推流时需要注意什么',
+        title: '🎥 Push',
+        content: 'What should be noted when pushing the stream',
         href: '/docs/guide/qa/push.html'
       },
       {
-        title: '🖥️ 播放',
-        content: '播放地址是什么？',
+        title: '🖥️ Play',
+        content: 'What is the playback address?',
         href: '/docs/guide/qa/play.html'
       }
     ]
   },
   {
-    title: '二次开发',
+    title: 'Secondary Development',
     children: [
       {
-        title: '🦾 开发准备',
-        content: 'IDE、语言、环境',
+        title: '🦾 Development Preparation',
+        content: 'IDE, language, environment',
         href: '/docs/devel/startup.html'
       },
       {
-        title: '🧩 定义插件',
-        content: '如何定义一个插件',
+        title: '🧩 Define Plugin',
+        content: 'How to define a plugin',
         href: '/docs/devel/plugin.html'
       },
       {
-        title: '🔌 插件接口',
-        content: '如何对外提供HTTP接口',
+        title: '🔌 Plugin Interface',
+        content: 'How to provide an HTTP interface externally',
         href: '/docs/devel/api.html'
       }
     ]

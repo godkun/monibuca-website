@@ -21,7 +21,7 @@ export const Nav30DataSource = {
         className: 'header3-item',
         children: {
           href: '/',
-          children: [{ children: '首页', name: 'text' }]
+          children: [{ children: 'Home', name: 'text' }]
         }
       },
       {
@@ -29,7 +29,7 @@ export const Nav30DataSource = {
         className: 'header3-item',
         children: {
           href: '/doc',
-          children: [{ children: '文档', name: 'text' }]
+          children: [{ children: 'Documentation', name: 'text' }]
         }
       },
       {
@@ -37,7 +37,7 @@ export const Nav30DataSource = {
         className: 'header3-item',
         children: {
           href: '/product',
-          children: [{ children: '不卡系列', name: 'text' }]
+          children: [{ children: 'Monibuca', name: 'text' }]
         }
       },
       {
@@ -45,7 +45,7 @@ export const Nav30DataSource = {
         className: 'header3-item',
         children: {
           href: '/download',
-          children: [{ children: '产品下载', name: 'text' }]
+          children: [{ children: 'Product Download', name: 'text' }]
         }
       },
       {
@@ -53,7 +53,7 @@ export const Nav30DataSource = {
         className: 'header3-item',
         children: {
           href: '/plugin',
-          children: [{ children: '插件生态', name: 'text' }]
+          children: [{ children: 'Plugin Ecology', name: 'text' }]
         }
       },
       {
@@ -61,7 +61,7 @@ export const Nav30DataSource = {
         className: 'header3-item',
         children: {
           href: '/video',
-          children: [{ children: '视频教程', name: 'text' }]
+          children: [{ children: 'Video Tutorials', name: 'text' }]
         }
       },
       {
@@ -69,7 +69,7 @@ export const Nav30DataSource = {
         className: 'header3-item',
         children: {
           href: '/about',
-          children: [{ children: '关于我们', name: 'text' }]
+          children: [{ children: 'About Us', name: 'text' }]
         }
       }
     ]
